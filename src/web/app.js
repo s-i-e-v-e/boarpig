@@ -91,34 +91,43 @@ function updateTextSelection(e, fn) {
 	text.focus();
 }
 
-function addXMLTag(e, tag, fn) {
-	return updateTextSelection(e, (v) => `<${tag}>${fn ? fn(v) : v}</${tag}>`);
+function addTag(e, tag, fn) {
+	return updateTextSelection(e, (v) => `(:${tag} ${fn ? fn(v) : v})`);
 }
 
 function addItalics(e) {
-	return addXMLTag(e, 'i');
+	return addTag(e, 'i');
 }
 
 function addHeader(e) {
-	return addXMLTag(e, 'h');
+	return addTag(e, 'h');
 }
 
 function addPageNum(e) {
-	return addXMLTag(e, 'pg');
+	return addTag(e, 'pg');
+}
+
+function addParaBreak(e) {
+	e.preventDefault();
+	const text = getTextControl();
+	text.value = text.value + '\n(:pb)'
+	text.setSelectionRange(text.value.length, text.value.length);
+	text.focus();
+	return false;
 }
 
 function addFormWork(e) {
 	const fn = (v) => {
-		if (v.length === 1 && v.search(/[A-Z]/g) === 0) return `<sig>${v}</sig>`;
+		if (v.length === 1 && v.search(/[A-Z]/g) === 0) return `(:sig ${v})`;
 
-		const a = v.replaceAll(/([0-9]+)\s+(.*)/gi, '<pg>$1</pg><h>$2</h>');
+		const a = v.replaceAll(/([0-9]+)\s+(.*)/gi, '(:pg $1)(:h $2)');
 		if (a.length === v.length) {
 			const n = v.lastIndexOf(' ');
 			if (n) {
 				const b1 = v.substring(0, n);
 				const b2 = Number(v.substring(n +1));
 				if (!isNaN(b2)) {
-					v = `<h>${b1}</h><pg>${b2}</pg>`;
+					v = `(:h ${b1})(:pg ${b2})`;
 				}
 			}
 		}
@@ -128,7 +137,7 @@ function addFormWork(e) {
 		return v;
 	};
 
-	return addXMLTag(e, 'fw', fn);
+	return addTag(e, 'fw', fn);
 }
 
 function changeChar(e) {
@@ -156,7 +165,7 @@ window.onload = function() {
 	const book = () => window.location.hash ? window.location.hash.substring(1) : '';
 	handleClick('#prev', e => { e.preventDefault(); loadImage(book(), -1); return true; });
 	handleClick('#next', e => { e.preventDefault(); loadImage(book(), 1); return true; });
-	handleClick('#quote', e => addXMLTag(e, 'quote'));
+	handleClick('#quote', e => addTag(e, 'quote'));
 	handleClick('#fw', e => addFormWork(e));
 	
 	document.addEventListener("keydown", function(e) {
@@ -166,11 +175,12 @@ window.onload = function() {
 		}
 		if (e.target.tagName === 'TEXTAREA') {
 			switch(e.key) {
-				case "i": if (e.ctrlKey) addItalics(e); break;
-				case "h": if (e.ctrlKey) addHeader(e); break;
-				case "p": if (e.ctrlKey) addPageNum(e); break;
-				case "f": if (e.ctrlKey && e.altKey) addFormWork(e); break;
-				case "q": if (e.ctrlKey) changeChar(e); break;
+				case "i": case "I": if (e.ctrlKey) addItalics(e); break;
+				case "h": case "H": if (e.ctrlKey) addHeader(e); break;
+				case "g": case "G": if (e.ctrlKey) addPageNum(e); break;
+				case "p": case "P": if (e.ctrlKey) addParaBreak(e); break;
+				case "f": case "F": if (e.ctrlKey && e.altKey) addFormWork(e); break;
+				case "q": case "Q": if (e.ctrlKey) changeChar(e); break;
 			}
 			 return;
 		}
