@@ -15,6 +15,7 @@ Some features include:
 Steps:
 
 * Install `djvulibre-bin`, `mupdf-tools` and `tesseract-ocr`
+* If you want to create etexts (epub, pdf etc), install `pandoc` and `texlive`
 * Install [Deno](https://deno.land/) (`curl -fsSL https://deno.land/x/install/install.sh | sh`)
 * Clone this repository
 * Install *boarpig* using `deno install -A boarpig.ts`

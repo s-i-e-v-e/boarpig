@@ -16,7 +16,7 @@
  **/
 import { serve_http } from './serve.ts';
 import { make_out_dir_path, parse_path, exists } from './io.ts';
-import { make_project } from './proj/project.ts';
+import { make_project, gen_project } from './proj/project.ts';
 
 const EXT = '.png';
 
@@ -222,9 +222,13 @@ function serve(file: string, port?: string) {
 	serve_http(base_dir, out_dir, p);
 }
 
-function make(args: string[]) {
-	const clobber = args[1] === '--clobber';
-	make_project(clobber ? args[2] : args[1], clobber);
+function make(file: string, clobber: string) {
+	const do_clobber = clobber === '--clobber';
+	make_project(file, do_clobber);
+}
+
+function gen(file: string, format: string) {
+	gen_project(file, format);
 }
 
 function println(x: string) {
@@ -247,7 +251,8 @@ function help() {
 	println('renumber file prefix start-end     Renumber extracted images within given range.');
 	println('ocr file [prefix [start-end]]      Perform OCR on renumbered images.');
 	println('fmt file [prefix [start-end]]      Format generated text files.');
-	println('make [--clobber] file              Combine processed text files into single project.');
+	println('make file [--clobber]              Combine processed text files into single project.');
+	println('gen file format                    Generate output from project.');
 	println('serve file [port]                  Serve http over port.');
 }
 
@@ -258,7 +263,8 @@ export function main(args: string[]) {
 				case "renumber": renumber(args[1], args[2], args[3]); break;
 				case "ocr": ocr(args[1], args[2], args[3]); break;
 				case "fmt": fmt(args[1], args[2], args[3]); break;
-				case "make": make(args); break;
+				case "make": make(args[1], args[2]); break;
+				case "gen": gen(args[1], args[2]); break;
 				case "serve": serve(args[1], args[2]); break;
 				case "--version":
 				case "version": version(); break;

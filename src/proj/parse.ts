@@ -53,7 +53,7 @@ function expect_space(ts: TokenStream, do_fmt: boolean) {
 			break;
 		}
 	}
-	if (do_fmt && n === 0) throw new Error('expected space');
+	//if (do_fmt && n === 0) throw new Error(`expected space: ${ts_peek(ts).lexeme}`);
 }
 
 function expect_cl_brace(ts: TokenStream, x: Token) {
@@ -81,18 +81,24 @@ function parse_se(ts: TokenStream, do_fmt: boolean, virtual_se?: Token): Node {
 			break;
 		}
 
+		case 'meta':
+		case 'title':
+		case 'author':
+		case 'year':
+		case 'lang':
+		case 'publisher':
+		case 'printer':
+		case 'half-title':
+
+		case 'nm-work':
+		case 'nm-part':
 		case 'cor':
 		case 'project':
 		case 'bq':
 		case 'i':
 		case 'sig':
 		case 'p':
-		case 'halftitle':
-		case 'publisher':
-		case 'printer':
-		case 'year':
-		case 'title':
-		case 'author':
+
 		case 'h':
 		case 'fw':
 		case 'quote': {
@@ -104,7 +110,6 @@ function parse_se(ts: TokenStream, do_fmt: boolean, virtual_se?: Token): Node {
 	}
 
 	if (!virtual_se) expect_cl_brace(ts, x);
-
 	return n;
 }
 
@@ -130,11 +135,11 @@ function insert_sp(xs: Node[], p: Node, q: Node, p_idx: number = 1) {
 
 function process_se(xs: Node[], x: Token, n: Node) {
 	let p = xs[xs.length-1];
-	if (p && p.value === 'p') {
-		if (n.value === 'p' && n.xs.filter(y => y.value === 'fw').length === n.xs.length) {
+	if (p) {
+		if (n.xs.length && n.xs.filter(y => y.value === 'fw').length === n.xs.length) {
 			p.xs.push(...n.xs);
 		}
-		else if (n.value === 'p' && p.xs[p.xs.length -1].value === 'fw') {
+		else if (p.xs.length && p.xs[p.xs.length -1].value === 'fw') {
 			p.xs.push(...n.xs);
 		}
 		else {
@@ -160,6 +165,7 @@ function process_se(xs: Node[], x: Token, n: Node) {
 	};
 
 	p = xs[xs.length-1];
+	if (n.value === 'cb' && n.value !== p.value) throw new Error();
 	if (p.value === 'p') {
 		// handle p > h
 		if (p.xs.length === 1 && p.xs[0].value === 'h') {
