@@ -14,7 +14,9 @@
  * You should have received a copy of the GNU Affero General Public License
  * along with this program.  If not, see <https://www.gnu.org/licenses/>.
  **/
-const Symbols = ['?', '!', '.', ',', ':', ';', '–', '—', '‘', '’', '“', '”', '(', ')', '\n', ' '];
+import {println} from "../io.ts";
+
+const Symbols = ['?', '!', '.', ',', ':', ';', '–', '—', '‘', '’', '“', '”', '(', ')', '\n', ' ', '\uFFFC'];
 const SymSet = new Set<string>(Symbols);
 
 interface CharStream {
@@ -80,12 +82,12 @@ function read_word(cs: CharStream) {
 }
 
 export function lex(x: string): Token[] {
-	console.log('lex');
+	println('lex');
 	x = x.replaceAll(/\r\n?/g, '\n');
 	x = x.replaceAll(/\n\n+/g, '\r');
 	x = x.replaceAll(/-\n/g, '--\n');
-	x = x.replaceAll(/\n\(:/g, '(:');
-	x = x.replaceAll(/\)\n\)/g, '))');
+	x = x.replaceAll(/\n\(:/g, '\uFFFC(:');
+	x = x.replaceAll(/\)\s+\)/g, '))');
 	x = x.replaceAll(/\n/g, ' ');
 	x = x.replaceAll(/[ ]*-[ ]*/g, '-');
 	x = x.replaceAll(/[ ]*–[ ]*/g, '–');

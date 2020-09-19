@@ -15,6 +15,7 @@
  * along with this program.  If not, see <https://www.gnu.org/licenses/>.
  **/
 import { lex, Token, } from './lex.ts';
+import {pause, println} from "../io.ts";
 
 interface TokenStream {
 	xs: Token[],
@@ -39,9 +40,7 @@ export interface Node {
 	xs: Node[],
 }
 
-const SPACE = {type: 'SYM', value: ' ', xs: []};
-
-function expect_space(ts: TokenStream, do_fmt: boolean) {
+function skip_whitespace(ts: TokenStream) {
 	let n = 0;
 	while (true) {
 		const a = ts_peek(ts);
@@ -53,11 +52,18 @@ function expect_space(ts: TokenStream, do_fmt: boolean) {
 			break;
 		}
 	}
-	//if (do_fmt && n === 0) throw new Error(`expected space: ${ts_peek(ts).lexeme}`);
+}
+
+function first_expr_is(xs: Node[], x: string) {
+	return xs.length && xs[0].value === x;
+}
+
+function last_expr_is(xs: Node[], x: string) {
+	return xs.length && xs[xs.length - 1].value === x;
 }
 
 function expect_cl_brace(ts: TokenStream, x: Token) {
-	expect_space (ts, false);
+	skip_whitespace(ts);
 	if (ts_next(ts).lexeme !== ')') throw new Error(`parsing error: ${x.index}:${x.lexeme}`);
 }
 
@@ -66,16 +72,16 @@ function parse_se(ts: TokenStream, do_fmt: boolean, virtual_se?: Token): Node {
 
 	let n;
 	switch (x.lexeme) {
+		case 'jw':
 		case 'lb':
 		case 'pb':
-		case 'sb':
-		case 'cb': {
+		case 'sb': {
 			n = {type: x.type, value: x.lexeme, xs: []};
 			break;
 		}
 
 		case 'pg': {
-			if (!virtual_se) expect_space(ts, do_fmt);
+			if (!virtual_se) skip_whitespace(ts);
 			const a = ts_next(ts).lexeme;
 			n = {type: x.type, value: x.lexeme, xs: [{type: 'WORD', value: a, xs: []}]};
 			break;
@@ -88,6 +94,7 @@ function parse_se(ts: TokenStream, do_fmt: boolean, virtual_se?: Token): Node {
 		case 'lang':
 		case 'publisher':
 		case 'printer':
+		case 'full-title':
 		case 'half-title':
 
 		case 'nm-work':
@@ -102,7 +109,7 @@ function parse_se(ts: TokenStream, do_fmt: boolean, virtual_se?: Token): Node {
 		case 'h':
 		case 'fw':
 		case 'quote': {
-			if (!virtual_se) expect_space(ts, do_fmt);
+			if (!virtual_se) skip_whitespace(ts);
 			n = {type: x.type, value: x.lexeme, xs: parse_expr(ts, do_fmt, x.lexeme)};
 			break;
 		}
@@ -110,78 +117,61 @@ function parse_se(ts: TokenStream, do_fmt: boolean, virtual_se?: Token): Node {
 	}
 
 	if (!virtual_se) expect_cl_brace(ts, x);
+	
+	n.xs = n.xs.filter(q => q.value !== '\uFFFC');
 	return n;
 }
 
-function insert_sp(xs: Node[], p: Node, q: Node, p_idx: number = 1) {
-	if (q.type === 'WORD') {
-		xs.splice(xs.length-p_idx, 0, SPACE);
-	}
-	else if (q.type === 'SYM') {
-		switch (q.value) {
-			case ':':
-			case ';':
-			case ',':
-			case '.': {
-				xs.splice(xs.length-p_idx, 0, SPACE);
-				break;
-			}
-			default: {
-				break;
-			}
+function process_se(xs: Node[], n: Node) {
+	const filter_fw = (xs: Node[]) => {
+		const ys = [];
+		while (last_expr_is(xs,'fw')) {
+			ys.push(xs.pop()!);
 		}
-	}
-}
-
-function process_se(xs: Node[], x: Token, n: Node) {
-	let p = xs[xs.length-1];
-	if (p) {
-		if (n.xs.length && n.xs.filter(y => y.value === 'fw').length === n.xs.length) {
-			p.xs.push(...n.xs);
-		}
-		else if (p.xs.length && p.xs[p.xs.length -1].value === 'fw') {
-			p.xs.push(...n.xs);
-		}
-		else {
-			xs.push(n);
-		}
-	}
-	else {
-		xs.push(n);
-	}
-
-	const handle_fw = (xs: Node[]) => {
-		let a = xs[xs.length-1];
-		let b = xs[xs.length-2];
-		if (b && a.value === 'fw') {
-			let n = 3;
-			while (b && a && b.value === 'fw') {
-				a = b;
-				b = xs[xs.length-n];
-				n++;
-			}
-			if (b && a.value === 'fw') insert_sp(xs, a, b, n-2);
-		}
+		return ys;
 	};
 
-	p = xs[xs.length-1];
-	if (n.value === 'cb' && n.value !== p.value) throw new Error();
-	if (p.value === 'p') {
-		// handle p > h
-		if (p.xs.length === 1 && p.xs[0].value === 'h') {
-			xs.pop();
-			xs.push(p.xs[0]);
+	xs.push(n);
+
+	if (last_expr_is(xs, 'h')) {
+		// p(...fw+) h(...) => p(...) fw+ h(...)
+		const ys = [];
+		ys.push(xs.pop()!);
+		if (last_expr_is(xs, 'p')) {
+			const p = xs.pop()!;
+			ys.push(...filter_fw(p.xs));
+			if (p.xs.length) ys.push(p);
 		}
-		else {
-			handle_fw(p.xs);
+		xs.push(...ys.reverse());
+	}
+	else if (last_expr_is(xs, 'p')) {
+		// p(...fw+) p(...) => p(...fw+...)
+		// p(...) p(fw+...) => p(...fw+...)
+		const p = xs.pop()!;
+		if (last_expr_is(xs, 'p')) {
+			const p0 = xs.pop()!;
+			if (last_expr_is(p0.xs, 'fw') || first_expr_is(p.xs, 'fw')) {
+				p0.xs.push(...p.xs);
+				p.xs = [];
+			}
+			xs.push(p0);
 		}
+		if (p.xs.length) xs.push(p);
 	}
-	else if (p.value === 'i') {
-		let q = xs[xs.length-2];
-		if (q && p.value === 'i') insert_sp(xs, p, q);
-	}
-	else if (p.value === 'fw') {
-		handle_fw(xs);
+
+	const last = xs[xs.length-2];
+	if (last && last.value === '\uFFFC') {
+		switch (n.value) {
+			case 'bq':
+			case 'nm-work':
+			case 'nm-part':
+			case 'cor':
+			case 'i': {
+				last.value = ' ';
+				break;
+			}
+			default: break;
+		}
 	}
 }
 
@@ -193,9 +183,19 @@ function parse_expr(ts: TokenStream, do_fmt: boolean, parent_expr?: string) {
 
 		if (x.type === 'EXPR') {
 			if (do_fmt) {
-				if (parent_expr === 'p' && (x.lexeme === 'cb' || x.lexeme === 'sb' || x.lexeme === 'pb' || x.lexeme === 'p')) break;
+				if (parent_expr === 'p') {
+					if (x.lexeme === 'pb') {
+						pause();
+						ts_next(ts);
+						expect_cl_brace(ts, x);
+						break;
+					}
+					else if (x.lexeme === 'sb' || x.lexeme === 'p' || x.lexeme === 'h' || x.lexeme === 'half-title') {
+						break;
+					}
+				}
 				const n = parse_se(ts, do_fmt);
-				process_se(xs, x, n);
+				process_se(xs, n);
 			}
 			else {
 				xs.push(parse_se(ts, do_fmt));
@@ -224,7 +224,7 @@ function parse_expr(ts: TokenStream, do_fmt: boolean, parent_expr?: string) {
 
 						ts_next(ts);
 						const n = parse_se(ts, do_fmt, { lexeme: 'p', index: x.index, type: 'EXPR' });
-						process_se(xs, x, n);
+						process_se(xs, n);
 						break;
 					}
 					default: {
@@ -244,8 +244,14 @@ function parse_expr(ts: TokenStream, do_fmt: boolean, parent_expr?: string) {
 			}
 		}
 		else if (x.type === 'WORD') {
-			ts_next(ts);
-			xs.push({type: x.type, value: x.lexeme, xs: []});
+			if (parent_expr === 'project') {
+				const n = parse_se(ts, do_fmt, { lexeme: 'p', index: x.index, type: 'EXPR' });
+				process_se(xs, n);
+			}
+			else {
+				ts_next(ts);
+				xs.push({type: x.type, value: x.lexeme, xs: []});
+			}
 		}
 		else {
 			throw new Error();
@@ -260,6 +266,6 @@ export function parse(x: string, do_fmt: boolean) {
 		index: 0,
 		eof: false,
 	};
-	console.log('parse');
+	println('parse');
 	return parse_expr(ts, do_fmt);
 }

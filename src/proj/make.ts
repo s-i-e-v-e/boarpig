@@ -16,6 +16,8 @@
  **/
 import { Node } from './parse.ts';
 import { parse_project } from './project.ts';
+import { process_ast, State, NodeType } from './ast.ts';
+import {println} from "../io.ts";
 
 function make_word_list(x: string) {
 	const set = new Set<string>()
@@ -45,134 +47,178 @@ function make_word_list(x: string) {
 	return [x, ys.join('\n')];
 }
 
-function to_text(xs: Node[], plain_text: boolean, strip: Set<string>, parent: string = '') {
-	let ys: string[] = [];
-
-	xs.forEach(x => {
-		if (x.type === 'EXPR') {
-			if (strip.has(x.value)) return;
-			const get_content = () => to_text(x.xs, plain_text, strip, x.value);
-			if (plain_text) {
-				//if (x.value === 'pb') ys.pop();
-				if (x.value === 'i') ys.push('_');
-				if (x.value === 'cor') {
-					const xx = get_content().split('|');
-					ys.push(xx[1]);
-				}
-				else if (x.xs.length) {
-					ys = ys.concat(get_content());
-				}
-				if (x.value === 'i') ys.push('_');
-				//if (x.value === 'h') ys.push('\n\n');
-
-				switch (x.value) {
-					case 'sb':
-					case 'cb':
-					case 'p': {
-						ys.push('\n');
-						break;
-					}
-					case 'h': {
-						if (parent === 'project') {
-							ys.push('\n\n');
-						}
-						else {
-							ys.push('\n');
-						}
-						break;
-					}
-					default: break;
-				}
-			}
-			else {
-				const push_block = () => {
-					ys.push(`(:${x.value}`);
-					ys.push('\n');
-					ys.push(get_content());
-					ys.push(')');
-				};
-				const push_inline = () => {
-					ys.push(`(:${x.value} `);
-					ys.push(get_content());
-					ys.push(')');
-				};
-
-				switch (x.value) {
-					case 'title': {
-						if (parent === 'project') {
-							push_block();
-						}
-						else {
-							push_inline();
-						}
-						ys.push('\n');
-						break;
-					}
-					case 'project':
-					case 'meta': {
-						push_block();
-						ys.push('\n');
-						break;
-					}
-					case 'half-title':
-					case 'author':
-					case 'publisher':
-					case 'printer':
-					case 'year':
-					case 'lang':
-					case 'p': {
-						push_inline();
-						ys.push('\n');
-						break;
-					}
-					case 'h': {
-						push_inline();
-						if (parent === 'project' || parent === 'title') ys.push('\n');
-						break;
-					}
-					case 'lb': {
-						ys.push(`(:${x.value})`);
-						break;
-					}
-					case 'pb':
-					case 'sb':
-					case 'cb': {
-						ys.push(`(:${x.value})`);
-						ys.push('\n');
-						break;
-					}
-					case 'quote':
-					case 'nm-work':
-					case 'nm-part':
-					case 'pg':
-					case 'sig':
-					case 'cor':
-					case 'i':
-					case 'bq': {
-						push_inline();
-						break;
-					}
-					case 'fw': {
-						push_inline();
-						if (parent === 'project') ys.push(`\n`);
-						break;
-					}
-					default: break;
-				}
-			}
+const STRIP = new Set(['fw', 'meta']);
+function handle_strip(s: State<string[]>, nt: NodeType, parent?: string) {
+	switch (nt.name) {
+		case 'fw': {
+			//if (parent === 'project') s.data.push(`\n`);
+			if (parent !== 'project' && s.data[s.data.length-1] !== ' ' && !s.n.xs.filter(x => x.value === 'jw').length) s.data.push(` `);
+			break;
 		}
-		else {
-			ys.push(x.value);
-		}
-	})
-	return ys.join('');
+		default:
+			break;
+	}
 }
 
-function textify_project(pp: Node[]) {
-	console.log('to_text');
-	const x = to_text(pp, false, new Set()).trim();
-	let y1 = to_text(pp, false, new Set(['fw', 'meta']));
-	let y2 = to_text(pp, true, new Set(['fw', 'meta']));
+function create_plaintext_file(s: State<string[]>, strip: Set<string>) {
+	const nt = s.map.get(s.n.value)!;
+	const parent = s.parent?.value;
+	if (strip.has(nt.name)) {
+		handle_strip(s, nt, parent);
+		return;
+	}
+
+	switch (nt.name) {
+		case 'cor': {
+			const n1 = s.data.length;
+			s.do_nodes(s);
+			const n2 = s.data.length;
+			const x = s.data.splice(n1, n2-n1).join('');
+			const xx = x.split('|');
+			s.data.push(xx[1]);
+			break;
+		}
+		case 'i': {
+			s.data.push('_');
+			s.do_nodes(s);
+			s.data.push('_');
+			break;
+		}
+		case 'sb': {
+			s.data.push('\n');
+			break;
+		}
+		case 'p': {
+			s.do_nodes(s);
+			s.data.push('\n');
+			break;
+		}
+		case 'h': {
+			s.data.push(parent === 'project' ? '\n' : '\n');
+			s.do_nodes(s);
+			s.data.push(parent === 'project' ? '\n\n' : '\n');
+			break;
+		}
+		default: {
+			s.do_nodes(s);
+			break;
+		}
+	}
+}
+
+function create_project_file(s: State<string[]>, strip: Set<string>) {
+	const nt = s.map.get(s.n.value)!;
+	const parent = s.parent?.value;
+	if (strip.has(nt.name)) {
+		handle_strip(s, nt, parent);
+		return;
+	}
+
+	const push_blank = () => s.data.push(`(:${nt.name})`);
+
+	const push_block = () => {
+		s.data.push(`(:${nt.name}\n`);
+		s.do_nodes(s);
+		s.data.push(`)`);
+	};
+	const push_inline = () => {
+		s.data.push(`(:${nt.name} `);
+		s.do_nodes(s);
+		s.data.push(`)`);
+	};
+
+	switch (nt.name) {
+		case 'full-title':
+		case 'title': {
+			if (parent === 'project') {
+				push_block();
+			}
+			else {
+				push_inline();
+			}
+			s.data.push('\n');
+			break;
+		}
+		case 'project':
+		case 'meta': {
+			push_block();
+			s.data.push('\n');
+			break;
+		}
+		case 'half-title':
+		case 'author':
+		case 'publisher':
+		case 'printer':
+		case 'year':
+		case 'lang':
+		case 'p': {
+			push_inline();
+			s.data.push('\n');
+			break;
+		}
+		case 'h': {
+			push_inline();
+			if (parent === 'project' || parent === 'full-title') s.data.push('\n');
+			break;
+		}
+		case 'jw':
+		case 'lb': {
+			push_blank();
+			break;
+		}
+		case 'sb': {
+			push_blank();
+			s.data.push('\n');
+			break;
+		}
+		case 'quote':
+		case 'nm-work':
+		case 'nm-part':
+		case 'pg':
+		case 'sig':
+		case 'cor':
+		case 'i':
+		case 'bq': {
+			push_inline();
+			break;
+		}
+		case 'fw': {
+			push_inline();
+			if (parent === 'project') s.data.push(`\n`);
+			break;
+		}
+		default: break;
+	}
+}
+
+function build_fn_create_project_file(strip: Set<string>) {
+	return (s: State<string[]>) => create_project_file(s, strip);
+}
+
+function build_fn_create_plaintext_file(strip: Set<string>) {
+	return (s: State<string[]>) => create_plaintext_file(s, strip);
+}
+
+function textify_project(n: Node) {
+	println('to_text');
+	const to_project = (strip?: Set<string>) => {
+		strip = strip || new Set();
+		const ys: string[] = [];
+		process_ast(build_fn_create_project_file(strip), (s: State<string[]>) => s.data.push(s.n.value), n, ys);
+		return ys.join('').trim();
+	};
+
+	const to_plaintext = (strip?: Set<string>) => {
+		strip = strip || new Set();
+		const ys: string[] = [];
+		process_ast(build_fn_create_plaintext_file(strip), (s: State<string[]>) => s.data.push(s.n.value), n, ys);
+		return ys.join('').trim();
+	};
+
+	const x = to_project();
+
+	let y1 = to_project(STRIP);
+	let y2 = to_plaintext(STRIP);
 	let [_y1, z] = make_word_list(y1);
 	let [_y2, _] = make_word_list(y2);
 	y1 = _y1.trim();
@@ -181,9 +227,9 @@ function textify_project(pp: Node[]) {
 }
 
 export async function make(file: string, clobber: boolean) {
-	console.log('make');
+	println('make');
 	const [out_dir, bpp, pp] = parse_project(file, !clobber);
-	const [x, y1, y2, z] = textify_project(pp);
+	const [x, y1, y2, z] = textify_project(pp[0]);
 	Deno.writeTextFile(bpp, x);
 	Deno.writeTextFile(`${out_dir}/proj/project.no-fw.txt.bpp`, y1);
 	Deno.writeTextFile(`${out_dir}/proj/project.plain.txt.bpp`, y2);

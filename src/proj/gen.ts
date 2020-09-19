@@ -14,9 +14,9 @@
  * You should have received a copy of the GNU Affero General Public License
  * along with this program.  If not, see <https://www.gnu.org/licenses/>.
  **/
-import {make_out_dir_path} from "../io.ts";
 import {Node} from "./parse.ts";
 import {parse_project} from "./project.ts";
+import {gen_tei} from "./gen.tei.ts";
 
 function to_md(xs: Node[], parent: string = '') {
 	let ys: string[] = [];
@@ -57,8 +57,8 @@ function to_md(xs: Node[], parent: string = '') {
 				switch (x.value) {
 					case 'meta': {
 						ys.push('---\n');
-						ys.push(get_content());
 						ys.push('documentclass: book\n');
+						ys.push(get_content());
 						ys.push('...\n');
 						break;
 					}
@@ -66,12 +66,10 @@ function to_md(xs: Node[], parent: string = '') {
 						ys.push('<br>');
 						break;
 					}
-					case 'pb': break;
 					case 'sb': {
 						ys.push('<hr>');
 						break;
 					}
-					case 'cb': break;
 					case 'bq': {
 						ys.push('(');
 						ys.push(get_content());
@@ -79,12 +77,12 @@ function to_md(xs: Node[], parent: string = '') {
 						break;
 					}
 					case 'half-title':
-					case 'title': {
+					case 'full-title': {
 						ys.push(get_content());
 						break;
 					}
 					case 'h': {
-						if (parent === 'title' || parent === 'half-title') {
+						if (parent === 'full-title' || parent === 'half-title') {
 							ys.push('\n\n');
 							ys.push('# ');
 							ys.push(get_content());
@@ -136,12 +134,18 @@ function to_md(xs: Node[], parent: string = '') {
 	return ys.join('');
 }
 
-export async function gen(file: string, format: string) {
-	const [out_dir, _, pp] = parse_project(file, true);
+function gen_from_tei(out_dir: string, n: Node) {
+	const a = gen_tei(n);
+	const input_file = `${out_dir}/proj/project.tei.xml`;
+	Deno.writeTextFileSync(input_file, a);
+	return ['--from=tei', input_file];
+}
+
+function gen_from_md(out_dir: string, n: Node) {
 	const input_file = `${out_dir}/proj/project.md`;
 	const meta_file = `${out_dir}/proj/meta.md`;
 
-	let a = to_md(pp);
+	let a = to_md([n]);
 	const n1 = a.indexOf('---');
 	const n2 = a.indexOf('...');
 	let b = a.substring(n1, n2+3).trim();
@@ -149,19 +153,25 @@ export async function gen(file: string, format: string) {
 	a = a.trim();
 	Deno.writeTextFile(input_file, a);
 	Deno.writeTextFile(meta_file, b);
+	return ['--from=markdown+yaml_metadata_block', `--metadata-file=${meta_file}`, input_file];
+}
+
+export async function gen(file: string, format: string) {
+	const [out_dir, _, pp] = parse_project(file, true);
+	const xs = gen_from_tei(out_dir, pp[0]);
+	//const xs = gen_from_md(out_dir, pp[0]);
 
 	let ext;
 	switch (format) {
 		case 'pdf': format = 'latex'; ext = 'pdf'; break;
 		case 'epub3': ext = 'epub'; break;
 		case 'html': ext = 'html'; break;
-		case 'tei': ext = 'tei.xml'; break;
 		case 'native': ext = 'hs'; break;
 		default: ext = 'out'; break;
 	}
 	const output_file = `${out_dir}/proj/project.${ext}`;
 	const p = Deno.run({
-		cmd: ['pandoc', '--self-contained', '--standalone', '--from=markdown+yaml_metadata_block', `--to=${format}`, `--output=${output_file}`, `--metadata-file=${meta_file}`, input_file],
+		cmd: ['pandoc', '--self-contained', '--standalone', `--to=${format}`, `--output=${output_file}`].concat(...xs),
 	});
 	return p.status();
 }

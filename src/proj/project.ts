@@ -14,7 +14,7 @@
  * You should have received a copy of the GNU Affero General Public License
  * along with this program.  If not, see <https://www.gnu.org/licenses/>.
  **/
-import {exists, make_out_dir_path} from "../io.ts";
+import {exists, make_out_dir_path, println} from "../io.ts";
 import {parse, Node} from "./parse.ts";
 import {make} from "./make.ts";
 import {gen} from "./gen.ts";
@@ -32,10 +32,7 @@ async function readSavedTextFiles(out_dir: string) {
 	const xs = listSavedTextFiles(out_dir).map(x => `${out_dir}/${x}`).map(x => Deno.readTextFileSync(x));
 	const p = Promise.all(xs);
 	p.catch(e => console.error(e.message));
-	console.log('waiting...');
-	const ys = await p;
-	console.log('waiting...done');
-	return ys;
+	return await p;
 }
 
 export function parse_project(file: string, read_existing: boolean): [string, string, Node[]] {
@@ -47,12 +44,12 @@ export function parse_project(file: string, read_existing: boolean): [string, st
 		text = Deno.readTextFileSync(bpp);
 	}
 	else {
-		console.log('read files');
+		println('read files');
 		const xs = readSavedTextFilesSync(out_dir);
 		text = `(:project ${xs.join('\n')})`;
 	}
 
-	console.log('parse_project');
+	println('parse_project');
 	const x = parse(text, !read_existing);
 	return [out_dir, bpp, x];
 }

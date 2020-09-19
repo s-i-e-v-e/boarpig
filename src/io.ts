@@ -20,6 +20,10 @@ export interface FileName {
 	ext: string,
 }
 
+export function println(x: string) {
+	console.log(x);
+}
+
 export function make_out_dir_path(file: string) {
 	const fp = parse_path(file);
 	return `${fp.dir}/${fp.name}_output`;
