@@ -15,19 +15,22 @@
  * along with this program.  If not, see <https://www.gnu.org/licenses/>.
  **/
 import { serve_http } from './serve.ts';
-import { make_out_dir_path, parse_path, exists } from './io.ts';
+import {
+	make_image_path,
+	make_text_path,
+	make_out_dir_path,
+	parse_path,
+	mkdir,
+	make_proj_saved_text_path
+} from './io.ts';
 import { make_project, gen_project } from './proj/project.ts';
 
 const EXT = '.png';
 
-function make_out_dir(out_dir: string) {
-	if (!exists(out_dir)) Deno.mkdirSync(out_dir);
-}
-
 function listExtractedImageFiles(out_dir: string, range: string) {
 	const [start, end] = parseRange(range);
 	return Array
-	.from(Deno.readDirSync(out_dir))
+	.from(Deno.readDirSync(make_image_path(out_dir)))
 	.filter(x => x.name.startsWith('img-') && x.name.endsWith(EXT))
 	.map(x => x.name)
 	.filter(x => { const n = Number(parse_path(x).name.split('-')[1]); return !(n < start || n > end); })
@@ -36,7 +39,7 @@ function listExtractedImageFiles(out_dir: string, range: string) {
 
 function listRenumberedImageFiles(out_dir: string, prefix?: string, range?: string) {
 	const [start, end] = range ? parseRange(range) : [undefined, undefined];
-	let xs = Array.from(Deno.readDirSync(out_dir)).filter(x => x.name.endsWith(EXT)).map(x => x.name);
+	let xs = Array.from(Deno.readDirSync(make_image_path(out_dir))).filter(x => x.name.endsWith(EXT)).map(x => x.name);
 	if (prefix) xs = xs.filter(x => x.startsWith(prefix!));
 	if (range) xs = xs.filter(x => { const n = Number(parse_path(x).name.substring(prefix!.length)); return !(n < start! || n > end!); });
 	return xs.sort();
@@ -50,23 +53,32 @@ function parseRange(range: string): [number, number] {
 }
 
 async function extract_pdf(file: string, out_dir?: string) {
-		const file_full_path = Deno.realPathSync(file);
-		out_dir = out_dir || make_out_dir_path(file);
+	const file_full_path = Deno.realPathSync(file);
+	out_dir = out_dir || make_out_dir_path(file);
 
-		make_out_dir(out_dir);
+	mkdir(out_dir);
 
-		const cwd = Deno.cwd();
-		try {
-				println(`Extracting ${file} into ${out_dir}`);
-				Deno.chdir(out_dir);
-				const p = Deno.run({
-					cmd: ["mutool", "extract", file_full_path],
-				});
-				await p.status();
-		}
-		finally {
-				Deno.chdir(cwd);
-		}
+	const cwd = Deno.cwd();
+	try {
+		println(`Extracting ${file} into ${out_dir}`);
+		Deno.chdir(out_dir);
+		const p = Deno.run({
+			cmd: ["mutool", "extract", file_full_path],
+		});
+		await p.status();
+
+		mkdir('images');
+
+		const img_dir = make_image_path('.');
+		await Promise.all(Array
+			.from(Deno.readDirSync('.'))
+			.filter(f => f.name.endsWith(EXT))
+			.map(f => Deno.rename(`${f.name}`, `${img_dir}/${f.name}`))
+		);
+	}
+	finally {
+		Deno.chdir(cwd);
+	}
 }
 
 async function extract_djvu(file: string) {
@@ -74,14 +86,14 @@ async function extract_djvu(file: string) {
 	const out_dir = make_out_dir_path(file);
 	const out_file = `${out_dir}/${fp.name}.pdf`;
 
-	make_out_dir(out_dir);
+	mkdir(out_dir);
 
 	println(`Converting ${file} => ${out_file}`);
 	const p = Deno.run({
 		cmd: ["ddjvu", "-format=pdf", file, out_file],
 	});
 	await p.status();
-	extract_pdf(out_file, out_dir);
+	await extract_pdf(out_file, out_dir);
 }
 
 function extract(file: string) {
@@ -97,14 +109,15 @@ function renumber(file: string, prefix: string, range: string) {
 	
 	const out_dir = make_out_dir_path(file);
 	const xs = listExtractedImageFiles(out_dir, range);
+	const img_dir = make_image_path(out_dir);
 
 	let i = 1;
 	xs.forEach(x => {
 		const y = `${prefix}${pad(i)}${EXT}`;
 		println(`Renaming ${x} => ${y}`);
 
-		const xx = `${out_dir}/${x}`;
-		const yy = `${out_dir}/${y}`;
+		const xx = `${img_dir}/${x}`;
+		const yy = `${img_dir}/${y}`;
 		Deno.rename(xx, yy);
 		i += 1;
 	});
@@ -161,18 +174,21 @@ interface Page { image: string, text: string }
 function ocr(file: string, prefix?: string, range?: string) {
 	Deno.env.set("OMP_THREAD_LIMIT", "1");
 	const out_dir = make_out_dir_path(file);
-	
+	const img_dir = make_image_path(out_dir);
+	const txt_dir = make_text_path(out_dir);
+	mkdir(txt_dir);
+
 	async function run(xs: Page[]) {
 		const ys = xs.map(x => {
 			const p = Deno.run({
-				cmd: ["tesseract", "--dpi", "300", "-l", "eng", `${out_dir}/${x.image}`, `${out_dir}/${x.text}`],
+				cmd: ["tesseract", "--dpi", "300", "-l", "eng", `${img_dir}/${x.image}`, `${txt_dir}/${x.text}`],
 			});
 			println(`OCR ${x.image} => ${x.text}`);
 			return p.status();
 		});
 		
 		await Promise.all(ys);
-		xs.forEach(async x => process_text_file( `${out_dir}/${x.text}.txt`));
+		xs.forEach(async x => process_text_file( `${txt_dir}/${x.text}.txt`));
 	}
 
 	function build_batch(xs: string[]) {
@@ -210,12 +226,15 @@ function ocr(file: string, prefix?: string, range?: string) {
 
 function fmt(file: string, prefix?: string, range?: string) {
 	const out_dir = make_out_dir_path(file);
+	const txt_dir = make_text_path(out_dir);
 	const xs = listRenumberedImageFiles(out_dir, prefix, range)
-	xs.forEach(async x => process_text_file( `${out_dir}/${parse_path(x).name}.txt`));
+	xs.forEach(async x => process_text_file( `${txt_dir}/${parse_path(x).name}.txt`));
 }
 
 function serve(file: string, port?: string) {
 	const out_dir = make_out_dir_path(file);
+	const proj_txt_dir = make_proj_saved_text_path(out_dir);
+	mkdir(proj_txt_dir);
 	const p = port ? Number(port) : 8000;
 
 	const base_dir = parse_path(import.meta.url.substring('file://'.length)).dir;

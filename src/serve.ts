@@ -15,6 +15,7 @@
  * along with this program.  If not, see <https://www.gnu.org/licenses/>.
  **/
 import { serve } from "https://deno.land/std@0.68.0/http/server.ts";
+import {make_image_path, make_proj_saved_text_path, make_text_path} from "./io.ts";
 
 interface Resource {
 	mime: string,
@@ -36,9 +37,19 @@ function getMime(url: string) {
 	}
 }
 
-function getSavedFilePath(path: string) {
-	const n = path.lastIndexOf('/')+1;
-	return `${path.substring(0, n)}saved.${path.substring(n)}`;
+function get_text_file_path(path: string) {
+	const n = path.lastIndexOf('/');
+	return `${make_text_path(path.substring(0, n))}${path.substring(n)}`;
+}
+
+function get_saved_file_path(path: string) {
+	const n = path.lastIndexOf('/');
+	return `${make_proj_saved_text_path(path.substring(0, n))}${path.substring(n)}`;
+}
+
+function get_image_file_path(path: string) {
+	const n = path.lastIndexOf('/');
+	return `${make_image_path(path.substring(0, n))}${path.substring(n)}`;
 }
 
 async function handleRequest(baseDir: string, dataDir: string, url: string, data?: Uint8Array): Promise<Resource> {
@@ -53,18 +64,21 @@ async function handleRequest(baseDir: string, dataDir: string, url: string, data
 
 	console.log(`${url} => ${path} ${data ? '[SAVED]' : ''}`);
 	if (data) {
-		Deno.writeFile(getSavedFilePath(path), data);
+		Deno.writeFile(get_saved_file_path(path), data);
 		return { mime: getMime('.json'), bytes: encoder.encode("done") };
 	}
 	else {
 		let bytes;
 		if (path.endsWith('.txt')) {
 			try {
-				bytes = await Deno.readFile(getSavedFilePath(path));
+				bytes = await Deno.readFile(get_saved_file_path(path));
 			}
 			catch(e) {
-				bytes = await Deno.readFile(path);
+				bytes = await Deno.readFile(get_text_file_path(path));
 			}
+		}
+		else if (path.endsWith('.png')) {
+			bytes = await Deno.readFile(get_image_file_path(path));
 		}
 		else {
 			bytes = await Deno.readFile(path);

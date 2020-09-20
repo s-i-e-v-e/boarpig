@@ -29,6 +29,18 @@ export function make_out_dir_path(file: string) {
 	return `${fp.dir}/${fp.name}_output`;
 }
 
+export function make_image_path(out_dir: string) {
+	return `${out_dir}/images`;
+}
+
+export function make_text_path(out_dir: string) {
+	return `${out_dir}/text`;
+}
+
+export function make_proj_saved_text_path(out_dir: string) {
+	return `${out_dir}/proj/text`;
+}
+
 export function parse_path(file: string) {
 	let n = file.lastIndexOf("/");
 	const dir = n === -1 ? "." : file.substring(0, n);
@@ -44,10 +56,14 @@ export function parse_path(file: string) {
 	};
 }
 
+export function mkdir(dir: string) {
+	if (!exists(dir)) Deno.mkdirSync(dir, { recursive: true });
+}
+
 export function exists(file: string) {
 	let exists = true;
 	try {
-		Deno.stat(file);
+		Deno.statSync(file);
 	}
 	catch (e) {
 		exists = false;
