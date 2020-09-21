@@ -14,9 +14,69 @@
  * You should have received a copy of the GNU Affero General Public License
  * along with this program.  If not, see <https://www.gnu.org/licenses/>.
  **/
-import {Node} from "./parse.ts";
 import {parse_project} from "./project.ts";
 import {gen_tei} from "./gen.tei.ts";
+import {Node, NodeType, State} from "./ast.ts";
+import {gen_html_single} from "./gen.html.single.ts";
+import {mkdir, parse_path} from "../io.ts";
+
+export interface FileInfo {
+	path: string,
+	content: string,
+}
+
+export function gen_xml_nm(s: State<string[]>, nt: NodeType, work_tag: string) {
+	// remove emphasis
+	const xs: Node[] = [];
+	s.n.xs.forEach(x => {
+		if (x.type === 'EXPR' && x.value === 'i') {
+			xs.push(...x.xs);
+		}
+		else {
+			xs.push(x);
+		}
+	});
+	s.n.xs = xs;
+
+	const n1 = s.data.length;
+	s.do_nodes(s);
+	const n2 = s.data.length;
+	let x = s.data.splice(n1, n2-n1).join('');
+
+	while (true) {
+		const n = x.length;
+		x = x.startsWith('‘') ? x.substring(1) : x;
+		x = x.startsWith('“') ? x.substring(1) : x;
+		x = x.endsWith('’') ? x.substring(0, x.length-1) : x;
+		x = x.endsWith('”') ? x.substring(0, x.length-1) : x;
+		if (n === x.length) break;
+	}
+
+	if (nt.name === 'nm-work') {
+		const ends_with_comma = x.endsWith(',');
+		s.data.push(`<${work_tag}>`);
+		s.data.push(ends_with_comma ? x.substring(0, x.length-1) : x);
+		s.data.push(`</${work_tag}>`);
+		if (ends_with_comma) s.data.push(',');
+	}
+	else {
+		s.data.push('‘');
+		s.data.push(x);
+		s.data.push('’');
+	}
+}
+
+export const STRIP = new Set(['fw', 'meta']);
+export function handle_stripped_tags(s: State<string[]>, nt: NodeType, parent?: string) {
+	switch (nt.name) {
+		case 'fw': {
+			if (parent !== 'project' && s.data[s.data.length-1] !== ' ' && !s.n.xs.filter(x => x.value === 'jw').length) s.data.push(` `);
+			break;
+		}
+		default:
+			break;
+	}
+}
 
 function to_md(xs: Node[], parent: string = '') {
 	let ys: string[] = [];
@@ -133,14 +193,7 @@ function to_md(xs: Node[], parent: string = '') {
 	})
 	return ys.join('');
 }
-
-function gen_from_tei(out_dir: string, n: Node) {
-	const a = gen_tei(n);
-	const input_file = `${out_dir}/proj/project.tei.xml`;
-	Deno.writeTextFileSync(input_file, a);
-	return ['--from=tei', input_file];
-}
-
+/*
 function gen_from_md(out_dir: string, n: Node) {
 	const input_file = `${out_dir}/proj/project.md`;
 	const meta_file = `${out_dir}/proj/meta.md`;
@@ -154,24 +207,21 @@ function gen_from_md(out_dir: string, n: Node) {
 	Deno.writeTextFile(input_file, a);
 	Deno.writeTextFile(meta_file, b);
 	return ['--from=markdown+yaml_metadata_block', `--metadata-file=${meta_file}`, input_file];
-}
+}*/
 
 export async function gen(file: string, format: string) {
 	const [out_dir, _, pp] = parse_project(file, true);
-	const xs = gen_from_tei(out_dir, pp[0]);
-	//const xs = gen_from_md(out_dir, pp[0]);
 
-	let ext;
+	let xs: FileInfo[];
 	switch (format) {
-		case 'pdf': format = 'latex'; ext = 'pdf'; break;
-		case 'epub3': ext = 'epub'; break;
-		case 'html': ext = 'html'; break;
-		case 'native': ext = 'hs'; break;
-		default: ext = 'out'; break;
+		case 'tei': xs = gen_tei(pp[0]); break;
+		case 'html': xs = gen_html_single(pp[0]); break;
+		default: throw new Error();
 	}
-	const output_file = `${out_dir}/proj/project.${ext}`;
-	const p = Deno.run({
-		cmd: ['pandoc', '--self-contained', '--standalone', `--to=${format}`, `--output=${output_file}`].concat(...xs),
+
+	xs.forEach(x => {
+		const input_file = `${out_dir}/proj/.output/${x.path}`;
+		mkdir(parse_path(input_file).dir);
+		Deno.writeTextFileSync(input_file, x.content);
 	});
-	return p.status();
 }

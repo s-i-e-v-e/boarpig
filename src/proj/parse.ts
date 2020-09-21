@@ -14,6 +14,7 @@
  * You should have received a copy of the GNU Affero General Public License
  * along with this program.  If not, see <https://www.gnu.org/licenses/>.
  **/
+import { Node, first_expr_is, last_expr_is, } from './ast.ts';
 import { lex, Token, } from './lex.ts';
 import {pause, println} from "../io.ts";
 
@@ -34,12 +35,6 @@ function ts_next(ts: TokenStream) {
 	return x;
 }
 
-export interface Node {
-	type: string,
-	value: string,
-	xs: Node[],
-}
-
 function skip_whitespace(ts: TokenStream) {
 	let n = 0;
 	while (true) {
@@ -54,14 +49,6 @@ function skip_whitespace(ts: TokenStream) {
 	}
 }
 
-function first_expr_is(xs: Node[], x: string) {
-	return xs.length && xs[0].value === x;
-}
-
-function last_expr_is(xs: Node[], x: string) {
-	return xs.length && xs[xs.length - 1].value === x;
-}
-
 function expect_cl_brace(ts: TokenStream, x: Token) {
 	skip_whitespace(ts);
 	if (ts_next(ts).lexeme !== ')') throw new Error(`parsing error: ${x.index}:${x.lexeme}`);
@@ -72,6 +59,7 @@ function parse_se(ts: TokenStream, do_fmt: boolean, virtual_se?: Token): Node {
 
 	let n;
 	switch (x.lexeme) {
+		case 'toc':
 		case 'jw':
 		case 'lb':
 		case 'pb':
@@ -96,6 +84,7 @@ function parse_se(ts: TokenStream, do_fmt: boolean, virtual_se?: Token): Node {
 		case 'printer':
 		case 'full-title':
 		case 'half-title':
+		case 'sec':
 
 		case 'nm-work':
 		case 'nm-part':

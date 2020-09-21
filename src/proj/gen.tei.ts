@@ -14,8 +14,8 @@
  * You should have received a copy of the GNU Affero General Public License
  * along with this program.  If not, see <https://www.gnu.org/licenses/>.
  **/
-import {Node} from "./parse.ts";
-import {process_ast, State} from "./ast.ts";
+import {process_ast, State, Node} from "./ast.ts";
+import {FileInfo, gen_xml_nm} from "./gen.ts";
 
 let in_chapter = false;
 function create_tei_file(s: State<string[]>) {
@@ -41,7 +41,7 @@ function create_tei_file(s: State<string[]>) {
 			break;
 		}
 		case 'full-title': {
-			s.data.push('<titlePage>\n');
+			s.data.push('<titlePage type="full-title">\n');
 			s.do_nodes(s);
 			s.data.push('</titlePage>\n');
 			break;
@@ -108,52 +108,15 @@ function create_tei_file(s: State<string[]>) {
 		}
 		case 'nm-work':
 		case 'nm-part': {
-			// remove emphasis
-			const xs: Node[] = [];
-			s.n.xs.forEach(x => {
-				if (x.type === 'EXPR' && x.value === 'i') {
-					xs.push(...x.xs);
-				}
-				else {
-					xs.push(x);
-				}
-			});
-			s.n.xs = xs;
-
-			const n1 = s.data.length;
-			s.do_nodes(s);
-			const n2 = s.data.length;
-			let x = s.data.splice(n1, n2-n1).join('');
-
-			while (true) {
-				const n = x.length;
-				x = x.startsWith('‘') ? x.substring(1) : x;
-				x = x.startsWith('“') ? x.substring(1) : x;
-				x = x.endsWith('’') ? x.substring(0, x.length-1) : x;
-				x = x.endsWith('”') ? x.substring(0, x.length-1) : x;
-				if (n === x.length) break;
-			}
-
-			if (nt.name === 'nm-work') {
-				const ends_with_comma = x.endsWith(',');
-				s.data.push('<emph>');
-				s.data.push(ends_with_comma ? x.substring(0, x.length-1) : x);
-				s.data.push('</emph>');
-				if (ends_with_comma) s.data.push(',');
-			}
-			else {
-				s.data.push('‘');
-				s.data.push(x);
-				s.data.push('’');
-			}
+			gen_xml_nm(s, nt, 'emph');
 			break;
 		}
 		default: throw new Error(nt.name);
 	}
 }
 
-export function gen_tei(n: Node) {
+export function gen_tei(n: Node): FileInfo[] {
 	const ys: string[] = [];
 	process_ast(create_tei_file, (s: State<string[]>) => s.data.push(s.n.value.replaceAll('&', '&amp;')), n, ys);
-	return ys.join('');
+	return [{ path: 'tei/book.tei.xml', content: ys.join('') }];
 }

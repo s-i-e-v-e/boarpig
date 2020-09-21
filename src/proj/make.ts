@@ -14,10 +14,10 @@
  * You should have received a copy of the GNU Affero General Public License
  * along with this program.  If not, see <https://www.gnu.org/licenses/>.
  **/
-import { Node } from './parse.ts';
 import { parse_project } from './project.ts';
-import { process_ast, State, NodeType } from './ast.ts';
+import { process_ast, State, Node } from './ast.ts';
 import {println} from "../io.ts";
+import {handle_stripped_tags, STRIP} from "./gen.ts";
 
 function make_word_list(x: string) {
 	const set = new Set<string>()
@@ -47,24 +47,11 @@ function make_word_list(x: string) {
 	return [x, ys.join('\n')];
 }
 
-const STRIP = new Set(['fw', 'meta']);
-function handle_strip(s: State<string[]>, nt: NodeType, parent?: string) {
-	switch (nt.name) {
-		case 'fw': {
-			//if (parent === 'project') s.data.push(`\n`);
-			if (parent !== 'project' && s.data[s.data.length-1] !== ' ' && !s.n.xs.filter(x => x.value === 'jw').length) s.data.push(` `);
-			break;
-		}
-		default:
-			break;
-	}
-}
-
 function create_plaintext_file(s: State<string[]>, strip: Set<string>) {
 	const nt = s.map.get(s.n.value)!;
 	const parent = s.parent?.value;
 	if (strip.has(nt.name)) {
-		handle_strip(s, nt, parent);
+		handle_stripped_tags(s, nt, parent);
 		return;
 	}
 
@@ -110,7 +97,7 @@ function create_project_file(s: State<string[]>, strip: Set<string>) {
 	const nt = s.map.get(s.n.value)!;
 	const parent = s.parent?.value;
 	if (strip.has(nt.name)) {
-		handle_strip(s, nt, parent);
+		handle_stripped_tags(s, nt, parent);
 		return;
 	}
 

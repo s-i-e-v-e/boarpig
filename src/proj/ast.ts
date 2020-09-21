@@ -14,11 +14,15 @@
  * You should have received a copy of the GNU Affero General Public License
  * along with this program.  If not, see <https://www.gnu.org/licenses/>.
  **/
-import {Node} from "./parse.ts";
-
 type fn_ws<A> = (s: State<A>) => void;
 type fn_expr<A> = (s: State<A>) => void;
 type fn_nodes<A> = (s: State<A>) => void;
+
+export interface Node {
+	type: string,
+	value: string,
+	xs: Node[],
+}
 
 export interface NodeType {
 	name: string,
@@ -35,16 +39,26 @@ export interface State<A> {
 	do_ws: fn_ws<A>,
 }
 
+export function first_expr_is(xs: Node[], x: string) {
+	return xs.length && xs[0].value === x;
+}
+
+export function last_expr_is(xs: Node[], x: string) {
+	return xs.length && xs[xs.length - 1].value === x;
+}
+
 function build_dispatch() {
 	const valid_lb_nodes = new Set<string>();
 	const valid_sb_nodes = valid_lb_nodes;
 	const valid_jw_nodes = valid_lb_nodes;
+	const valid_toc_nodes = valid_lb_nodes;
 	const WS = ['WORD', 'SYM'];
 	const valid_ws = new Set(WS);
-	const valid_project_nodes = new Set(['meta', 'full-title', 'half-title', 'h', 'p', 'sb', 'fw']);
+	const valid_project_nodes = new Set(['meta', 'full-title', 'half-title', 'h', 'p', 'sb', 'fw', 'sec', 'toc']);
 	const valid_meta_nodes = new Set(['title', 'author', 'publisher', 'printer', 'year', 'lang']);
 	const valid_fw_nodes = new Set(['h', 'sig', 'pg', 'jw']);
 
+	const valid_sec_nodes = new Set(['p', 'h']);
 	const valid_p_nodes = new Set(['i', 'cor', 'nm-work', 'nm-part', 'lb', 'fw', 'bq', 'quote'].concat(...WS));
 	const valid_full_title_nodes = new Set(Array.from(valid_p_nodes).concat(...['h', 'p', 'sb']));
 	const valid_half_title_nodes = valid_full_title_nodes;
@@ -89,6 +103,8 @@ function build_dispatch() {
 	xs.push({name: 'printer', valid: valid_printer_nodes});
 	xs.push({name: 'year', valid: valid_year_nodes});
 	xs.push({name: 'lang', valid: valid_lang_nodes});
+	xs.push({name: 'toc', valid: valid_toc_nodes});
+	xs.push({name: 'sec', valid: valid_sec_nodes});
 
 	const m = new Map<string, NodeType>();
 	xs.forEach(x => m.set(x.name, x));

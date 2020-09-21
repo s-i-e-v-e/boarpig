@@ -15,7 +15,8 @@
  * along with this program.  If not, see <https://www.gnu.org/licenses/>.
  **/
 import {exists, make_out_dir_path, println} from "../io.ts";
-import {parse, Node} from "./parse.ts";
+import {parse} from "./parse.ts";
+import {Node} from "./ast.ts";
 import {make} from "./make.ts";
 import {gen} from "./gen.ts";
 
