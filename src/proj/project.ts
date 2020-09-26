@@ -14,26 +14,20 @@
  * You should have received a copy of the GNU Affero General Public License
  * along with this program.  If not, see <https://www.gnu.org/licenses/>.
  **/
-import {exists, make_out_dir_path, println} from "../io.ts";
+import {exists, make_out_dir_path, make_proj_saved_text_path, println} from "../io.ts";
 import {parse} from "./parse.ts";
 import {Node} from "./ast.ts";
 import {make} from "./make.ts";
 import {gen} from "./gen.ts";
 
-function listSavedTextFiles(out_dir: string) {
-	let xs = Array.from(Deno.readDirSync(out_dir)).filter(x => x.name.startsWith('saved.') && x.name.endsWith('.txt')).map(x => x.name);
+function listSavedTextFiles(path: string) {
+	let xs = Array.from(Deno.readDirSync(path)).filter(x => x.name.endsWith('.txt')).map(x => x.name);
 	return xs.sort();
 }
 
 function readSavedTextFilesSync(out_dir: string) {
-	return listSavedTextFiles(out_dir).map(x => `${out_dir}/${x}`).map(x => Deno.readTextFileSync(x));
-}
-
-async function readSavedTextFiles(out_dir: string) {
-	const xs = listSavedTextFiles(out_dir).map(x => `${out_dir}/${x}`).map(x => Deno.readTextFileSync(x));
-	const p = Promise.all(xs);
-	p.catch(e => console.error(e.message));
-	return await p;
+	const path = make_proj_saved_text_path(out_dir);
+	return listSavedTextFiles(path).map(x => `${path}/${x}`).map(x => Deno.readTextFileSync(x));
 }
 
 export function parse_project(file: string, read_existing: boolean): [string, string, Node[]] {

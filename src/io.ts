@@ -30,11 +30,11 @@ export function make_out_dir_path(file: string) {
 }
 
 export function make_image_path(out_dir: string) {
-	return `${out_dir}/images`;
+	return `${out_dir}/ocr/images`;
 }
 
 export function make_text_path(out_dir: string) {
-	return `${out_dir}/text`;
+	return `${out_dir}/ocr/text`;
 }
 
 export function make_proj_saved_text_path(out_dir: string) {
@@ -69,6 +69,12 @@ export function exists(file: string) {
 		exists = false;
 	}
 	return exists;
+}
+
+export function list_files(path: string, predicate?: (name: string) => boolean) {
+	let xs = Array.from(Deno.readDirSync(path));
+	xs = predicate ? xs.filter(x => predicate(x.name)) : xs;
+	return xs.map(x => x.name);
 }
 
 export function pause() {

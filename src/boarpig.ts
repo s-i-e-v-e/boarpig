@@ -21,7 +21,6 @@ import {
 	make_out_dir_path,
 	parse_path,
 	mkdir,
-	make_proj_saved_text_path
 } from './io.ts';
 import { make_project, gen_project } from './proj/project.ts';
 
@@ -67,9 +66,8 @@ async function extract_pdf(file: string, out_dir?: string) {
 		});
 		await p.status();
 
-		mkdir('images');
-
 		const img_dir = make_image_path('.');
+		mkdir(img_dir);
 		await Promise.all(Array
 			.from(Deno.readDirSync('.'))
 			.filter(f => f.name.endsWith(EXT))
@@ -231,14 +229,9 @@ function fmt(file: string, prefix?: string, range?: string) {
 	xs.forEach(async x => process_text_file( `${txt_dir}/${parse_path(x).name}.txt`));
 }
 
-function serve(file: string, port?: string) {
-	const out_dir = make_out_dir_path(file);
-	const proj_txt_dir = make_proj_saved_text_path(out_dir);
-	mkdir(proj_txt_dir);
+function serve(path: string, port?: string) {
 	const p = port ? Number(port) : 8000;
-
-	const base_dir = parse_path(import.meta.url.substring('file://'.length)).dir;
-	serve_http(base_dir, out_dir, p);
+	serve_http(path, p);
 }
 
 function make(file: string, clobber: string) {
@@ -272,7 +265,7 @@ function help() {
 	println('fmt file [prefix [start-end]]      Format generated text files.');
 	println('make file [--clobber]              Combine processed text files into single project.');
 	println('gen file format                    Generate output from project.');
-	println('serve file [port]                  Serve http over port.');
+	println('serve path [port]                  Serve http over port with path as root.');
 }
 
 export function main(args: string[]) {

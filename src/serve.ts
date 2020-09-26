@@ -15,7 +15,15 @@
  * along with this program.  If not, see <https://www.gnu.org/licenses/>.
  **/
 import { serve } from "https://deno.land/std@0.68.0/http/server.ts";
-import {make_image_path, make_proj_saved_text_path, make_text_path} from "./io.ts";
+import {
+	list_files,
+	make_image_path,
+	make_out_dir_path,
+	make_proj_saved_text_path,
+	make_text_path, mkdir,
+	parse_path,
+} from "./io.ts";
+import {parse} from "./proj/parse.ts";
 
 interface Resource {
 	mime: string,
@@ -23,6 +31,7 @@ interface Resource {
 }
 
 const encoder = new TextEncoder();
+const decoder = new TextDecoder();
 
 function getMime(url: string) {
 	const ext = url.substring(url.lastIndexOf('.'));
@@ -44,7 +53,9 @@ function get_text_file_path(path: string) {
 
 function get_saved_file_path(path: string) {
 	const n = path.lastIndexOf('/');
-	return `${make_proj_saved_text_path(path.substring(0, n))}${path.substring(n)}`;
+	const p = make_proj_saved_text_path(path.substring(0, n));
+	mkdir(p);
+	return `${p}${path.substring(n)}`;
 }
 
 function get_image_file_path(path: string) {
@@ -52,15 +63,56 @@ function get_image_file_path(path: string) {
 	return `${make_image_path(path.substring(0, n))}${path.substring(n)}`;
 }
 
-async function handleRequest(baseDir: string, dataDir: string, url: string, data?: Uint8Array): Promise<Resource> {
-	let path = '';
+async function handleApiRequest(dataRoot: string, x: any): Promise<Resource> {
+	let y;
+	switch (x.cmd) {
+		case 'list-projects': {
+			y = {
+				xs: list_files(dataRoot, name => name.endsWith('.pdf') || name.endsWith('.djvu')).map(x => parse_path(x).name),
+			};
+			break;
+		}
+		case 'prev-page':
+		case 'next-page': {
+			const project = x.project;
+			const current_page = x.page;
+			const image_dir = make_image_path(`${dataRoot}/${project}_output`);
+			const xs = list_files(image_dir);
+
+			let i = current_page ? xs.findIndex(x => x.indexOf(current_page) === 0) : -1;
+			i = x.cmd === 'next-page' ? i + 1 : i;
+			i = x.cmd === 'prev-page' ? i - 1 : i;
+			i = i < 0 ? 0 : i;
+			i = i > xs.length-1 ? xs.length-1 : i;
+
+			y = {
+				page: parse_path(xs[i]).name,
+			};
+			break;
+		}
+		default: throw new Error(x.cmd);
+	}
+
+	return { mime: getMime('x.json'), bytes: encoder.encode(JSON.stringify(y)) };
+}
+
+async function handleRequest(wwwRoot: string, dataRoot: string, url: string, data?: Uint8Array): Promise<Resource> {
 	url = url === '/' ? '/index.html' : url;
-	if (url.startsWith('/data/')) {
-		path = `${dataDir}${url.substring('/data'.length)}`;
-	}
-	else {
-		path = `${baseDir}/web${url}`;
-	}
+	if (url === '/api') return handleApiRequest(dataRoot, JSON.parse(decoder.decode(data!)));
+
+	const make_path = (url: string) => {
+		let path = '';
+		if (url.startsWith('/project/')) {
+			let pp = parse_path(url.substring('/project/'.length));
+			path = `${dataRoot}/${pp.dir}_output/${pp.name}${pp.ext}`;
+		}
+		else {
+			path = `${wwwRoot}${url}`;
+		}
+		return path;
+	};
+
+	const path = make_path(url);
 
 	console.log(`${url} => ${path} ${data ? '[SAVED]' : ''}`);
 	if (data) {
@@ -99,22 +151,22 @@ async function respond(r: Resource) {
 	};
 }
 
-export async function serve_http(baseDir: string, dataDir: string, port: number) {
+export async function serve_http(dataRoot: string, port: number) {
+	let base = import.meta.url.substring( 'file:///'.length);
+	base = base[1] === ':' ? base : `/${base}`;
+	const wwwRoot = `${parse_path(base).dir}/web`;
 	const s = serve({ port: port });
 	console.log(`http://localhost:${port}/`);
 
-	const dec = new TextDecoder();
 	for await (const req of s) {
 		if (req.url === '/favicon.ico') {
 			req.respond({status: 404 });
 		}
 		else {
-			const r = await handleRequest(baseDir, dataDir, req.url, req.method === 'POST' ? await Deno.readAll(req.body) : undefined);
+			const r = await handleRequest(wwwRoot, dataRoot, req.url, req.method === 'POST' ? await Deno.readAll(req.body) : undefined);
 			req.respond(await respond(r));
 		}
 	}
 }
 
-if (import.meta.main) {
-	serve_http('.', Deno.args[0], 8000);
-}
+if (import.meta.main) serve_http(Deno.args[0], 8000);

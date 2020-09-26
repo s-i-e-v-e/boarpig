@@ -220,7 +220,7 @@ export async function gen(file: string, format: string) {
 	}
 
 	xs.forEach(x => {
-		const input_file = `${out_dir}/proj/.output/${x.path}`;
+		const input_file = `${out_dir}/proj/output/${x.path}`;
 		mkdir(parse_path(input_file).dir);
 		Deno.writeTextFileSync(input_file, x.content);
 	});

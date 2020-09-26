@@ -174,7 +174,6 @@ function parse_expr(ts: TokenStream, do_fmt: boolean, parent_expr?: string) {
 			if (do_fmt) {
 				if (parent_expr === 'p') {
 					if (x.lexeme === 'pb') {
-						pause();
 						ts_next(ts);
 						expect_cl_brace(ts, x);
 						break;
