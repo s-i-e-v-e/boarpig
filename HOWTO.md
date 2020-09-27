@@ -78,4 +78,4 @@ This HOWTO will take you through one complete *boarpig* workflow. It is assumed 
 
    This creates an html file within the `boarpig-books/beastssuperbeast00saki_0_output/proj/output/html5` directory.
 
-11. All the files used and generated in this example (other than djvu, pdf and png) can be found in the [docs/examples/boarpig-books](./docs/examples/boarpig-books) directory.
+10. All the files used and generated in this example (other than djvu, pdf and png) can be found in the [docs/examples/boarpig-books](./docs/examples/boarpig-books) directory.

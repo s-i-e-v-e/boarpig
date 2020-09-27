@@ -55,7 +55,7 @@ function build_dispatch() {
 	const WS = ['WORD', 'SYM'];
 	const valid_ws = new Set(WS);
 	const valid_project_nodes = new Set(['meta', 'full-title', 'half-title', 'h', 'p', 'sb', 'fw', 'sec', 'toc']);
-	const valid_meta_nodes = new Set(['title', 'author', 'publisher', 'printer', 'year', 'lang']);
+	const valid_meta_nodes = new Set(['title', 'author', 'publisher', 'printer', 'year', 'lang', 'source']);
 	const valid_fw_nodes = new Set(['h', 'sig', 'pg', 'jw']);
 
 	const valid_sec_nodes = new Set(['p', 'h']);
@@ -63,6 +63,7 @@ function build_dispatch() {
 	const valid_full_title_nodes = new Set(Array.from(valid_p_nodes).concat(...['h', 'p', 'sb']));
 	const valid_half_title_nodes = valid_full_title_nodes;
 	const valid_quote_nodes = new Set(['lb'].concat(...WS));
+	const valid_source_nodes = valid_ws;
 	const valid_h_nodes = valid_ws;
 	const valid_i_nodes = valid_ws;
 	const valid_cor_nodes = valid_ws;
@@ -83,6 +84,7 @@ function build_dispatch() {
 	xs.push({name: 'meta', valid: valid_meta_nodes});
 	xs.push({name: 'full-title', valid: valid_full_title_nodes});
 	xs.push({name: 'half-title', valid: valid_half_title_nodes});
+	xs.push({name: 'source', valid: valid_source_nodes});
 	xs.push({name: 'p', valid: valid_p_nodes});
 	xs.push({name: 'h', valid: valid_h_nodes});
 	xs.push({name: 'i', valid: valid_i_nodes});

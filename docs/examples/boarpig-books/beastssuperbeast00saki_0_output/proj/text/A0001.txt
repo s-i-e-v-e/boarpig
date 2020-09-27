@@ -7,6 +7,7 @@
 (:printer The Anchor Press, Ltd., Tiptree, Essex.)
 (:year 1914)
 (:lang en-GB)
+(:source https://archive.org/download/beastssuperbeast00saki_0/beastssuperbeast00saki_0.djvu)
 )
 (:full-title
 (:h BEASTS AND SUPER-BEASTS)

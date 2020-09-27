@@ -82,6 +82,7 @@ function parse_se(ts: TokenStream, do_fmt: boolean, virtual_se?: Token): Node {
 		case 'lang':
 		case 'publisher':
 		case 'printer':
+		case 'source':
 		case 'full-title':
 		case 'half-title':
 		case 'sec':

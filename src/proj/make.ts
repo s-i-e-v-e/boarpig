@@ -138,6 +138,7 @@ function create_project_file(s: State<string[]>, strip: Set<string>) {
 		case 'printer':
 		case 'year':
 		case 'lang':
+		case 'source':
 		case 'p': {
 			push_inline();
 			s.data.push('\n');
