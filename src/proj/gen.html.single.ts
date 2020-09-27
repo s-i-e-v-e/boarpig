@@ -19,7 +19,7 @@ import {FileInfo, gen_xml_nm, handle_stripped_tags} from "./gen.ts";
 
 const style =`<style type="text/css">
 body {
-  font-family:'Open Sans', sans-serif;
+  font-family: Roboto, 'Noto Sans', 'DejaVu Sans', sans-serif;
   line-height:1.67;
   overflow: auto;
   width:70vw;
@@ -37,6 +37,12 @@ hr {
   width: 10%;
   background: black;
   margin: 5vh auto;
+}
+article[data-type="toc"] a {
+	text-decoration: none;
+}
+article[data-type="toc"] li {
+	list-style: circle;
 }
 </style>`;
 
@@ -64,7 +70,7 @@ function create_html_file(s: State<string[]>) {
 			toc_nodes.push(...s.n.xs.filter(x => x.type === 'EXPR' && x.value === 'h'));
 
 			s.data.push('<!DOCTYPE html><meta charset="utf-8">');
-			s.data.push(style);
+			s.data.push(style.replaceAll(/\n[\t ]*/g, '').replaceAll(/[ ]*([:,;}{])[ ]*/g, '$1'));
 			s.do_nodes(s);
 			end_chapter(s);
 			break;
