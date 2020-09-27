@@ -18,7 +18,7 @@ import * as ux from './util.js';
 const PREFIX = '/project/';
 
 function getTextControl() {
-	return document.querySelectorAll('#text > textarea')[0];
+	return document.querySelectorAll('#pg-text')[0];
 }
 
 function makeUrl(p, ext) {
@@ -30,7 +30,7 @@ function setUrl(p) {
 }
 
 function setImage(p) {
-	const image = document.querySelectorAll('#image > img')[0];
+	const image = document.querySelectorAll('#pg-image')[0];
 	image.setAttribute("src", makeUrl(p, '.png'));
 }
 
@@ -50,8 +50,7 @@ async function saveText(p) {
 
 	// save old data
 	const text = getTextControl();
-	const value = text.getAttribute('data-value');
-	if (text.value && value !== text.value) {
+	if (text.value && text.value !== text.getAttribute('data-value')) {
 		await fetch(url, {method: 'POST', body: text.value});
 	}
 }
@@ -176,7 +175,7 @@ const keydown = e => {
 		case "ArrowLeft": if (e.ctrlKey) previousPage(); break;
 		case "ArrowRight": if (e.ctrlKey) nextPage(); break;
 	}
-	if (e.target.tagName === 'TEXTAREA') {
+	if (e.target.id === 'pg-text') {
 		switch(e.key) {
 			case "i": case "I": if (e.ctrlKey) addItalics(e); break;
 			case "h": case "H": if (e.ctrlKey) addHeader(e); break;
@@ -193,7 +192,7 @@ function init(fn) {
 	if (_init) return;
 	const button = (id, cap) => `<button class="action" type="button" id="${id}">${cap}</button>`;
 	const nv = `${button('prev', 'Prev')}${button('next', 'Next')}${button('quote', 'quote')}${button('fw', 'fw')}`;
-	const x = `<div id="image"><img /></div><div id="text"><textarea></textarea></div>`;
+	const x = `<table id="pg"><tr><td><img id="pg-image" /></td><td><textarea id="pg-text"></textarea></td></tr></table>`;
 
 	fn(nv, x);
 	handleClick('prev', () => previousPage());
