@@ -18,6 +18,12 @@ import {process_ast, State, Node} from "./ast.ts";
 import {FileInfo, gen_xml_nm} from "./gen.ts";
 
 let in_chapter = false;
+
+function end_chapter(s: State<string[]>) {
+	if (in_chapter) s.data.push('</div>\n');
+	in_chapter = false;
+}
+
 function create_tei_file(s: State<string[]>) {
 	const nt = s.map.get(s.n.value)!;
 	const parent = s.parent?.value;
@@ -27,6 +33,9 @@ function create_tei_file(s: State<string[]>) {
 			break;
 		}
 		case 'fw': {
+			break;
+		}
+		case 'toc': {
 			break;
 		}
 		case 'project': {
@@ -52,9 +61,16 @@ function create_tei_file(s: State<string[]>) {
 			s.data.push('</titlePage>\n');
 			break;
 		}
+		case 'sec': {
+			end_chapter(s);
+			s.data.push('<div>\n');
+			s.do_nodes(s);
+			s.data.push('</div>\n');
+			break;
+		}
 		case 'h': {
 			if (parent === 'project') {
-				if (in_chapter) s.data.push('</div>\n');
+				end_chapter(s);
 				in_chapter = true;
 				s.data.push('<div>\n');
 			}
