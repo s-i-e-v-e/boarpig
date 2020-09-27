@@ -1,3 +1,6 @@
 .ignore/
 .vscode/
 .idea/
+/docs/**/*.png
+/docs/**/*.pdf
+/docs/**/*.djvu

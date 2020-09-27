@@ -1,0 +1,31 @@
+(:fw (:h LAURA)(:pg 13))
+
+(:h LAURA)
+
+“YOU are not really dying, are you?” asked
+Amanda.
+
+“I have the doctor's permission to
+live till Tuesday,” said Laura.
+
+“But to-day is Saturday; this is serious!”
+gasped Amanda.
+
+“I don't know about it being serious; it is
+certainly Saturday,” said Laura.
+
+“Death is always serious,” said Amanda.
+
+“I never said I was going to die. I am presum-
+ably going to leave off being Laura, but I shall go
+on being something. An animal of some kind, I
+suppose. You see, when one hasn't been very
+good in the life one has just lived, one reincarnates
+in some lower organism. And I haven't been very
+good, when one comes to think of it. I've been petty
+and mean and vindictive and all that sort of thing
+when circumstances have seemed to warrant it.”
+
+“Circumstances never warrant that sort of
+thing,” said Amanda hastily.
+(:pb)

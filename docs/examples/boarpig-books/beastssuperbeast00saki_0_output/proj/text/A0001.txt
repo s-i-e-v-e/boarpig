@@ -1,0 +1,18 @@
+(:meta
+(:title Beasts and Super-Beasts)
+(:author H. H. MUNRO (“SAKI”))
+(:publisher John Lane The Bodley Head, London)
+(:publisher John Lane Company, New York)
+(:publisher Bell & Cockburn, Toronto)
+(:printer The Anchor Press, Ltd., Tiptree, Essex.)
+(:year 1914)
+(:lang en-GB)
+)
+(:full-title
+(:h BEASTS AND SUPER-BEASTS)
+(:p By H. H. MUNRO (“SAKI”))
+(:sb)
+(:p LONDON: JOHN LANE THE BODLEY HEAD)
+(:p NEW YORK: JOHN LANE COMPANY)
+(:p TORONTO: BELL & COCKBURN MCMXIV)
+)

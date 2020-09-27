@@ -1,0 +1,32 @@
+(:fw (:pg 120)(:h BEASTS AND SUPER-BEASTS))
+
+“But the motive?” exclaimed Sir Lulworth;
+“no one had any interest in doing away with him,
+and the number of people who destroy Canons of the
+Established Church for the mere fun of killing must
+be extremely limited. Of course there are indivi-
+duals of weak mental balance who do that sort of
+thing, but they seldom conceal their handiwork;
+they are more generally inclined to parade it.”
+
+“His cook was under suspicion,” said Egbert
+shortly.
+
+“I know he was,” said Sir Lulworth, “simply
+because he was about the only person on the
+premises at the time of the tragedy. But could
+anything be sillier than trying to fasten a charge of
+murder on to Sebastien? He had nothing to gain,
+in fact, a good deal to lose, from the death of his
+employer. The Canon was paying him quite as
+good wages as I was able to offer him when I took
+him over into my service. I have since raised them
+to something a little more in accordance with his
+real worth, but at the time he was glad to find a new
+place without troubling about an increase of wages.
+People were fighting rather shy of him, and he had
+no friends in this country. No; if anyone in the
+world was interested in the prolonged life and unim-
+paired digestion of the Canon it would certainly be
+Sebastien.”
+(:pb)

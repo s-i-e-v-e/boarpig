@@ -19,6 +19,7 @@ Steps:
 * Clone this repository
 * Install *boarpig* using `deno install -A boarpig.ts`
 * See `boarpig --help` for more information.
+* [HOWTO](HOWTO.md) contains a complete step-by-step example of converting a djvu/pdf file into a proofread etext.
 
 ## Licensing
 

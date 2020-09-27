@@ -1,0 +1,24 @@
+(:fw (:h A HOLIDAY TASK)(:pg 211))
+
+(:h A HOLIDAY TASK)
+
+KENELM JERTON entered the dining-hall
+of the Golden Galleon Hotel in the full
+crush of the luncheon hour. Nearly every
+seat was occupied, and small additional tables had
+been brought in, where floor space permitted, to
+accommodate late-comers, with the result that many
+of the tables were almost touching each other.
+Jerton was beckoned by a waiter to the only vacant
+table that was discernible, and took his seat with
+the uncomfortable and wholly groundless idea that
+nearly every one in the room was staring at him.
+He was a youngish man of ordinary appearance,
+quiet of dress and unobtrusive of manner, and he
+could never wholly rid himself of the idea that a
+fierce light of public scrutiny beat on him as though
+he had been a notability or a super-nut. After he
+had ordered his lunch there came the unavoidable
+interval of waiting, with nothing to do but to stare
+at the flower-vase on his table and to be stared at
+(in imagination) by several flappers, some maturer
