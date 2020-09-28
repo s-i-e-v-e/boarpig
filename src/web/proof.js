@@ -21,6 +21,10 @@ function getTextControl() {
 	return document.querySelectorAll('#pg-text')[0];
 }
 
+function getPageSelectControl() {
+	return document.querySelectorAll('#pg-select')[0];
+}
+
 function makeUrl(p, ext) {
 	return `${PREFIX}${p.project}/${p.page}${ext}`;
 }
@@ -57,9 +61,21 @@ async function saveText(p) {
 
 // url: /project/BOOK_NAME/PAGE
 function getPage() {
+	return document.project;
+}
+
+async function setPage() {
 	const url = ux.getUrl();
 	const xs = url.split('/');
-	return {project: xs[2], page: xs[3] || ''};
+
+	let p = getPage();
+	if (!p || p.name !== xs[2]) {
+		p = {project: xs[2], page: xs[3] || ''};
+		document.project = p;
+
+		const a = await ux.fetchJSON({cmd: 'list-pages', project: p.project, page: ''});
+		p.xs = a.xs;
+	}
 }
 
 async function fetchPage(cmd) {
@@ -76,6 +92,13 @@ async function previousPage() {
 
 async function nextPage() {
 	setUrl(await fetchPage('next-page'));
+}
+
+async function selectThisPage(n) {
+	const select = getPageSelectControl();
+	const p = getPage();
+	p.page = select.value;
+	setUrl(p);
 }
 
 function updateTextSelection(e, fn) {
@@ -170,6 +193,11 @@ function handleClick(id, fn) {
 	x.addEventListener("click", fn);
 }
 
+function handleChange(id, fn) {
+	const x = document.querySelector(`select[id="${id}"]`);
+	x.addEventListener("change", fn);
+}
+
 const keydown = e => {
 	switch(e.key) {
 		case "ArrowLeft": if (e.ctrlKey) previousPage(); break;
@@ -191,7 +219,7 @@ let _init = false;
 function init(fn) {
 	if (_init) return;
 	const button = (id, cap) => `<button class="action" type="button" id="${id}">${cap}</button>`;
-	const nv = `${button('prev', 'Prev')}${button('next', 'Next')}${button('quote', 'quote')}${button('fw', 'fw')}`;
+	const nv = `${button('prev', 'Prev')}<select id="pg-select"></select>${button('next', 'Next')}${button('quote', 'quote')}${button('fw', 'fw')}`;
 	const x = `<table id="pg"><tr><td><img id="pg-image" /></td><td><textarea id="pg-text"></textarea></td></tr></table>`;
 
 	fn(nv, x);
@@ -199,13 +227,23 @@ function init(fn) {
 	handleClick('next', () => nextPage());
 	handleClick('quote', e => addTag(e, 'quote'));
 	handleClick('fw', e => addFormWork(e));
-
+	handleChange('pg-select', () => selectThisPage());
 	document.addEventListener('keydown', keydown);
 	_init = true;
 }
 
+function updatePageSelectControl() {
+	const select = getPageSelectControl();
+	const p = getPage();
+	if (p && p.xs && !select.firstChild) {
+		const xs = p.xs.map(x => `<option value="${x}">${x}</option>`);
+		select.innerHTML = xs.join('');
+	}
+}
+
 export async function load(fn) {
 	init(fn);
+	setPage().then(() => updatePageSelectControl());
 	const p = getPage();
 	if (p.page) {
 		setImage(p);
