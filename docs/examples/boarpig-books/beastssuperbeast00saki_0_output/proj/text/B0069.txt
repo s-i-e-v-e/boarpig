@@ -1,4 +1,4 @@
-(:fw (:h THE COBWEB)(:pg 69))
+(fw (h THE COBWEB)(pg 69))
 
 been howling all morning. An' last night I heard
 the screech-owl give the death-cry, and there were

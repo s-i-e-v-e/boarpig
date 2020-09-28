@@ -1,4 +1,4 @@
-(:fw (:pg 88)(:h BEASTS AND SUPER-BEASTS))
+(fw (pg 88)(h BEASTS AND SUPER-BEASTS))
 
 “But think of the arrangements that have been
 made, the special reporting, the cinematographs,

@@ -1,4 +1,4 @@
-(:fw (:pg 166)(:h BEASTS AND SUPER-BEASTS))
+(fw (pg 166)(h BEASTS AND SUPER-BEASTS))
 
 in the library, when I will pay him what is due to
 him and make what excuses I can; and then fly
@@ -28,4 +28,4 @@ butler entered the room. But he made no general
 announcement of a banquet in readiness, and the
 doors closed behind him; his message was for Sophie
 alone.
-(:pb)
+(pb)

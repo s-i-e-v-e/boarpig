@@ -1,4 +1,4 @@
-(:fw (:h THE YARKAND MANNER)(:pg 157))
+(fw (h THE YARKAND MANNER)(pg 157))
 
 “‘We insist on seeing the editor or some respon-
 sible person,’ said the Prime Minister, and the

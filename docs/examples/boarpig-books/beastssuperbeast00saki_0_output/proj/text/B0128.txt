@@ -1,4 +1,4 @@
-(:fw (:pg 128)(:h BEASTS AND SUPER-BEASTS))
+(fw (pg 128)(h BEASTS AND SUPER-BEASTS))
 
 audible expletive as he flung himself into the
 seat.

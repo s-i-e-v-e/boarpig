@@ -1,4 +1,4 @@
-(:fw (:h THE PHILANTHROPIST)(:pg 297))
+(fw (h THE PHILANTHROPIST)(pg 297))
 
 ing thing, she told herself, if she could do something,
 on the spur of the moment, to bring a gleam of

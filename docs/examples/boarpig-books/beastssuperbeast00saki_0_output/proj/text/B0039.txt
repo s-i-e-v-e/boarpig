@@ -1,4 +1,4 @@
-(:fw (:h THE BROGUE)(:pg 39))
+(fw (h THE BROGUE)(pg 39))
 
 rectory gate was painted a dull unobtrusive green,
 but it had been white a year or two ago, and the

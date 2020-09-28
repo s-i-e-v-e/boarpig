@@ -1,4 +1,4 @@
-(:fw (:h PARENTAL RESPONSIBILITIES)(:pg 207))
+(fw (h PARENTAL RESPONSIBILITIES)(pg 207))
 
 resentfully. “They have been most carefully
 brought up, I can assure you that.”
@@ -29,6 +29,6 @@ gotten them.”
 Eggelby, “but——”
 
 “The fact that we've both forgotten them proves
-that they (:i are) important,” said Clovis; “you must
+that they (i are) important,” said Clovis; “you must
 have noticed that it's always the important things
 that one forgets, while the trivial, unnecessary

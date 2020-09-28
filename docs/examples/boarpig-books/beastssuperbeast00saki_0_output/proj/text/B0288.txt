@@ -1,4 +1,4 @@
-(:fw (:pg 288)(:h BEASTS AND SUPER-BEASTS))
+(fw (pg 288)(h BEASTS AND SUPER-BEASTS))
 
 building and take him for a stroll through the fur
 department!”

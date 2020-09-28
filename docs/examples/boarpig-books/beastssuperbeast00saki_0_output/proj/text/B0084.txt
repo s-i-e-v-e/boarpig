@@ -1,4 +1,4 @@
-(:fw (:pg 84)(:h BEASTS AND SUPER-BEASTS))
+(fw (pg 84)(h BEASTS AND SUPER-BEASTS))
 
 as if a new era of contentment was about to dawn.
 Everybody had struck who could possibly want to
@@ -10,12 +10,12 @@ that sprang into sudden prominence was the pend-
 ing Falvertoon divorce suit.
 
 The Duke of Falvertoon was one of those human
-(:i hors d'œuvres) that stimulate the public appetite
+(i hors d'œuvres) that stimulate the public appetite
 for sensation without giving it much to feed on.
 As a mere child he had been precociously brilliant;
-he had declined the editorship of the (:i Anglian Review)
+he had declined the editorship of the (i Anglian Review)
 at an age when most boys are content to have
-declined (:i mensa), a table, and though he could not
+declined (i mensa), a table, and though he could not
 claim to have originated the Futurist movement
 in literature, his “Letters to a possible Grandson,”
 written at the age of fourteen, had attracted con-

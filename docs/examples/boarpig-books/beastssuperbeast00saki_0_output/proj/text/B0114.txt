@@ -1,4 +1,4 @@
-(:fw (:pg 114)(:h BEASTS AND SUPER-BEASTS))
+(fw (pg 114)(h BEASTS AND SUPER-BEASTS))
 
 accepted as the Munchausen of the party. No
 effort was spared to draw him out from day to day
@@ -30,4 +30,4 @@ next moment, and mother always had a feeling that
 she would die if she ever got it out. She died the same
 night that she did it. She was in bad health at the
 time, certainly, but it was a strange coincidence.”
-(:pb)
+(pb)

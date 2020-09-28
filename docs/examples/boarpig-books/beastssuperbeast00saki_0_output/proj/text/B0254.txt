@@ -1,4 +1,4 @@
-(:fw (:pg 254)(:h BEASTS AND SUPER-BEASTS))
+(fw (pg 254)(h BEASTS AND SUPER-BEASTS))
 
 ground sort of person that governesses are usually
 supposed to be. In fact, next to Teresa, she's about

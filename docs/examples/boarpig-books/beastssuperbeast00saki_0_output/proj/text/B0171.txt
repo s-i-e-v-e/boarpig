@@ -1,4 +1,4 @@
-(:fw (:h THE FEAST OF NEMESIS)(:pg 171))
+(fw (h THE FEAST OF NEMESIS)(pg 171))
 
 Webley asks the female Webley if she has remembered
 to thank you for the calendar you sent them. Well,

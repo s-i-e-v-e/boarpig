@@ -1,4 +1,4 @@
-(:fw (:pg 2)(:h BEASTS AND SUPER-BEASTS))
+(fw (pg 2)(h BEASTS AND SUPER-BEASTS))
 
 threat to a reality; its outbreak caught him on
 the return journey, somewhere on the further

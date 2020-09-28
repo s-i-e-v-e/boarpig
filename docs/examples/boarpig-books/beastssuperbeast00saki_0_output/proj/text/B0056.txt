@@ -1,6 +1,6 @@
-(:fw (:pg 56)(:h BEASTS AND SUPER-BEASTS))
+(fw (pg 56)(h BEASTS AND SUPER-BEASTS))
 
-(:h THE TREASURE-SHIP)
+(h THE TREASURE-SHIP)
 
 THE great galleon lay in semi-retirement
 under the sand and weed and water of

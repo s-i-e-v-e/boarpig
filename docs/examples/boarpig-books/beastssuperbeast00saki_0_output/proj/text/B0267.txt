@@ -1,4 +1,4 @@
-(:fw (:h THE NAME-DAY)(:pg 267))
+(fw (h THE NAME-DAY)(pg 267))
 
 of snow, through which the not very powerful engine
 ploughed its way with increasing difficulty. The

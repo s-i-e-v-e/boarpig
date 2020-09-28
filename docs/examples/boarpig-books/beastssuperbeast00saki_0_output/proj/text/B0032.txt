@@ -1,4 +1,4 @@
-(:fw (:pg 32)(:h BEASTS AND SUPER-BEASTS))
+(fw (pg 32)(h BEASTS AND SUPER-BEASTS))
 
 almost any sort of horse with the West Wessex as
 long as it is an animal that knows the country.

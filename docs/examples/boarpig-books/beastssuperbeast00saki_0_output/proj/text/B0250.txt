@@ -1,4 +1,4 @@
-(:fw (:pg 250)(:h BEASTS AND SUPER-BEASTS))
+(fw (pg 250)(h BEASTS AND SUPER-BEASTS))
 
 to supply Bertie with a wife, but she kept the thought
 to herself.
@@ -30,4 +30,4 @@ due enlightenment of Bertie's grandmother.
 “Those two inseparables have just come in from
 a bicycle ride,” she would announce; “quite a pic-
 ture they make, so fresh and glowing after their spin.”
-(:pb)
+(pb)

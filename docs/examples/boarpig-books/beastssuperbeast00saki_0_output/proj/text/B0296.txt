@@ -1,4 +1,4 @@
-(:fw (:pg 296)(:h BEASTS AND SUPER-BEASTS))
+(fw (pg 296)(h BEASTS AND SUPER-BEASTS))
 
 harmonies of colouring. It was a room in which
 one might have suitably entertained an ambassador

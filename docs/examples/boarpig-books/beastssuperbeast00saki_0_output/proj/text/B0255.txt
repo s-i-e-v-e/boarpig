@@ -1,4 +1,4 @@
-(:fw (:h THE ELK)(:pg 255))
+(fw (h THE ELK)(pg 255))
 
 a habit with him, and Teresa will say that Fate has
 consecrated them to one another. Bertie might

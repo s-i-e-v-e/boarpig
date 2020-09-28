@@ -1,4 +1,4 @@
-(:fw (:pg 170)(:h BEASTS AND SUPER-BEASTS))
+(fw (pg 170)(h BEASTS AND SUPER-BEASTS))
 
 of ‘people who must not be let off.’ I remember
 when I was at a private school we had one day, the

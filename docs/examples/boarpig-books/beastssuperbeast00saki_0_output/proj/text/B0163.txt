@@ -1,4 +1,4 @@
-(:fw (:h THE BYZANTINE OMELETTE)(:pg 163))
+(fw (h THE BYZANTINE OMELETTE)(pg 163))
 
 grievance against you personally, but they demand
 that Gaspare should be immediately dismissed.”
@@ -32,4 +32,4 @@ tragically; “I've always been a model mistress
 and I've refused to employ any but union servants,
 and this is the result. I can't finish my hair myself; I
 don't know how to. What am I to do? It's wicked!”
-(:pb)
+(pb)

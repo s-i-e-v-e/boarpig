@@ -1,4 +1,4 @@
-(:fw (:pg 36)(:h BEASTS AND SUPER-BEASTS))
+(fw (pg 36)(h BEASTS AND SUPER-BEASTS))
 
 kicking and twisting about as if they were demented,
 don't they?”

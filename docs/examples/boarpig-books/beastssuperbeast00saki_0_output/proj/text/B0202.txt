@@ -1,4 +1,4 @@
-(:fw (:pg 202)(:h BEASTS AND SUPER-BEASTS))
+(fw (pg 202)(h BEASTS AND SUPER-BEASTS))
 
 if one plays for small stakes one must have a decent
 prospect of paying one's losses.”

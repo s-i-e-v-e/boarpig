@@ -1,4 +1,4 @@
-(:fw (:h THE SEVENTH PULLET)(:pg 111))
+(fw (h THE SEVENTH PULLET)(pg 111))
 
 wrote from the North of Scotland recounting a
 similar episode which she had witnessed as occurring
@@ -31,4 +31,4 @@ private, gave him the same counsel as heretofore.
 “Invent something.”
 
 “Yes, but what?”
-(:pb)
+(pb)

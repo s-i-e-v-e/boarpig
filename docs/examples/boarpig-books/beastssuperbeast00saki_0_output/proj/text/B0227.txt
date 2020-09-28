@@ -1,4 +1,4 @@
-(:fw (:h THE STALLED OX)(:pg 227))
+(fw (h THE STALLED OX)(pg 227))
 
 “The man is mad!” exclaimed Adela tragically.
 A moment later it was Adela herself who appeared

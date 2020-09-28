@@ -1,4 +1,4 @@
-(:fw (:pg 214)(:h BEASTS AND SUPER-BEASTS))
+(fw (pg 214)(h BEASTS AND SUPER-BEASTS))
 
 and distraught Kestrel-Smiths, but he made no
 attempt to clothe his mental picture in words. The
@@ -23,7 +23,7 @@ know. If you were an army officer and had lost
 your identity you might pore over the Army List
 for months without finding out who your were. I'm
 going on another tack; I'm trying to find out by
-various little tests who I am (:i not)—that will narrow
+various little tests who I am (i not)—that will narrow
 the range of uncertainty down a bit. You may have
 noticed, for instance, that I'm lunching principally
 off lobster Newburg.”

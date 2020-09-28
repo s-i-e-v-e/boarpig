@@ -1,4 +1,4 @@
-(:fw (:pg 176)(:h BEASTS AND SUPER-BEASTS))
+(fw (pg 176)(h BEASTS AND SUPER-BEASTS))
 
 allurement of a cinematograph theatre and the
 prospect of light refreshment. As Cyprian was not
@@ -32,4 +32,4 @@ headed.
 “I didn't bring one with me,” he replied.
 
 Adela Chemping was slightly scandalised.
-(:pb)
+(pb)

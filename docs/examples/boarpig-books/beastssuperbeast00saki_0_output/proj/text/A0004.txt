@@ -1,1 +1,1 @@
-(:half-title (:h BEASTS AND SUPER-BEASTS))
+(half-title (h BEASTS AND SUPER-BEASTS))

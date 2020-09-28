@@ -1,4 +1,4 @@
-(:fw (:h THE FEAST OF NEMESIS)(:pg 169))
+(fw (h THE FEAST OF NEMESIS)(pg 169))
 
 list of ‘people who must not be left out.’ If I
 trusted to remembering them there would be some

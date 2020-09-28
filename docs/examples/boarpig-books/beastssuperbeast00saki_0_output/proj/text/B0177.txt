@@ -1,4 +1,4 @@
-(:fw (:h THE DREAMER)(:pg 177))
+(fw (h THE DREAMER)(pg 177))
 
 “You are not going to be what they call a Nut,
 are you?” she inquired with some anxiety, partly
@@ -34,4 +34,4 @@ as he followed his aunt; he belonged to a genera-
 tion that is supposed to be over-fond of the rôle
 of mere spectator, but looking at napkins that one
 
-(:fw (:sig N))
+(fw (sig N))

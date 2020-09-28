@@ -1,6 +1,6 @@
-(:fw (:pg 82)(:h BEASTS AND SUPER-BEASTS))
+(fw (pg 82)(h BEASTS AND SUPER-BEASTS))
 
-(:h THE UNKINDEST BLOW)
+(h THE UNKINDEST BLOW)
 
 THE season of strikes seemed to have run
 itself to a standstill. Almost every

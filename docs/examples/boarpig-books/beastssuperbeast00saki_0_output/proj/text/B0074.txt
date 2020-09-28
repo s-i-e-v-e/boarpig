@@ -1,4 +1,4 @@
-(:fw (:pg 74)(:h BEASTS AND SUPER-BEASTS))
+(fw (pg 74)(h BEASTS AND SUPER-BEASTS))
 
 turning to her sixteen-year-old niece, “be careful
 what colour ribbon you wear in your hair; not

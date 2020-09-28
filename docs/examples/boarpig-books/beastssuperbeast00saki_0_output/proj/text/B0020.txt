@@ -1,4 +1,4 @@
-(:fw (:pg 20)(:h BEASTS AND SUPER-BEASTS))
+(fw (pg 20)(h BEASTS AND SUPER-BEASTS))
 
 It was her friend and neighbour, Aurora Burret,
 who brought her news of the day's sport.
@@ -32,4 +32,4 @@ in a Cairo hotel.
 
 “What is the matter? What has happened?”
 she asked in amused curiosity.
-(:pb)
+(pb)

@@ -1,4 +1,4 @@
-(:fw (:pg 284)(:h BEASTS AND SUPER-BEASTS))
+(fw (pg 284)(h BEASTS AND SUPER-BEASTS))
 
 absorption of one who has much to think about; it
 was just possible, he considered, that the huntsman

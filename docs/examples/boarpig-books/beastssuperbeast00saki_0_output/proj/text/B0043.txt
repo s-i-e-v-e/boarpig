@@ -1,4 +1,4 @@
-(:fw (:h THE HEN)(:pg 43))
+(fw (h THE HEN)(pg 43))
 
 trouble I've had in getting suited this year you would
 hardly believe. But I don't see what you have to

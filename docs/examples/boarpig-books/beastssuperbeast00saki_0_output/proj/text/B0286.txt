@@ -1,4 +1,4 @@
-(:fw (:pg 286)(:h BEASTS AND SUPER-BEASTS))
+(fw (pg 286)(h BEASTS AND SUPER-BEASTS))
 
 one doesn't seem to have a desire in the world. Now
 it so happens that I have been very keen on a little

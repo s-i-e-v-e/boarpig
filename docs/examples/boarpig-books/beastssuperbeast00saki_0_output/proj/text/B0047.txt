@@ -1,4 +1,4 @@
-(:fw (:h THE HEN)(:pg 47))
+(fw (h THE HEN)(pg 47))
 
 “But he wouldn't be downright hostile to me on
 that account, would he?” Jane asked anxiously.

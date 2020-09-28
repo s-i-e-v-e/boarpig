@@ -1,4 +1,4 @@
-(:fw (:pg 66)(:h BEASTS AND SUPER-BEASTS))
+(fw (pg 66)(h BEASTS AND SUPER-BEASTS))
 
 talk of the days that had been; her shrill, quavering
 speech was of doors that had been left unfastened,

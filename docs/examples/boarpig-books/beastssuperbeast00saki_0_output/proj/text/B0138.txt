@@ -1,4 +1,4 @@
-(:fw (:pg 138)(:h BEASTS AND SUPER-BEASTS))
+(fw (pg 138)(h BEASTS AND SUPER-BEASTS))
 
 happened to be staying. No one had ever quite
 mastered the mechanism of this precious vessel,

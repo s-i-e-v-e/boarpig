@@ -1,4 +1,4 @@
-(:fw (:h THE NAME-DAY)(:pg 273))
+(fw (h THE NAME-DAY)(pg 273))
 
 When he looked at last a new sensation of scan-
 dalised astonishment took possession of him. He
@@ -24,4 +24,4 @@ A whistle sounded, and a relief engine made its
 appearance, snorting its way sulkily through the
 snow. Abbleway did not have the opportunity for
 finding out whether Karl was really avaricious.
-(:fw (:sig T))
+(fw (sig T))

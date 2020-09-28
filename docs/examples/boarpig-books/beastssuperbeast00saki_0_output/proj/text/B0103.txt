@@ -1,4 +1,4 @@
-(:fw (:h THE SCHARTZ-METTERKLUME METHOD)(:pg 103))
+(fw (h THE SCHARTZ-METTERKLUME METHOD)(pg 103))
 
 unexpected reply. “I am supposed to be Rome,
 and Viola up there is the she-wolf; not a real wolf,

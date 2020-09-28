@@ -1,4 +1,4 @@
-(:fw (:pg 230)(:h BEASTS AND SUPER-BEASTS))
+(fw (pg 230)(h BEASTS AND SUPER-BEASTS))
 
 The child moved reluctantly to the window.
 “Why are those sheep being driven out of that

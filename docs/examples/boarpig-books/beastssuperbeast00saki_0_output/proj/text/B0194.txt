@@ -1,4 +1,4 @@
-(:fw (:pg 194)(:h BEASTS AND SUPER-BEASTS))
+(fw (pg 194)(h BEASTS AND SUPER-BEASTS))
 
 time they've nested. As you say, they are almost
 the only pair known to be breeding in the whole
@@ -30,4 +30,4 @@ fully; “my husband's parting words when he went
 off to Norway were an injunction to see that those
 birds were not disturbed, and he's asked about them
 every time he's written. Do suggest something.”
-(:pb)
+(pb)

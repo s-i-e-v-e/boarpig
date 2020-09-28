@@ -1,4 +1,4 @@
-(:fw (:h THE ELK)(:pg 249))
+(fw (h THE ELK)(pg 249))
 
 party, was inclined to deduce hopeful augury from
 this circumstance. Dora Yonelet and Bertie were

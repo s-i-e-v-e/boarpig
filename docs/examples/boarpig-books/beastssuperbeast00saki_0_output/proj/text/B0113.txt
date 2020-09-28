@@ -1,4 +1,4 @@
-(:fw (:h THE SEVENTH PULLET)(:pg 113))
+(fw (h THE SEVENTH PULLET)(pg 113))
 
 “Presently a rather portly gentleman passed by
 her seat and paused an instant to light a cigar. At
@@ -29,4 +29,4 @@ His name was Henri Leturc.”
 
 From that moment Blenkinthrope was tacitly
 
-(:fw (:sig I))
+(fw (sig I))

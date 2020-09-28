@@ -1,6 +1,6 @@
-(:fw (:h DUSK)(:pg 125))
+(fw (h DUSK)(pg 125))
 
-(:h DUSK)
+(h DUSK)
 
 NORMAN GORTSBY sat on a bench in the
 Park, with his back to a strip of bush-

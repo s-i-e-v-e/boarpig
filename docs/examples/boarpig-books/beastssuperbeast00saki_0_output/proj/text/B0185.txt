@@ -1,4 +1,4 @@
-(:fw (:h THE QUINCE TREE)(:pg 185))
+(fw (h THE QUINCE TREE)(pg 185))
 
 should do anything that you ought not to do——”
 began Mrs. Bebberly Cumble impressively.
@@ -14,7 +14,7 @@ mind and demanded impatiently:
 “What is there in Betsy Mullen's cottage that
 you are making such a fuss about?”
 
-“It's hardly fair to say that (:i I)'ve made a fuss about
+“It's hardly fair to say that (i I)'ve made a fuss about
 it,” said Vera; “this is the first time I've mentioned
 the matter, but there's been no end of trouble and
 mystery and newspaper speculation about it. It's
@@ -34,4 +34,4 @@ quite as important and just as mysterious—if
 anything, rather more scandalous.”
 
 “Not the Dublin——?”
-(:pb)
+(pb)

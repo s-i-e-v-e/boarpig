@@ -1,6 +1,6 @@
-(:fw (:h THE BLIND SPOT)(:pg 117))
+(fw (h THE BLIND SPOT)(pg 117))
 
-(:h THE BLIND SPOT)
+(h THE BLIND SPOT)
 
 “YOU'VE just come back from Adelaide's
 funeral, haven't you?” said Sir Lul-
@@ -25,4 +25,4 @@ me of an English cook's idea of a Madras curry.”
 “She used to say you were frivolous,” said
 Egbert. Something in his tone suggested that he
 rather endorsed the verdict.
-(:pb)
+(pb)

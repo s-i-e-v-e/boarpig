@@ -1,8 +1,8 @@
-(:fw (:h A DEFENSIVE DIAMOND)(:pg 241))
+(fw (h A DEFENSIVE DIAMOND)(pg 241))
 
 hastily; long and complicated stories that were not
 told by himself were abominable in his eyes. He
-turned the pages of (:i Country Life) and became
+turned the pages of (i Country Life) and became
 spuriously interested in the picture of a Mongolian
 pheasant.
 
@@ -30,4 +30,4 @@ winged a pheasant, and brought it to earth with a
 feather or two knocked out of it; it was a runner,
 and my aunt saw herself in danger of being done
 
-(:fw (:sig R))
+(fw (sig R))

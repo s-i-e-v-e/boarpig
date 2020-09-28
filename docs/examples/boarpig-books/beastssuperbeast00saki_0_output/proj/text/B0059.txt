@@ -1,4 +1,4 @@
-(:fw (:h THE TREASURE-SHIP)(:pg 59))
+(fw (h THE TREASURE-SHIP)(pg 59))
 
 Somewhere on the west coast of Ireland the Dul-
 verton property included a few acres of shingle,
@@ -31,4 +31,4 @@ a sunken wreck to operate on, too!”
 
 “A wreck in Innisgluther Bay!” exclaimed
 Lulu.
-(:pb)
+(pb)

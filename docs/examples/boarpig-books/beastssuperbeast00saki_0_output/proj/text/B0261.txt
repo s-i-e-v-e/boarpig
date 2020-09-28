@@ -1,4 +1,4 @@
-(:fw (:h DOWN PENS)(:pg 261))
+(fw (h DOWN PENS)(pg 261))
 
 incident to the festive season, these should be
 swept away to give the season a chance of being

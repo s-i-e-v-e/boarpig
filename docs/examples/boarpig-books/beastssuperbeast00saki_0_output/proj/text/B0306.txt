@@ -1,4 +1,4 @@
-(:fw (:pg 306)(:h BEASTS AND SUPER-BEASTS))
+(fw (pg 306)(h BEASTS AND SUPER-BEASTS))
 
 fellow-guests, and commence the serious business
 of eating and drinking. When the coffee stage was

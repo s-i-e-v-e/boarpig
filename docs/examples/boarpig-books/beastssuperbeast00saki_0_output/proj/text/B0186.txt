@@ -1,4 +1,4 @@
-(:fw (:pg 186)(:h BEASTS AND SUPER-BEASTS))
+(fw (pg 186)(h BEASTS AND SUPER-BEASTS))
 
 Vera nodded.
 
@@ -33,4 +33,4 @@ even casually, must have been aware of the theft,
 and I should think the things were not hard to
 recognise. Mrs. Lamper has always had the reputa-
 tion of being a very conscientious woman.”
-(:pb)
+(pb)

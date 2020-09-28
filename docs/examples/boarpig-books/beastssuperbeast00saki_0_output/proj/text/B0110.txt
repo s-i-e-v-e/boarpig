@@ -1,4 +1,4 @@
-(:fw (:pg 110)(:h BEASTS AND SUPER-BEASTS))
+(fw (pg 110)(h BEASTS AND SUPER-BEASTS))
 
 “By a snake?” came in excited chorus.
 

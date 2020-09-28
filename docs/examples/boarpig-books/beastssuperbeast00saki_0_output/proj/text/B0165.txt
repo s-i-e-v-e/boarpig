@@ -1,4 +1,4 @@
-(:fw (:h THE BYZANTINE OMELETTE)(:pg 165))
+(fw (h THE BYZANTINE OMELETTE)(pg 165))
 
 “Henry? He's in worse case than any of us.
 His man is the only person who really understands
@@ -10,8 +10,8 @@ one evening,” said Sophie; “I can't appear without
 hair, but a Turkish bath is a luxury.”
 
 “My good woman,” said Catherine, speaking
-with a fearful intensity, “Henry was (:i in) the bath
-when the strike started. (:i In) it, do you understand?
+with a fearful intensity, “Henry was (i in) the bath
+when the strike started. (i In) it, do you understand?
 He's there now.”
 
 “Can't he get out?”

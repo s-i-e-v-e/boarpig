@@ -1,4 +1,4 @@
-(:fw (:h THE OPEN WINDOW)(:pg 51))
+(fw (h THE OPEN WINDOW)(pg 51))
 
 lady to whom he was presenting one of the letters
 of introduction, came into the nice division.
@@ -35,4 +35,4 @@ this restful country spot tragedies seemed out of place.
 wide open on an October afternoon,” said the niece,
 indicating a large French window that opened on to
 a lawn.
-(:pb)
+(pb)

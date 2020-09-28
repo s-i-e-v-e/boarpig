@@ -1,6 +1,6 @@
-(:fw (:pg 40)(:h BEASTS AND SUPER-BEASTS))
+(fw (pg 40)(h BEASTS AND SUPER-BEASTS))
 
-(:h THE HEN)
+(h THE HEN)
 
 “DORA BITTHOLZ is coming on Thurs
 day,” said Mrs. Sangrail.
@@ -28,4 +28,4 @@ sanatorium.”
 
 “But what has happened? Has some one been
 making mischief?”
-(:pb)
+(pb)

@@ -1,4 +1,4 @@
-(:fw (:h THE COBWEB)(:pg 72))
+(fw (h THE COBWEB)(pg 72))
 
 stood she could see an angle of the long latticed
 window that was to have been cosy with curtains

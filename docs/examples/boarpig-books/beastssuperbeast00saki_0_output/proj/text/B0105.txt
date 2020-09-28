@@ -1,4 +1,4 @@
-(:fw (:h THE SCHARTZ-METTERKLUME METHOD)(:pg 105))
+(fw (h THE SCHARTZ-METTERKLUME METHOD)(pg 105))
 
 destined to leave a trail of embarrassment behind
 her.

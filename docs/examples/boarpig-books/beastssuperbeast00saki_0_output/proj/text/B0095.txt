@@ -1,4 +1,4 @@
-(:fw (:h THE ROMANCERS)(:pg 95))
+(fw (h THE ROMANCERS)(pg 95))
 
 “There would be a certain preliminary,” said
 Crosby; “one would take him to a wine-shop and
@@ -31,4 +31,4 @@ began the greybeard fawningly, edging nearer on the
 seat and hurriedly wondering how large he might
 safely make his request, “if I was to ask you for,
 say——”
-(:pb)
+(pb)

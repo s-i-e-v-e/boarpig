@@ -1,4 +1,4 @@
-(:fw (:h THE BOAR-PIG)(:pg 23))
+(fw (h THE BOAR-PIG)(pg 23))
 
 tions as to why we weren't there than to get in by
 a roundabout way. I stopped Mrs. Cuvering in

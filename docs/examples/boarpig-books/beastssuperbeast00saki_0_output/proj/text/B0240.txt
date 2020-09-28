@@ -1,4 +1,4 @@
-(:fw (:pg 240)(:h BEASTS AND SUPER-BEASTS))
+(fw (pg 240)(h BEASTS AND SUPER-BEASTS))
 
 arm-chair. For a twelvemonth and some odd weeks
 Treddleford had skilfully avoided making the
@@ -12,7 +12,7 @@ There was no escape; in another moment he would
 be numbered among those who knew Amblecope
 to speak to—or rather, to suffer being spoken to.
 
-The intruder was armed with a copy of (:i Country
+The intruder was armed with a copy of (i Country
 Life), not for purposes of reading, but as an aid to
 conversational ice-breaking.
 

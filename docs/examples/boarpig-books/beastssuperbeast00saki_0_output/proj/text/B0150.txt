@@ -1,4 +1,4 @@
-(:fw (:pg 150)(:h BEASTS AND SUPER-BEASTS))
+(fw (pg 150)(h BEASTS AND SUPER-BEASTS))
 
 knighted him. Yes, you can put him down on the
 list of certainties—under the letter L.”

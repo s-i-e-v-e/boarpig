@@ -1,4 +1,4 @@
-(:fw (:pg 252)(:h BEASTS AND SUPER-BEASTS))
+(fw (pg 252)(h BEASTS AND SUPER-BEASTS))
 
 its temper. There are muffins in the grate. It's
 not my fault; I've tried to get it a mate for ever
@@ -31,4 +31,4 @@ of sameness in country life, you know.”
 
 “It seems to be a very dangerous animal,” said
 one of the guests.
-(:pb)
+(pb)

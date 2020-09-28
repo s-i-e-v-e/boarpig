@@ -1,4 +1,4 @@
-(:fw (:h COUSIN TERESA)(:pg 145))
+(fw (h COUSIN TERESA)(pg 145))
 
 the exchange. His half-brother was in the habit
 of discovering futilities that were “simply It” at
@@ -14,12 +14,12 @@ The great idea was generally forgotten a few weeks
 later in the excitement of some new discovery.
 
 “The inspiration came to me whilst I was dress-
-ing,” announced Lucas; “it will be (:i the) thing in the
-next music-hall (:i revue). All London will go mad over
+ing,” announced Lucas; “it will be (i the) thing in the
+next music-hall (i revue). All London will go mad over
 it. It's just a couplet; of course there will be
 other words, but they won't matter. Listen:
 
-(:quote Cousin Teresa takes out Cæsar,(:lb)
+(quote Cousin Teresa takes out Cæsar,(lb)
 Fido, Jock, and the big borzoi.)
 
 A lilting, catchy sort of refrain, you see, and big-
@@ -31,4 +31,4 @@ through, followed by four wooden dogs on wheels;
 Cæsar will be an Irish terrier, Fido a black poodle,
 Jock a fox-terrier, and the borzoi, of course, will be
 
-(:fw (:sig L))
+(fw (sig L))

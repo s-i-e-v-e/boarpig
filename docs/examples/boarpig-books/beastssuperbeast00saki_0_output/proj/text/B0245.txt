@@ -1,4 +1,4 @@
-(:fw (:h A DEFENSIVE DIAMOND)(:pg 245))
+(fw (h A DEFENSIVE DIAMOND)(pg 245))
 
 wouldn't care for the loan of a couple of my camels?’
 the showman suggested, in humorous sympathy.

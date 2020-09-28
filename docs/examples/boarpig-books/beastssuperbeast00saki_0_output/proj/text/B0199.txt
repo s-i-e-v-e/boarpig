@@ -1,4 +1,4 @@
-(:fw (:h THE STAKE)(:pg 199))
+(fw (h THE STAKE)(pg 199))
 
 “Why do you let him go there?” asked Eleanor
 Saxelby.

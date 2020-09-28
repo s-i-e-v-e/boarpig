@@ -1,11 +1,11 @@
-(:fw (:pg 6)(:h BEASTS AND SUPER-BEASTS))
+(fw (pg 6)(h BEASTS AND SUPER-BEASTS))
 
 His aunt ensured a respectful hearing for his utter-
 ances, but her sensation-loving soul hankered after
 something more dramatic than mere vocal demon-
 stration.
 
-“Won't you do something to (:i convince) them of
+“Won't you do something to (i convince) them of
 your powers, Leonard?” she pleaded; “change
 something into another shape. He can, you know,
 if he only chooses to,” she informed the company.

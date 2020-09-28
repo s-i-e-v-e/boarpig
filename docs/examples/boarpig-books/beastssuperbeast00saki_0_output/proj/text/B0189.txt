@@ -1,4 +1,4 @@
-(:fw (:h THE QUINCE TREE)(:pg 189))
+(fw (h THE QUINCE TREE)(pg 189))
 
 soup twice a week and my aunt's doctor to see her
 whenever she has a finger ache.”

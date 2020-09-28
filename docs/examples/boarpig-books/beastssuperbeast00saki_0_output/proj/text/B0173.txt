@@ -1,4 +1,4 @@
-(:fw (:h THE FEAST OF NEMESIS)(:pg 173))
+(fw (h THE FEAST OF NEMESIS)(pg 173))
 
 long interval of waiting, before they had quite
 abandoned hope of the lunch turning up, you could

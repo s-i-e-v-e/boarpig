@@ -101,15 +101,15 @@ function create_project_file(s: State<string[]>, strip: Set<string>) {
 		return;
 	}
 
-	const push_blank = () => s.data.push(`(:${nt.name})`);
+	const push_blank = () => s.data.push(`(${nt.name})`);
 
 	const push_block = () => {
-		s.data.push(`(:${nt.name}\n`);
+		s.data.push(`(${nt.name}\n`);
 		s.do_nodes(s);
 		s.data.push(`)`);
 	};
 	const push_inline = () => {
-		s.data.push(`(:${nt.name} `);
+		s.data.push(`(${nt.name} `);
 		s.do_nodes(s);
 		s.data.push(`)`);
 	};
@@ -139,6 +139,7 @@ function create_project_file(s: State<string[]>, strip: Set<string>) {
 		case 'year':
 		case 'lang':
 		case 'source':
+		case 'sec':
 		case 'p': {
 			push_inline();
 			s.data.push('\n');
@@ -146,7 +147,7 @@ function create_project_file(s: State<string[]>, strip: Set<string>) {
 		}
 		case 'h': {
 			push_inline();
-			if (parent === 'project' || parent === 'full-title') s.data.push('\n');
+			if (parent === 'project' || parent === 'sec' ||parent === 'full-title') s.data.push('\n');
 			break;
 		}
 		case 'jw':
@@ -154,6 +155,7 @@ function create_project_file(s: State<string[]>, strip: Set<string>) {
 			push_blank();
 			break;
 		}
+		case 'toc':
 		case 'sb': {
 			push_blank();
 			s.data.push('\n');
@@ -193,7 +195,7 @@ function textify_project(n: Node) {
 		strip = strip || new Set();
 		const ys: string[] = [];
 		process_ast(build_fn_create_project_file(strip), (s: State<string[]>) => s.data.push(s.n.value), n, ys);
-		return ys.join('').trim();
+		return ys.join('').trim().replaceAll(/\s*\(lb\)\s*/g, '(lb)').replaceAll(/[ ]+\)/g, ')');
 	};
 
 	const to_plaintext = (strip?: Set<string>) => {

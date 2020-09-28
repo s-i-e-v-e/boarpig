@@ -1,4 +1,4 @@
-(:fw (:h A TOUCH OF REALISM)(:pg 137))
+(fw (h A TOUCH OF REALISM)(pg 137))
 
 The close time for impersonation efforts came to
 an end with the final withdrawal of Moritz and

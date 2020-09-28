@@ -1,6 +1,6 @@
-(:fw (:h LAURA)(:pg 13))
+(fw (h LAURA)(pg 13))
 
-(:h LAURA)
+(h LAURA)
 
 “YOU are not really dying, are you?” asked
 Amanda.
@@ -28,4 +28,4 @@ when circumstances have seemed to warrant it.”
 
 “Circumstances never warrant that sort of
 thing,” said Amanda hastily.
-(:pb)
+(pb)

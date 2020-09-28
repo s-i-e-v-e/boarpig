@@ -133,7 +133,7 @@ function updateTextSelection(e, fn) {
 }
 
 function addTag(e, tag, fn) {
-	return updateTextSelection(e, (v) => `(:${tag} ${fn ? fn(v) : v})`);
+	return updateTextSelection(e, (v) => `(${tag} ${fn ? fn(v) : v})`);
 }
 
 function addItalics(e) {
@@ -151,7 +151,7 @@ function addPageNum(e) {
 function addParaBreak(e) {
 	e.preventDefault();
 	const text = getTextControl();
-	text.value = text.value + '\n(:pb)'
+	text.value = text.value + '\n(pb)'
 	text.setSelectionRange(text.value.length, text.value.length);
 	text.focus();
 	return false;
@@ -159,16 +159,16 @@ function addParaBreak(e) {
 
 function addFormWork(e) {
 	const fn = (v) => {
-		if (v.length === 1 && v.search(/[A-Z]/g) === 0) return `(:sig ${v})`;
+		if (v.length === 1 && v.search(/[A-Z]/g) === 0) return `(sig ${v})`;
 
-		const a = v.replaceAll(/([0-9]+)\s+(.*)/gi, '(:pg $1)(:h $2)');
+		const a = v.replaceAll(/([0-9]+)\s+(.*)/gi, '(pg $1)(h $2)');
 		if (a.length === v.length) {
 			const n = v.lastIndexOf(' ');
 			if (n) {
 				const b1 = v.substring(0, n);
 				const b2 = Number(v.substring(n +1));
 				if (!isNaN(b2)) {
-					v = `(:h ${b1})(:pg ${b2})`;
+					v = `(h ${b1})(pg ${b2})`;
 				}
 			}
 		}

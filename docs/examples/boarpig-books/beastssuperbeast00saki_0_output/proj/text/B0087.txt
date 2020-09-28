@@ -1,4 +1,4 @@
-(:fw (:h THE UNKINDEST BLOW)(:pg 87))
+(fw (h THE UNKINDEST BLOW)(pg 87))
 
 human enterprise could go nothing was lacking to
 make the trial a success.
@@ -36,4 +36,4 @@ are contemplating a mutual withdrawal of the
 charges?”
 
 “Precisely,” said the Duke.
-(:pb)
+(pb)

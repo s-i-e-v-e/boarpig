@@ -1,4 +1,4 @@
-(:fw (:h THE PHILANTHROPIST)(:pg 299))
+(fw (h THE PHILANTHROPIST)(pg 299))
 
 appearance a few years younger than herself, very
 much better looking than Gregory, rather better

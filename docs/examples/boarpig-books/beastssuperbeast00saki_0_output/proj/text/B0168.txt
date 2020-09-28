@@ -1,6 +1,6 @@
-(:fw (:pg 168)(:h BEASTS AND SUPER-BEASTS))
+(fw (pg 168)(h BEASTS AND SUPER-BEASTS))
 
-(:h THE FEAST OF NEMESIS)
+(h THE FEAST OF NEMESIS)
 
 “IT'S a good thing that Saint Valentine's Day
 has dropped out of vogue,” said Mrs.

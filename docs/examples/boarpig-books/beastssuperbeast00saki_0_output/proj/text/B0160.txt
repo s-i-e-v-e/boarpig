@@ -1,6 +1,6 @@
-(:fw (:pg 160)(:h BEASTS AND SUPER-BEASTS))
+(fw (pg 160)(h BEASTS AND SUPER-BEASTS))
 
-(:h THE BYZANTINE OMELETTE)
+(h THE BYZANTINE OMELETTE)
 
 SOPHIE CHATTEL-MONKHEIM was a
 Socialist by conviction and a Chattel-Monk-

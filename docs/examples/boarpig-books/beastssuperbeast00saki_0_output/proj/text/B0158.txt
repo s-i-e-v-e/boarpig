@@ -1,4 +1,4 @@
-(:fw (:pg 158)(:h BEASTS AND SUPER-BEASTS))
+(fw (pg 158)(h BEASTS AND SUPER-BEASTS))
 
 advantageous object as the repatriation of an errant
 newspaper staff. So he drew the editorial and other

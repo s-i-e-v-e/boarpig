@@ -1,4 +1,4 @@
-(:fw (:h THE UNKINDEST BLOW)(:pg 85))
+(fw (h THE UNKINDEST BLOW)(pg 85))
 
 in that direction. It began to be generally under-
 stood that he did not intend to supplement his

@@ -1,4 +1,4 @@
-(:fw (:h FUR)(:pg 293))
+(fw (h FUR)(pg 293))
 
 people of wealth who take a pleasure in giving good
 presents,” came the reply.

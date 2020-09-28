@@ -1,6 +1,6 @@
-(:fw (:h THE BROGUE)(:pg 31))
+(fw (h THE BROGUE)(pg 31))
 
-(:h THE BROGUE)
+(h THE BROGUE)
 
 THE hunting season had come to an end,
 and the Mullets had not succeeded in

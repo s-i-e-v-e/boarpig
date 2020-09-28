@@ -1,4 +1,4 @@
-(:fw (:pg 222)(:h BEASTS AND SUPER-BEASTS))
+(fw (pg 222)(h BEASTS AND SUPER-BEASTS))
 
 “Oh, I don't know what kind,” snapped the lady.
 “A common or garden ox, to use the slang expres-

@@ -1,4 +1,4 @@
-(:fw (:h THE BLIND SPOT)(:pg 119))
+(fw (h THE BLIND SPOT)(pg 119))
 
 abstracted silence, the silence of a man whose mind
 is focussed on one topic. When the coffee stage had
@@ -34,4 +34,4 @@ caused by violent contact with the steps could not
 possibly have been inflicted at that angle of the
 skull. They experimented with a dummy figure falling
 in every conceivable position.”
-(:pb)
+(pb)

@@ -1,4 +1,4 @@
-(:fw (:pg 154)(:h BEASTS AND SUPER-BEASTS))
+(fw (pg 154)(h BEASTS AND SUPER-BEASTS))
 
 commenced at Baku on ‘What Cobdenism might
 do for the camel industry’ ranks among the best

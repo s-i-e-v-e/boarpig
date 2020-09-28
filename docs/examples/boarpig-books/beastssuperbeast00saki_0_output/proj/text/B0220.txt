@@ -1,6 +1,6 @@
-(:fw (:pg 220)(:h BEASTS AND SUPER-BEASTS))
+(fw (pg 220)(h BEASTS AND SUPER-BEASTS))
 
-(:h THE STALLED OX)
+(h THE STALLED OX)
 
 THEOPHIL ESHLEY was an artist by pro-
 fession, a cattle painter by force of environ-

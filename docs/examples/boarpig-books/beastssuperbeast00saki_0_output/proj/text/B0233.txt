@@ -1,4 +1,4 @@
-(:fw (:h THE STORY-TELLER)(:pg 233))
+(fw (h THE STORY-TELLER)(pg 233))
 
 truthful, she kept her clothes clean, ate milk pud-
 dings as though they were jam tarts, learned her

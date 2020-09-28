@@ -1,4 +1,4 @@
-(:fw (:h DOWN PENS)(:pg 259))
+(fw (h DOWN PENS)(pg 259))
 
 Again Janetta laid down her pen.
 
@@ -34,4 +34,4 @@ sent.”
 “What did she send?”
 
 “I forget; I think it was a calendar.”
-(:pb)
+(pb)

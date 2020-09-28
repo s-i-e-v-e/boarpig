@@ -1,4 +1,4 @@
-(:fw (:h DOWN PENS)(:pg 257))
+(fw (h DOWN PENS)(pg 257))
 
 “and I've had my usual business correspondence
 to get through, too. Besides, I don't know what it
@@ -32,7 +32,7 @@ laying down her pen.
 says to me,” protested Egbert.
 
 “We sent them something on the twenty-second,”
-said Janetta, “so they simply (:i had) to think of us.
+said Janetta, “so they simply (i had) to think of us.
 There was no getting away from it.”
-(:pb)
-(:fw (:sig S))
+(pb)
+(fw (sig S))

@@ -1,4 +1,4 @@
-(:fw (:pg 92)(:h BEASTS AND SUPER-BEASTS))
+(fw (pg 92)(h BEASTS AND SUPER-BEASTS))
 
 The greybeard moved uneasily in his seat; then
 he opened up new country.

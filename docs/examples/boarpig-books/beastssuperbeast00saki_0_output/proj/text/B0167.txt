@@ -1,4 +1,4 @@
-(:fw (:h THE BYZANTINE OMELETTE)(:pg 167))
+(fw (h THE BYZANTINE OMELETTE)(pg 167))
 
 “There is no dinner, madame,” he said gravely;
 “the kitchen staff have ‘downed tools.’ Gaspare

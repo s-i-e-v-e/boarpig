@@ -1,4 +1,4 @@
-(:fw (:pg 34)(:h BEASTS AND SUPER-BEASTS))
+(fw (pg 34)(h BEASTS AND SUPER-BEASTS))
 
 sooner. Yesterday, at the Rectory garden party,
 he asked her what her favourite flowers were, and

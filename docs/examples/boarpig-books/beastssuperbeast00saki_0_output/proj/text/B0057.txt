@@ -1,4 +1,4 @@
-(:fw (:h THE TREASURE-SHIP)(:pg 57))
+(fw (h THE TREASURE-SHIP)(pg 57))
 
 which the said treasure might be precisely located
 and cheaply disembedded. An aunt on her mother's

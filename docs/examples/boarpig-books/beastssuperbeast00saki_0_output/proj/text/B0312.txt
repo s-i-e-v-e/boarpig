@@ -1,4 +1,4 @@
-(:fw (:pg 312)(:h BEASTS AND SUPER-BEASTS))
+(fw (pg 312)(h BEASTS AND SUPER-BEASTS))
 
 When one is in a hurry one must pay what one is
 asked. God be thanked for rich Americans, who are

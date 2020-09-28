@@ -1,4 +1,4 @@
-(:fw (:pg 122)(:h BEASTS AND SUPER-BEASTS))
+(fw (pg 122)(h BEASTS AND SUPER-BEASTS))
 
 at last into a deferred inheritance of conversa-
 tional importance, “that is precisely what I want
@@ -31,4 +31,4 @@ patiently.
 “It's a long rambling affair, like most of his
 letters in his later years,” said Egbert. “I'll read
 the part that bears immediately on the mystery.
-(:pb)
+(pb)

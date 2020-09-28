@@ -1,4 +1,4 @@
-(:fw (:h THE SEVENTH PULLET)(:pg 109))
+(fw (h THE SEVENTH PULLET)(pg 109))
 
 attained to a recognised brevet of importance through
 the fact of an uncle having dropped dead in the act
@@ -33,4 +33,4 @@ that in the way of unlooked-for bad luck.”
 “I had six pullets out of a pen of seven killed by a
 snake yesterday afternoon,” said Blenkinthrope,
 in a voice which he hardly recognised as his own.
-(:pb)
+(pb)

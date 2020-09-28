@@ -1,4 +1,4 @@
-(:fw (:pg 100)(:h BEASTS AND SUPER-BEASTS))
+(fw (pg 100)(h BEASTS AND SUPER-BEASTS))
 
 “Russian? My dear Miss Hope, no one in the
 house speaks or understands Russian.”

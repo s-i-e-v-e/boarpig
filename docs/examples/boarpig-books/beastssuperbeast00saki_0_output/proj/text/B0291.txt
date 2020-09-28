@@ -1,4 +1,4 @@
-(:fw (:h FUR)(:pg 291))
+(fw (h FUR)(pg 291))
 
 girl. A fan is always useful; she'll be going to a
 lot of dances at Davos this winter. Yes, I should
@@ -27,4 +27,4 @@ shouldn't feel that way. Look, there is the fan
 counter, on your left; you can easily slip away in
 the crowd. Get her as nice a one as you can see—
 she is such a dear, dear girl.”
-(:pb)
+(pb)

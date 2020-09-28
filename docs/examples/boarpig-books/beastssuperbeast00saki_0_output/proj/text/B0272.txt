@@ -1,4 +1,4 @@
-(:fw (:pg 272)(:h BEASTS AND SUPER-BEASTS))
+(fw (pg 272)(h BEASTS AND SUPER-BEASTS))
 
 Kleophä would not permit it,” said the woman with
 provoking calm.
@@ -32,4 +32,4 @@ figures rushed upon her from the forest. No doubt
 she had courted her fate, but Abbleway had no
 wish to see a human being torn to pieces and devoured
 before his eyes.
-(:pb)
+(pb)

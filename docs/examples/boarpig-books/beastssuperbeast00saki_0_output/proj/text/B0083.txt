@@ -1,4 +1,4 @@
-(:fw (:h THE UNKINDEST BLOW)(:pg 83))
+(fw (h THE UNKINDEST BLOW)(pg 83))
 
 the Government of the afternoon, was obliged to
 intervene with promptitude and decision. A strong

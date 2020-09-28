@@ -1,4 +1,4 @@
-(:fw (:h DUSK)(:pg 127))
+(fw (h DUSK)(pg 127))
 
 in observing and labelling his fellow wanderers as
 they went their ways in the dark stretches between

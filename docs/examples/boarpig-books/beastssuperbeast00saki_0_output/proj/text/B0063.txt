@@ -1,6 +1,6 @@
-(:fw (:h THE COBWEB)(:pg 63))
+(fw (h THE COBWEB)(pg 63))
 
-(:h THE COBWEB)
+(h THE COBWEB)
 
 THE farmhouse kitchen probably stood
 where it did as a matter of accident or

@@ -1,4 +1,4 @@
-(:fw (:pg 238)(:h BEASTS AND SUPER-BEASTS))
+(fw (pg 238)(h BEASTS AND SUPER-BEASTS))
 
 “At any rate,” said the bachelor, collecting his
 belongings preparatory to leaving the carriage, “I

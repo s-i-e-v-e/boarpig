@@ -1,4 +1,4 @@
-(:fw (:h LAURA)(:pg 17))
+(fw (h LAURA)(pg 17))
 
 “that one can hardly set them down as being mad.
 And Laura was such an unaccountable person in
@@ -33,5 +33,5 @@ space of time.”
 feet all over the place, and we followed the tracks
 down to the stream at the bottom of the garden;
 evidently an otter.”
-(:pb)
-(:fw (:sig C))
+(pb)
+(fw (sig C))

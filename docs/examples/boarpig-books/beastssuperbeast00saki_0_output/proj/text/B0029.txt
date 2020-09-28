@@ -1,8 +1,8 @@
-(:fw (:h THE BOAR-PIG)(:pg 29))
+(fw (h THE BOAR-PIG)(pg 29))
 
 be able to do the pale, fragile, not-long-for-this-
 world business to perfection after his raspberry
-trifle experience. Yes, he'll be (:i quite) two pounds
+trifle experience. Yes, he'll be (i quite) two pounds
 ahead of me by now.”
 
 With much probing and plucking and many
@@ -24,7 +24,7 @@ under their breath, in which the word “beast”
 was prominent, and probably had no reference to
 Tarquin.
 
-“I find I (:i have) got another half-crown,” said
+“I find I (i have) got another half-crown,” said
 Mrs. Stossen in a shaking voice; “here you are.
 Now please fetch some one quickly.”
 

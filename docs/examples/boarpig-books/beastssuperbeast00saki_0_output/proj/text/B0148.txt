@@ -1,4 +1,4 @@
-(:fw (:pg 148)(:h BEASTS AND SUPER-BEASTS))
+(fw (pg 148)(h BEASTS AND SUPER-BEASTS))
 
 blue blazoned the words “Cousin Teresa” from the
 front of the great palace of pleasure. And, of course,

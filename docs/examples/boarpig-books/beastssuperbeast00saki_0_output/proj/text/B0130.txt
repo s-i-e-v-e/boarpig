@@ -1,4 +1,4 @@
-(:fw (:pg 130)(:h BEASTS AND SUPER-BEASTS))
+(fw (pg 130)(h BEASTS AND SUPER-BEASTS))
 
 He threw a good deal of warmth into the last
 remark, as though perhaps to indicate his hope

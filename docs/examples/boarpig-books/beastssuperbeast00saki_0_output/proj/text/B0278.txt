@@ -1,4 +1,4 @@
-(:fw (:pg 278)(:h BEASTS AND SUPER-BEASTS))
+(fw (pg 278)(h BEASTS AND SUPER-BEASTS))
 
 part of the afternoon. Having thoroughly confirmed
 and fortified her suspicions Nicholas slipped back

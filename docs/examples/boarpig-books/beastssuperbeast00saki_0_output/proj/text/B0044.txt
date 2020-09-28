@@ -1,4 +1,4 @@
-(:fw (:pg 44)(:h BEASTS AND SUPER-BEASTS))
+(fw (pg 44)(h BEASTS AND SUPER-BEASTS))
 
 and superintend exactly what silver and glass and
 table linen shall be used and set out on what occa-

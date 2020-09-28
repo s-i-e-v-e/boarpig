@@ -1,4 +1,4 @@
-(:fw (:h THE LUMBER ROOM)(:pg 281))
+(fw (h THE LUMBER ROOM)(pg 281))
 
 or wood-pigeon; here were herons and bustards,
 kites, toucans, tiger-bitterns, brush turkeys, ibises,
@@ -30,4 +30,4 @@ it. Then he crept from the room, locked the door,
 and replaced the key exactly where he had found it.
 His aunt was still calling his name when he sauntered
 into the front garden.
-(:pb)
+(pb)

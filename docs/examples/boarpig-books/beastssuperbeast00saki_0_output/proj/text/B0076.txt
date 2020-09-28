@@ -1,4 +1,4 @@
-(:fw (:pg 76)(:h BEASTS AND SUPER-BEASTS))
+(fw (pg 76)(h BEASTS AND SUPER-BEASTS))
 
 “nothing but a waste of dark, swirling waters.
 The reservoir at Brinkley has burst.”

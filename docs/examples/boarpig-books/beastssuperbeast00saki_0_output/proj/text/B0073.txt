@@ -1,6 +1,6 @@
-(:fw (:h THE LULL)(:pg 73))
+(fw (h THE LULL)(pg 73))
 
-(:h THE LULL)
+(h THE LULL)
 
 “I'VE asked Latimer Springfield to spend Sun-
 day with us and stop the night,” announced

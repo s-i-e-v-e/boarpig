@@ -1,4 +1,4 @@
-(:fw (:h THE STORY-TELLER)(:pg 231))
+(fw (h THE STORY-TELLER)(pg 231))
 
 over and over again in a dreamy but resolute and
 very audible voice; it seemed to the bachelor as
@@ -32,4 +32,4 @@ wanted to ask.
 “Well, yes,” admitted the aunt lamely, “but I
 don't think they would have run quite so fast to
 her help if they had not liked her so much.”
-(:pb)
+(pb)

@@ -1,6 +1,6 @@
-(:fw (:pg 50)(:h BEASTS AND SUPER-BEASTS))
+(fw (pg 50)(h BEASTS AND SUPER-BEASTS))
 
-(:h THE OPEN WINDOW)
+(h THE OPEN WINDOW)
 
 “MY aunt will be down presently, Mr.
 Nuttel,” said a very self-possessed

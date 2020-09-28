@@ -1,4 +1,4 @@
-(:fw (:pg 116)(:h BEASTS AND SUPER-BEASTS))
+(fw (pg 116)(h BEASTS AND SUPER-BEASTS))
 
 be taken up to the office of one of the halfpenny
 dailies. But in both cases his reputation as a

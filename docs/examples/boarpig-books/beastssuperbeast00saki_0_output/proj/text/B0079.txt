@@ -1,4 +1,4 @@
-(:fw (:h THE LULL)(:pg 79))
+(fw (h THE LULL)(pg 79))
 
 luxuriously contrived piggeries were notably deficient.
 The sharp edge of the underneath part of the bed

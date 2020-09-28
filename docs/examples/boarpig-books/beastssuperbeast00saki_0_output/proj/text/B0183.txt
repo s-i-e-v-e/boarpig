@@ -1,6 +1,6 @@
-(:fw (:h THE QUINCE TREE)(:pg 183))
+(fw (h THE QUINCE TREE)(pg 183))
 
-(:h THE QUINCE TREE)
+(h THE QUINCE TREE)
 
 “I'VE just been to see old Betsy Mullen,”
 announced Vera to her aunt, Mrs. Bebberly

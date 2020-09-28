@@ -1,4 +1,4 @@
-(:fw (:pg 280)(:h BEASTS AND SUPER-BEASTS))
+(fw (pg 280)(h BEASTS AND SUPER-BEASTS))
 
 trees, and in any case would the man and his dogs
 be able to cope with the four wolves if they made

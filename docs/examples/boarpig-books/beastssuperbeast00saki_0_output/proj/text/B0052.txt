@@ -1,4 +1,4 @@
-(:fw (:pg 52)(:h BEASTS AND SUPER-BEASTS))
+(fw (pg 52)(h BEASTS AND SUPER-BEASTS))
 
 “It is quite warm for the time of the year,” said
 Framton; “but has that window got anything to
@@ -28,4 +28,4 @@ did to tease her, because she said it got on her
 nerves. Do you know, sometimes on still, quiet even-
 ings like this, I almost get a creepy feeling that they
 will all walk in through that window——”
-(:pb)
+(pb)

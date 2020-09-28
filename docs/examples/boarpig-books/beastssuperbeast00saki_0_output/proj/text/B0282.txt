@@ -1,4 +1,4 @@
-(:fw (:pg 282)(:h BEASTS AND SUPER-BEASTS))
+(fw (pg 282)(h BEASTS AND SUPER-BEASTS))
 
 “Who's calling?” he asked.
 

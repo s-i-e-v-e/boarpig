@@ -1,4 +1,4 @@
-(:fw (:h THE BROGUE)(:pg 37))
+(fw (h THE BROGUE)(pg 37))
 
 far all's well, but about the Brogue it's a different
 matter. I told him the legend about the stable,

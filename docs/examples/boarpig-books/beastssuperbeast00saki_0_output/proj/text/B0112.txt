@@ -1,4 +1,4 @@
-(:fw (:pg 112)(:h BEASTS AND SUPER-BEASTS))
+(fw (pg 112)(h BEASTS AND SUPER-BEASTS))
 
 The ready affirmative coupled with the question
 betrayed a significant shifting of the ethical stand-
@@ -33,4 +33,4 @@ company. Blenkinthrope's aunts were not used
 to taking champagne in the middle of the year,
 regarding it exclusively as a Christmas and New Year
 accessory.
-(:pb)
+(pb)

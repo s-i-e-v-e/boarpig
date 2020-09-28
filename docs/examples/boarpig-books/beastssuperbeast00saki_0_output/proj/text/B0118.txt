@@ -1,4 +1,4 @@
-(:fw (:pg 118)(:h BEASTS AND SUPER-BEASTS))
+(fw (pg 118)(h BEASTS AND SUPER-BEASTS))
 
 “I believe I once considerably scandalised her by
 declaring that clear soup was a more important factor

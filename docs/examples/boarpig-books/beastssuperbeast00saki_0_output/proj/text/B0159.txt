@@ -1,4 +1,4 @@
-(:fw (:h THE YARKAND MANNER)(:pg 159))
+(fw (h THE YARKAND MANNER)(pg 159))
 
 tear himself away from the wild liberty and allure-
 ments of Eastern life, and was going to spend several

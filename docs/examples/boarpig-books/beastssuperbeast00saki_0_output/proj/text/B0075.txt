@@ -1,4 +1,4 @@
-(:fw (:h THE LULL)(:pg 75))
+(fw (h THE LULL)(pg 75))
 
 he was immersed in a sheaf of notes and pamphlets,
 while a fountain-pen and pocket-book were brought

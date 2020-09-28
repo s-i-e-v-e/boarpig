@@ -1,6 +1,6 @@
-(:fw (:h COUSIN TERESA)(:pg 143))
+(fw (h COUSIN TERESA)(pg 143))
 
-(:h COUSIN TERESA)
+(h COUSIN TERESA)
 
 BASSET HARROWCLUFF returned to the
 home of his fathers, after an absence of

@@ -1,4 +1,4 @@
-(:fw (:h THE NAME-DAY)(:pg 271))
+(fw (h THE NAME-DAY)(pg 271))
 
 “You cannot get them any cheaper on this train,”
 said the woman, with relentless logic, “because there

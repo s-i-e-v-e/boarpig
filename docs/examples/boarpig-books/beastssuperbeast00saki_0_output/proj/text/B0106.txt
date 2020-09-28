@@ -1,6 +1,6 @@
-(:fw (:pg 106)(:h BEASTS AND SUPER-BEASTS))
+(fw (pg 106)(h BEASTS AND SUPER-BEASTS))
 
-(:h THE SEVENTH PULLET)
+(h THE SEVENTH PULLET)
 
 “IT'S not the daily grind that I complain of,”
 said Blenkinthrope resentfully; “it's the

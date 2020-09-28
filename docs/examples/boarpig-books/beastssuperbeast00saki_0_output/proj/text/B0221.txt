@@ -1,4 +1,4 @@
-(:fw (:h THE STALLED OX)(:pg 221))
+(fw (h THE STALLED OX)(pg 221))
 
 encourages orderly, methodical habits in its children.
 Eshley had painted a successful and acceptable
@@ -30,4 +30,4 @@ explanation of the tempestuous intrusion.
 
 “An ox,” said Eshley blankly, and rather fatu-
 ously; “what kind of ox?”
-(:pb)
+(pb)

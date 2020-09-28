@@ -1,10 +1,10 @@
-(:fw (:h THE LUMBER ROOM)(:pg 283))
+(fw (h THE LUMBER ROOM)(pg 283))
 
 asked aunt for strawberry jam yesterday she said
 there wasn't any. I know there are four jars of it
 in the store cupboard, because I looked, and of
-course you know it's there, but (:i she) doesn't, because
-she said there wasn't any. Oh, Devil, you (:i have)
+course you know it's there, but (i she) doesn't, because
+she said there wasn't any. Oh, Devil, you (i have)
 sold yourself!”
 
 There was an unusual sense of luxury in being

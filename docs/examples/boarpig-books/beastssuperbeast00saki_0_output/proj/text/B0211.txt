@@ -1,6 +1,6 @@
-(:fw (:h A HOLIDAY TASK)(:pg 211))
+(fw (h A HOLIDAY TASK)(pg 211))
 
-(:h A HOLIDAY TASK)
+(h A HOLIDAY TASK)
 
 KENELM JERTON entered the dining-hall
 of the Golden Galleon Hotel in the full

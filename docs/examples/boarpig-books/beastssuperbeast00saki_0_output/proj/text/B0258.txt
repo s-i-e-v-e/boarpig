@@ -1,4 +1,4 @@
-(:fw (:pg 258)(:h BEASTS AND SUPER-BEASTS))
+(fw (pg 258)(h BEASTS AND SUPER-BEASTS))
 
 “What did we send them?” asked Egbert
 gloomily
@@ -33,4 +33,4 @@ said Egbert.
 
 “‘How clever of you to guess that Wordsworth
 is our favourite poet,’” dictated Egbert.
-(:pb)
+(pb)

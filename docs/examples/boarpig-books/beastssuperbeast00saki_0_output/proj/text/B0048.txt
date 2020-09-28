@@ -1,4 +1,4 @@
-(:fw (:pg 48)(:h BEASTS AND SUPER-BEASTS))
+(fw (pg 48)(h BEASTS AND SUPER-BEASTS))
 
 breakfast that Clovis had his final inspiration as he
 stood engaged in coaxing rust spots from an old
@@ -32,4 +32,4 @@ observed to the departing guest, “but I'll make up
 some story about an urgent wire having called you
 away. It wouldn't do to alarm her unnecessarily
 about Sturridge.”
-(:pb)
+(pb)

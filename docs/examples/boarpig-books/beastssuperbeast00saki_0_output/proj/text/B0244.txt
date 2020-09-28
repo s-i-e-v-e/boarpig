@@ -1,4 +1,4 @@
-(:fw (:pg 244)(:h BEASTS AND SUPER-BEASTS))
+(fw (pg 244)(h BEASTS AND SUPER-BEASTS))
 
 “It was in North Wales,” said Treddleford,
 “that my sister met with her sensational carriage

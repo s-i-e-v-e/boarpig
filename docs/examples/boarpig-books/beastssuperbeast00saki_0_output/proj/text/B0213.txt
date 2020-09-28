@@ -1,4 +1,4 @@
-(:fw (:h A HOLIDAY TASK)(:pg 213))
+(fw (h A HOLIDAY TASK)(pg 213))
 
 case of partial loss of memory. I was in the train
 coming down here; my ticket told me that I had come

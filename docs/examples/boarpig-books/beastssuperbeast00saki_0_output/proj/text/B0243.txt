@@ -1,4 +1,4 @@
-(:fw (:h A DEFENSIVE DIAMOND)(:pg 243))
+(fw (h A DEFENSIVE DIAMOND)(pg 243))
 
 the main stream of the Exe near Ugworthy; he
 tried it with every kind of fly and worm every day
@@ -29,4 +29,4 @@ squeak I ever had was the other day, motoring
 with old Tommy Yarby in North Wales. Awfully
 good sort, old Yarby, thorough good sportsman,
 and the best——”
-(:pb)
+(pb)

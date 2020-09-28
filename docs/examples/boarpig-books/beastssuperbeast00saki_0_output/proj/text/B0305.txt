@@ -1,4 +1,4 @@
-(:fw (:h ON APPROVAL)(:pg 305))
+(fw (h ON APPROVAL)(pg 305))
 
 case of Sledonti, the dramatic poet, who had been
 belittled and cold-shouldered in the Owl Street hall
@@ -9,7 +9,7 @@ Romanoffs,” according to Sylvia Strubble, who
 spoke rather as one who knew every individual
 member of the Russian imperial family; as a matter
 of fact, she knew a newspaper correspondent, a
-young man who ate (:i bortsch) with the air of having
+young man who ate (i bortsch) with the air of having
 invented it. Sledonti's “Poems of Death and
 Passion” were now being sold by the thousand in
 seven European languages, and were about to be
@@ -29,4 +29,4 @@ his appearance, sit himself down at his accustomed
 table, throw a bulky black portfolio on to the chair
 opposite him, nod round indiscriminately at his
 
-(:fw (:sig X))
+(fw (sig X))

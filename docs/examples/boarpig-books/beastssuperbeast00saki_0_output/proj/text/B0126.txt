@@ -1,11 +1,11 @@
-(:fw (:pg 126)(:h BEASTS AND SUPER-BEASTS))
+(fw (pg 126)(h BEASTS AND SUPER-BEASTS))
 
 curious, came forth in this hour of gloaming, when
 their shabby clothes and bowed shoulders and
 unhappy eyes might pass unnoticed, or, at any rate,
 unrecognised.
 
-(:quote A king that is conquered must see strange looks,(:lb)
+(quote A king that is conquered must see strange looks,(lb)
 So bitter a thing is the heart of man.)
 
 The wanderers in the dusk did not choose to have

@@ -1,4 +1,4 @@
-(:fw (:pg 212)(:h BEASTS AND SUPER-BEASTS))
+(fw (pg 212)(h BEASTS AND SUPER-BEASTS))
 
 beings of the same sex, and a satirical-looking Jew.
 In order to carry off the situation with some appear-
@@ -8,10 +8,10 @@ in the contents of the flower-vase.
 “What is the name of these roses, d'you know?”
 he asked the waiter. The waiter was ready at all
 times to conceal his ignorance concerning items of
-the wine-list or (:i menu); he was frankly ignorant as
+the wine-list or (i menu); he was frankly ignorant as
 to the specific name of the roses.
 
-“(:i Amy Sylvester Partington),” said a voice at
+“(i Amy Sylvester Partington),” said a voice at
 Jerton's elbow.
 
 The voice came from a pleasant-faced, well-

@@ -1,4 +1,4 @@
-(:fw (:h A HOLIDAY TASK)(:pg 219))
+(fw (h A HOLIDAY TASK)(pg 219))
 
 went out of the hotel a few minutes ago, a tall lady,
 dressed in grey. Excuse me for asking if you
@@ -10,7 +10,7 @@ to her. Could you——?”
 
 “Certainly. She's a Mrs. Stroope.”
 
-“(:i Mrs.?)” queried Jerton.
+“(i Mrs.?)” queried Jerton.
 
 “Yes, she's the Lady Champion at golf in my
 part of the world. An awful good sort, and goes
@@ -29,7 +29,7 @@ of the hotel clerks.
 station by mistake, a dress-basket and dressing-
 case, with the name Kestrel-Smith? It can't be
 traced anywhere. I saw it put in at Victoria, that
-I'll swear. Why—there (:i is) my luggage! and
+I'll swear. Why—there (i is) my luggage! and
 the locks have been tampered with!”
 
 Jerton heard no more. He fled down to the

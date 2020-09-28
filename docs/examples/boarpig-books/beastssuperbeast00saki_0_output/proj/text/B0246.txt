@@ -1,4 +1,4 @@
-(:fw (:pg 246)(:h BEASTS AND SUPER-BEASTS))
+(fw (pg 246)(h BEASTS AND SUPER-BEASTS))
 
 well enough to go about her duties again, but the
 doctor says she will always suffer from Hagenbeck
@@ -8,7 +8,7 @@ Amblecope got up from his chair and moved to
 another part of the room. Treddleford reopened
 his book and betook himself once more across
 
-(:quote The dragon-green, the luminous, the dark, the serpent-haunted
+(quote The dragon-green, the luminous, the dark, the serpent-haunted
 sea.)
 
 For a blessed half-hour he disported himself in

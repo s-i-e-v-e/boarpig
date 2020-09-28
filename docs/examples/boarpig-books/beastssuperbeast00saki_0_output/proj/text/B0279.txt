@@ -1,4 +1,4 @@
-(:fw (:h THE LUMBER ROOM)(:pg 279))
+(fw (h THE LUMBER ROOM)(pg 279))
 
 illumination. In the second place it was a store-
 house of unimagined treasures. The aunt-by-asser-

@@ -1,4 +1,4 @@
-(:fw (:pg 290)(:h BEASTS AND SUPER-BEASTS))
+(fw (pg 290)(h BEASTS AND SUPER-BEASTS))
 
 friend with genuine heartiness, and readily accepted
 their invitation to explore the crowded mart that

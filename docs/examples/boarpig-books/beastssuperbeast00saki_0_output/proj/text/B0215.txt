@@ -1,9 +1,9 @@
-(:fw (:h A HOLIDAY TASK)(:pg 215))
+(fw (h A HOLIDAY TASK)(pg 215))
 
-most expensive dishes on the (:i menu), but at any rate
+most expensive dishes on the (i menu), but at any rate
 it proves that I'm not Lady Starping; she never
 touches shell-fish, and poor Lady Braddleshrub
-has no digestion at all; if I am (:i her) I shall certainly
+has no digestion at all; if I am (i her) I shall certainly
 die in agony in the course of the afternoon, and the
 duty of finding out who I am will devolve on the
 press and the police and those sort of people; I
@@ -27,7 +27,7 @@ children or sons old enough to have celebrated their
 coming of age. I've only got to consider the ones
 about my own age. I tell you how you might help
 me this afternoon, if you don't mind; go through
-any of the back numbers of (:i Country Life) and those
+any of the back numbers of (i Country Life) and those
 sort of papers that you can find in the smoking-room,
 and see if you come across my portrait with infant
 son or anything of that sort. It won't take you

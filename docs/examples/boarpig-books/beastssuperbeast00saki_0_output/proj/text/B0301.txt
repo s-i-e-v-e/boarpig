@@ -1,4 +1,4 @@
-(:fw (:h THE PHILANTHROPIST)(:pg 301))
+(fw (h THE PHILANTHROPIST)(pg 301))
 
 better if you can ask to have a sugar basin passed
 to you, having previously concealed the fact that

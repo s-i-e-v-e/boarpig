@@ -1,4 +1,4 @@
-(:fw (:h THE HEN)(:pg 41))
+(fw (h THE HEN)(pg 41))
 
 “Not exactly,” said Clovis; “a hen came
 between them.”

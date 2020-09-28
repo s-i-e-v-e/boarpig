@@ -1,4 +1,4 @@
-(:fw (:h THE STORY-TELLER)(:pg 2397))
+(fw (h THE STORY-TELLER)(pg 2397))
 
 were so thick that he might have hunted about in
 them for a long time without catching sight of her,
@@ -26,7 +26,7 @@ small girls, “but it had a beautiful ending.”
 “It is the most beautiful story that I ever heard,”
 said the bigger of the small girls, with immense decision.
 
-“It is the (:i only) beautiful story I have ever heard,”
+“It is the (i only) beautiful story I have ever heard,”
 said Cyril.
 
 A dissentient opinion came from the aunt.
@@ -34,4 +34,4 @@ A dissentient opinion came from the aunt.
 “A most improper story to tell to young children!
 You have undermined the effect of years of careful
 teaching.”
-(:pb)
+(pb)

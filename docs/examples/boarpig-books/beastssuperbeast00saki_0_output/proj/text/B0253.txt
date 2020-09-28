@@ -1,4 +1,4 @@
-(:fw (:h THE ELK)(:pg 253))
+(fw (h THE ELK)(pg 253))
 
 “That's what the mother of the gardener's boy
 said,” remarked Teresa; “she wanted me to have

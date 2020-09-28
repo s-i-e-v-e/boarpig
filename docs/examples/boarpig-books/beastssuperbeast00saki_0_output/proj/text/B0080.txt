@@ -1,4 +1,4 @@
-(:fw (:pg 80)(:h BEASTS AND SUPER-BEASTS))
+(fw (pg 80)(h BEASTS AND SUPER-BEASTS))
 
 how many Boy Scouts were sharing his Melton
 overcoat. The rôle of Saint Martin malgré lui was
@@ -30,4 +30,4 @@ Neither side could claim any decisive success,
 and the struggle had been practically fought to a
 standstill by the time that the maid appeared with
 the early morning tea.
-(:pb)
+(pb)

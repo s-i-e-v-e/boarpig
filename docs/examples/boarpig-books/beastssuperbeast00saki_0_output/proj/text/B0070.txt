@@ -1,4 +1,4 @@
-(:fw (:pg 70)(:h BEASTS AND SUPER-BEASTS))
+(fw (pg 70)(h BEASTS AND SUPER-BEASTS))
 
 the kitchen, she came suddenly on her cousin, young
 Mr. Jim, as every one called him, who divided his

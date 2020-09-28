@@ -1,4 +1,4 @@
-(:fw (:h THE STALLED OX)(:pg 225))
+(fw (h THE STALLED OX)(pg 225))
 
 another javelin exercise with another pea-stick.
 The ox seemed to realise at once that it was to go;
@@ -31,4 +31,4 @@ garden to the morning-room.”
 pretty pictures of pretty little cows is what you're
 suited for. Perhaps you'd like to do a nice sketch
 
-(:fw (:sig Q))
+(fw (sig Q))

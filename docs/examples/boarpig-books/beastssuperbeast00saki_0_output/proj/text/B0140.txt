@@ -1,4 +1,4 @@
-(:fw (:pg 140)(:h BEASTS AND SUPER-BEASTS))
+(fw (pg 140)(h BEASTS AND SUPER-BEASTS))
 
 sleep I was able to recover that night, and you know
 how essential nine uninterrupted hours of slumber
@@ -20,7 +20,7 @@ but he had made no appearance in the flesh.
 
 “I expect he's playing up to some character,”
 said Vera Durmot; “isn't there a thing of Molière's,
-‘(:i Le Malade Imaginaire)’? I expect he's that.”
+‘(i Le Malade Imaginaire)’? I expect he's that.”
 
 Eight or nine lists came out, and were duly pen-
 cilled with the suggestion.
@@ -34,4 +34,4 @@ van Tahn; “‘the Lost Ten Tribes.’”
 “But there are only three of them. Besides,
 they'll want their lunch. Hasn't anyone seen any-
 thing of them?”
-(:pb)
+(pb)

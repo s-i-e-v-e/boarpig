@@ -1,4 +1,4 @@
-(:fw (:pg 16)(:h BEASTS AND SUPER-BEASTS))
+(fw (pg 16)(h BEASTS AND SUPER-BEASTS))
 
 should go on into something else. If I had been
 a moderately good otter I suppose I should get back

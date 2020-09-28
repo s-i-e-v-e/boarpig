@@ -1,4 +1,4 @@
-(:fw (:pg 28)(:h BEASTS AND SUPER-BEASTS))
+(fw (pg 28)(h BEASTS AND SUPER-BEASTS))
 
 the little Breadwinner,’ is considered my best piece,
 or, perhaps, it ought to be something in French.

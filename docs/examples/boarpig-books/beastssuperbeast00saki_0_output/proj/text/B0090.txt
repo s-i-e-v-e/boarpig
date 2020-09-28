@@ -1,6 +1,6 @@
-(:fw (:pg 90)(:h BEASTS AND SUPER-BEASTS))
+(fw (pg 90)(h BEASTS AND SUPER-BEASTS))
 
-(:h THE ROMANCERS)
+(h THE ROMANCERS)
 
 IT was autumn in London, that blessed season
 between the harshness of winter and the

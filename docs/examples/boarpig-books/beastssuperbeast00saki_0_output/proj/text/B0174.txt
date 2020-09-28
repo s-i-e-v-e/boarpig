@@ -1,4 +1,4 @@
-(:fw (:pg 174)(:h BEASTS AND SUPER-BEASTS))
+(fw (pg 174)(h BEASTS AND SUPER-BEASTS))
 
 drowsy, a lighted fusee thrown into the nest would
 bring the wasps out in an indignant mass, and they

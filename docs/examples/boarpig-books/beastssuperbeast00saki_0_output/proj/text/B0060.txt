@@ -1,6 +1,6 @@
-(:fw (:pg 60)(:h BEASTS AND SUPER-BEASTS))
+(fw (pg 60)(h BEASTS AND SUPER-BEASTS))
 
-“A submerged motor-boat, the (:i Sub-Rosa),” said
+“A submerged motor-boat, the (i Sub-Rosa),” said
 Vasco.
 
 “No! really?” said Lulu; “poor Billy Yuttley's
@@ -21,7 +21,7 @@ hurriedly. “What makes you think so?”
 “Know? How can you know? How can any-
 one know? The thing happened three years ago.”
 
-“In a locker of the (:i Sub-Rosa) I found a water-
+“In a locker of the (i Sub-Rosa) I found a water-
 tight strong-box. It contained papers.” Vasco
 paused with dramatic effect and searched for a
 moment in the inner breast-pocket of his coat.
@@ -29,9 +29,9 @@ He drew out a folded slip of paper. The Duchess
 snatched at it in almost indecent haste and moved
 appreciably nearer the fireplace.
 
-“Was this in the (:i Sub-Rosa's) strong-box?” she
+“Was this in the (i Sub-Rosa's) strong-box?” she
 asked.
 
 “Oh no,” said Vasco carelessly, “that is a list
 of the well-known people who would be involved
-in a very disagreeable scandal if the (:i Sub-Rosa's)
+in a very disagreeable scandal if the (i Sub-Rosa's)

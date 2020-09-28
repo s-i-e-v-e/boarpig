@@ -1,4 +1,4 @@
-(:fw (:pg 94)(:h BEASTS AND SUPER-BEASTS))
+(fw (pg 94)(h BEASTS AND SUPER-BEASTS))
 
 “In the town of Yom,” said Crosby, “which is
 in Southern Afghanistan, and which also happens
@@ -33,4 +33,4 @@ you speak of for a small loan to tide over a few days'
 impecuniosity—five shillings, or perhaps a rather
 larger sum—would it be given to him as a matter of
 course?”
-(:pb)
+(pb)

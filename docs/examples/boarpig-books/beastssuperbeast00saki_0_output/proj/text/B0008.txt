@@ -1,4 +1,4 @@
-(:fw (:pg 8)(:h BEASTS AND SUPER-BEASTS))
+(fw (pg 8)(h BEASTS AND SUPER-BEASTS))
 
 who looked more scared and horrified than
 anyone.

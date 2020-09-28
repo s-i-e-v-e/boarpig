@@ -1,4 +1,4 @@
-(:fw (:pg 172)(:h BEASTS AND SUPER-BEASTS))
+(fw (pg 172)(h BEASTS AND SUPER-BEASTS))
 
 would be half the satisfaction of the thing, just as
 you like people at Christmas to know what presents

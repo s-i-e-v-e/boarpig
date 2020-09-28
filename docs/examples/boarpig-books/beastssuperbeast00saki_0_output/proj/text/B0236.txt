@@ -1,4 +1,4 @@
-(:fw (:pg 236)(:h BEASTS AND SUPER-BEASTS))
+(fw (pg 236)(h BEASTS AND SUPER-BEASTS))
 
 three medals clinked against one another as she
 walked and helped to remind her how very good she

@@ -1,4 +1,4 @@
-(:fw (:pg 248)(:h BEASTS AND SUPER-BEASTS))
+(fw (pg 248)(h BEASTS AND SUPER-BEASTS))
 
 with daughters of marriageable age. Bertie was
 an amiable, easy-going young man, who was quite

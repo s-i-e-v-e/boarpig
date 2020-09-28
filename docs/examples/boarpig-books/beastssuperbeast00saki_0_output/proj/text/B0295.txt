@@ -1,4 +1,4 @@
-(:fw (:h THE PHILANTHROPIST)(:pg 295))
+(fw (h THE PHILANTHROPIST)(pg 295))
 
 ecstasy of cushioned comfort. He seems the incar-
 nation of everything soft and silky and velvety,

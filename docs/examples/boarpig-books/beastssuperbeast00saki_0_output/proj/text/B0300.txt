@@ -1,4 +1,4 @@
-(:fw (:pg 300)(:h BEASTS AND SUPER-BEASTS))
+(fw (pg 300)(h BEASTS AND SUPER-BEASTS))
 
 has made other arrangements for me this evening;
 would you care to make use of this ticket, which

@@ -1,4 +1,4 @@
-(:fw (:h THE STALLED OX)(:pg 223))
+(fw (h THE STALLED OX)(pg 223))
 
 that you might be of some slight assistance. Pos-
 sibly I was mistaken.”
@@ -31,4 +31,4 @@ at last, when the silence had become unbearable.
 “You seem to notice everything. As a matter of
 fact, it has got six chrysanthemums in its mouth at
 the present moment.”
-(:pb)
+(pb)

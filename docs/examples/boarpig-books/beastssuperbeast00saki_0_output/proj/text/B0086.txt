@@ -1,4 +1,4 @@
-(:fw (:pg 86)(:h BEASTS AND SUPER-BEASTS))
+(fw (pg 86)(h BEASTS AND SUPER-BEASTS))
 
 laid themselves out to do their level best on this
 momentous occasion. Men who had made their

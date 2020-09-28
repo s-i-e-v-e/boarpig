@@ -1,4 +1,4 @@
-(:fw (:h THE BYZANTINE OMELETTE)(:pg 161))
+(fw (h THE BYZANTINE OMELETTE)(pg 161))
 
 the prevailing fashion. She was hedged round with
 a great peace, the peace of one who has attained a
@@ -30,4 +30,4 @@ selves.”
 
 The maid said nothing, but from the concentrated
 
-(:fw (:sig M))
+(fw (sig M))

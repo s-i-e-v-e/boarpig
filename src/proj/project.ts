@@ -41,7 +41,7 @@ export function parse_project(file: string, read_existing: boolean): [string, st
 	else {
 		println('read files');
 		const xs = readSavedTextFilesSync(out_dir);
-		text = `(:project ${xs.join('\n')})`;
+		text = `(project ${xs.join('\n')})`;
 	}
 
 	println('parse_project');

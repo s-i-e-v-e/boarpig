@@ -1,4 +1,4 @@
-(:fw (:pg 134)(:h BEASTS AND SUPER-BEASTS))
+(fw (pg 134)(h BEASTS AND SUPER-BEASTS))
 
 and thought that I was the old man who feeds the
 sparrows in the Tuileries Gardens. Then Colonel

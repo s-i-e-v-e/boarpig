@@ -1,4 +1,4 @@
-(:fw (:pg 226)(:h BEASTS AND SUPER-BEASTS))
+(fw (pg 226)(h BEASTS AND SUPER-BEASTS))
 
 of that ox making itself at home in my morning-
 room?”
@@ -38,4 +38,4 @@ said Eshley; “she may be just dozing off into a
 merciful sleep and your outcry will waken her.
 Consideration for others should be the guiding
 principle of people in our station of life.”
-(:pb)
+(pb)

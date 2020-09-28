@@ -1,4 +1,4 @@
-(:fw (:pg 120)(:h BEASTS AND SUPER-BEASTS))
+(fw (pg 120)(h BEASTS AND SUPER-BEASTS))
 
 “But the motive?” exclaimed Sir Lulworth;
 “no one had any interest in doing away with him,
@@ -29,4 +29,4 @@ no friends in this country. No; if anyone in the
 world was interested in the prolonged life and unim-
 paired digestion of the Canon it would certainly be
 Sebastien.”
-(:pb)
+(pb)

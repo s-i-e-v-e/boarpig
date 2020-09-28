@@ -1,6 +1,6 @@
-(:fw (:pg 264)(:h BEASTS AND SUPER-BEASTS))
+(fw (pg 264)(h BEASTS AND SUPER-BEASTS))
 
-(:h THE NAME-DAY)
+(h THE NAME-DAY)
 
 ADVENTURES, according to the proverb,
 are to the adventurous. Quite as often

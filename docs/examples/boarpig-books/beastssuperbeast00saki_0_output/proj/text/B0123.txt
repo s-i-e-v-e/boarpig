@@ -1,4 +1,4 @@
-(:fw (:h THE BLIND SPOT)(:pg 123))
+(fw (h THE BLIND SPOT)(pg 123))
 
 “‘I very much fear I shall have to get rid of
 Sebastien. He cooks divinely, but he has the temper

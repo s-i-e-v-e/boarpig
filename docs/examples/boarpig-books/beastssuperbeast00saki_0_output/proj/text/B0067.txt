@@ -1,4 +1,4 @@
-(:fw (:h THE COBWEB)(:pg 67))
+(fw (h THE COBWEB)(pg 67))
 
 faded away, Emma Ladbruk was uncomfortably
 conscious of another feeling towards the old woman.

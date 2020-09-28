@@ -1,4 +1,4 @@
-(:fw (:h LAURA)(:pg 19))
+(fw (h LAURA)(pg 19))
 
 “Perhaps it will go elsewhere now there are no
 more fowls left,” suggested Amanda.
@@ -33,4 +33,4 @@ to be hound noises. It was charitably supposed
 by those who overheard her performance, that she
 was practising for farmyard imitations at the forth-
 coming village entertainment.
-(:pb)
+(pb)

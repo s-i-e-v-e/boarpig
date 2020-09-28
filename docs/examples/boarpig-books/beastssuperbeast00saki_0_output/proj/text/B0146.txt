@@ -1,4 +1,4 @@
-(:fw (:pg 146)(:h BEASTS AND SUPER-BEASTS))
+(fw (pg 146)(h BEASTS AND SUPER-BEASTS))
 
 a borzoi. During the third verse Cousin Teresa will
 come on alone, and the dogs will be drawn across
@@ -16,7 +16,7 @@ route, always effective, and then she turns round and
 leads the whole lot of them off on a string, and all the
 time every one singing like mad:
 
-(:quote Cousin Teresa takes out Cæsar,(:lb)
+(quote Cousin Teresa takes out Cæsar,(lb)
 Fido, Jock, and the big borzoi.)
 
 Tum-Tum! Drum business on the two last syllables.
@@ -31,4 +31,4 @@ successful in concealing the fact.
 “Poor Lucas does take his silly little ideas seri-
 ously,” said Colonel Harrowcluff afterwards in the
 smoking-room.
-(:pb)
+(pb)

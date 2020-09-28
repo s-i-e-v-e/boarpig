@@ -1,4 +1,4 @@
-(:fw (:h THE NAME-DAY)(:pg 265))
+(fw (h THE NAME-DAY)(pg 265))
 
 sphere of an English country town. The firm that
 he worked for saw fit to send him one day on a

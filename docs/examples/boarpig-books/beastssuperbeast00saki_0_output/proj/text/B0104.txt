@@ -1,4 +1,4 @@
-(:fw (:pg 104)(:h BEASTS AND SUPER-BEASTS))
+(fw (pg 104)(h BEASTS AND SUPER-BEASTS))
 
 After an apprehensive glance in the direction of the
 lodge (the good woman was gifted with the highly

@@ -1,4 +1,4 @@
-(:fw (:pg 78)(:h BEASTS AND SUPER-BEASTS))
+(fw (pg 78)(h BEASTS AND SUPER-BEASTS))
 
 drenched clothes don't dry in a minute, and the
 corridor and staircase are beginning to look like a

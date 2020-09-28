@@ -1,4 +1,4 @@
-(:fw (:h THE NAME-DAY)(:pg 269))
+(fw (h THE NAME-DAY)(pg 269))
 
 “The train has broken away and left us!”
 
@@ -35,4 +35,4 @@ a young pig that was in the cart were eaten too.
 The horse was a very old one, but it was a beautiful
 young pig, oh, so fat. I cried when I heard that it
 was taken. They spare nothing.”
-(:pb)
+(pb)

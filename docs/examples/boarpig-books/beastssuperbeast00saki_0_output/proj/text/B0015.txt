@@ -1,11 +1,11 @@
-(:fw (:h LAURA)(:pg 15))
+(fw (h LAURA)(pg 15))
 
 hens pretended to be laying at the time, but I was
 firm.”
 
 “And we thought it was an accident!”
 
-“You see,” resumed Laura, “I really (:i have) some
+“You see,” resumed Laura, “I really (i have) some
 grounds for supposing that my next incarnation will
 be in a lower organism. I shall be an animal of
 some kind. On the other hand, I haven't been a

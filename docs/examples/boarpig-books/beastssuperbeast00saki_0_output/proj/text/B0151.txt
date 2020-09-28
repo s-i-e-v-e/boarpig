@@ -1,6 +1,6 @@
-(:fw (:h THE YARKAND MANNER)(:pg 151))
+(fw (h THE YARKAND MANNER)(pg 151))
 
-(:h THE YARKAND MANNER)
+(h THE YARKAND MANNER)
 
 SIR LULWORTH QUAYNE was making a
 leisurely progress through the Zoological

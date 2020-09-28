@@ -1,4 +1,4 @@
-(:fw (:h THE OPEN WINDOW)(:pg 53))
+(fw (h THE OPEN WINDOW)(pg 53))
 
 She broke off with a little shudder. It was a
 relief to Framton when the aunt bustled into the

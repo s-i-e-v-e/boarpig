@@ -1,4 +1,4 @@
-(:fw (:pg 144)(:h BEASTS AND SUPER-BEASTS))
+(fw (pg 144)(h BEASTS AND SUPER-BEASTS))
 
 as they were, four years ago, and almost as far back
 before that as he could remember. It was the

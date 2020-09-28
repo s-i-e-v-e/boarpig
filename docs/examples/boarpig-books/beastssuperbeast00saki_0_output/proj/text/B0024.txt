@@ -1,4 +1,4 @@
-(:fw (:pg 24)(:h BEASTS AND SUPER-BEASTS))
+(fw (pg 24)(h BEASTS AND SUPER-BEASTS))
 
 Tarquin Superbus isn't loose in the paddock.
 After all, as every one else is enjoying themselves,
@@ -32,4 +32,4 @@ concerned, thoroughly achieved that result.
 
 “Shoo! Hish! Hish! Shoo!” cried the ladies
 in chorus.
-(:pb)
+(pb)

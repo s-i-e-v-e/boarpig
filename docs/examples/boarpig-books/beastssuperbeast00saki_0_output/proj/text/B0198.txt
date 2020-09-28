@@ -1,6 +1,6 @@
-(:fw (:pg 198)(:h BEASTS AND SUPER-BEASTS))
+(fw (pg 198)(h BEASTS AND SUPER-BEASTS))
 
-(:h THE STAKE)
+(h THE STAKE)
 
 “RONNIE is a great trial to me,” said Mrs.
 Attray plaintively. “Only eighteen
@@ -22,4 +22,4 @@ to let him play cards when he's over there, but you
 might as well ask the Atlantic Ocean to keep quiet
 for a crossing as expect them to bother about a
 mother's natural anxieties.”
-(:pb)
+(pb)

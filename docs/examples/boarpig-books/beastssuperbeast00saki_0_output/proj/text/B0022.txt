@@ -1,6 +1,6 @@
-(:fw (:pg 22)(:h BEASTS AND SUPER-BEASTS))
+(fw (pg 22)(h BEASTS AND SUPER-BEASTS))
 
-(:h THE BOAR-PIG)
+(h THE BOAR-PIG)
 
 “THERE is a back way on to the lawn,”
 said Mrs. Philidore Stossen to her
@@ -19,7 +19,7 @@ when she doesn't happen to have invited us.”
 “Isn't it a lot of trouble to take for getting
 admittance to a garden party?”
 
-“To a garden party, yes; to (:i the) garden party
+“To a garden party, yes; to (i the) garden party
 of the season, certainly not. Every one of any con-
 sequence in the county, with the exception of our-
 selves, has been asked to meet the Princess, and it

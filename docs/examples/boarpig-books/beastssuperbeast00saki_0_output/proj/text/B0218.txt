@@ -1,4 +1,4 @@
-(:fw (:pg 218)(:h BEASTS AND SUPER-BEASTS))
+(fw (pg 218)(h BEASTS AND SUPER-BEASTS))
 
 the rest of my life. I'll have it brought down to the
 hall and you can pretend to mount guard over it

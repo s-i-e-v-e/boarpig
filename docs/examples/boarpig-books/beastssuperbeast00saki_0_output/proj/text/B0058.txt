@@ -1,4 +1,4 @@
-(:fw (:pg 58)(:h BEASTS AND SUPER-BEASTS))
+(fw (pg 58)(h BEASTS AND SUPER-BEASTS))
 
 aid of this invention she considered that she might
 go to work on the wreck privately and independently.
@@ -28,4 +28,4 @@ mising situation it would certainly be Vasco—of
 course, under the necessary safeguards in the way
 of supervision. Where money was in question Vasco's
 conscience was liable to fits of obstinate silence,
-(:pb)
+(pb)

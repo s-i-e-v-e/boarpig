@@ -1,4 +1,4 @@
-(:fw (:pg 178)(:h BEASTS AND SUPER-BEASTS))
+(fw (pg 178)(h BEASTS AND SUPER-BEASTS))
 
 did not mean to buy was a pleasure beyond his com-
 prehension. Mrs. Chemping held one or two napkins

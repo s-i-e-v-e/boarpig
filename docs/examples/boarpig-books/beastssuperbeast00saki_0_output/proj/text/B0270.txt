@@ -1,4 +1,4 @@
-(:fw (:pg 270)(:h BEASTS AND SUPER-BEASTS))
+(fw (pg 270)(h BEASTS AND SUPER-BEASTS))
 
 “They may attack us here,” said Abbleway
 tremulously; “they could easily break in, these
@@ -36,4 +36,4 @@ kronen apiece.”
 
 “Four kronen!” exclaimed Abbleway; “four
 kronen for a blood-sausage!”
-(:pb)
+(pb)

@@ -1,4 +1,4 @@
-(:fw (:h THE QUINCE TREE)(:pg 187))
+(fw (h THE QUINCE TREE)(pg 187))
 
 “Of course she was screening some one else,” said
 Vera. “A remarkable feature of the affair is the

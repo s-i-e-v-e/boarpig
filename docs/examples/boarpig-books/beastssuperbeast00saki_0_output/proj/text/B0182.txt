@@ -1,4 +1,4 @@
-(:fw (:pg 182)(:h BEASTS AND SUPER-BEASTS))
+(fw (pg 182)(h BEASTS AND SUPER-BEASTS))
 
 Several kind strangers helped Adela into the open
 air.

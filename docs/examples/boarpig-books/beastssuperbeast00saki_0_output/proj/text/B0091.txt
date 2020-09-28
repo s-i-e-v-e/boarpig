@@ -1,4 +1,4 @@
-(:fw (:h THE ROMANCERS)(:pg 91))
+(fw (h THE ROMANCERS)(pg 91))
 
 the professional cadger, the man who would undergo
 hours of humiliating tale-spinning and rebuff rather
@@ -34,4 +34,4 @@ my neighbours tell me wonderful, incredible things
 that their Aberdeens and chows and borzois have
 done; I never listen to them. On the other hand, I have
 read ‘The Hound of the Baskervilles’ three times.”
-(:pb)
+(pb)

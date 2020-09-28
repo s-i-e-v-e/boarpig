@@ -1,4 +1,4 @@
-(:fw (:h THE SHE-WOLF)(:pg 7))
+(fw (h THE SHE-WOLF)(pg 7))
 
 treating these powers in a mocking spirit,” said
 Leonard solemnly.

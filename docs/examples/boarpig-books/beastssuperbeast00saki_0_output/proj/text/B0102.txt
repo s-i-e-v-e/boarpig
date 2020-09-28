@@ -1,4 +1,4 @@
-(:fw (:pg 102)(:h BEASTS AND SUPER-BEASTS))
+(fw (pg 102)(h BEASTS AND SUPER-BEASTS))
 
 practically on account of the syphon incident
 that I left.”

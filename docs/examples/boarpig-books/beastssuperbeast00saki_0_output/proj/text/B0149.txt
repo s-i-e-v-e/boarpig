@@ -1,4 +1,4 @@
-(:fw (:h COUSIN TERESA)(:pg 149))
+(fw (h COUSIN TERESA)(pg 149))
 
 talk about; men and women of middle age and
 average education might be seen together in corners
@@ -7,7 +7,7 @@ Servia should have an outlet on the Adriatic, or the
 possibilities of a British success in international polo
 contests, but the more absorbing topic of the
 problematic Aztec or Nilotic origin of the Teresa
-(:i motiv).
+(i motiv).
 
 “Politics and patriotism are so boring and so out
 of date,” said a revered lady who had some preten-
@@ -21,7 +21,7 @@ was there. I've been to see it eighteen times and
 I'm going again to-morrow and on Thursday. One
 can't see it often enough.”
 
-(:sb)
+(sb)
 
 “It would be rather a popular move if we gave
 this Harrowcluff person a knighthood or something

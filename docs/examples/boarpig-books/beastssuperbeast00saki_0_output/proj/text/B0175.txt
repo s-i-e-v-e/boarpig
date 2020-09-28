@@ -1,6 +1,6 @@
-(:fw (:h THE DREAMER)(:pg 175))
+(fw (h THE DREAMER)(pg 175))
 
-(:h THE DREAMER)
+(h THE DREAMER)
 
 It was the season of sales. The august estab-
 lishment of Walpurgis and Nettlepink had

@@ -1,4 +1,4 @@
-(:fw (:h THE BLIND SPOT)(:pg 121))
+(fw (h THE BLIND SPOT)(pg 121))
 
 “People don't always weigh the consequences
 of their rash acts,” said Egbert, “otherwise there

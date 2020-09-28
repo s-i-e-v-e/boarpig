@@ -1,4 +1,4 @@
-(:fw (:pg 276)(:h BEASTS AND SUPER-BEASTS))
+(fw (pg 276)(h BEASTS AND SUPER-BEASTS))
 
 Nicholas when the moment for the departure of the
 expedition arrived. As a matter of fact, however,
@@ -10,7 +10,7 @@ of the carriage as she was scrambling in
 as the party drove off without any of the elation
 of high spirits that should have characterised it.
 
-“She'll soon get over that,” said the (:i soi-disant)
+“She'll soon get over that,” said the (i soi-disant)
 aunt; “it will be a glorious afternoon for racing
 about over those beautiful sands. How they will
 enjoy themselves!”

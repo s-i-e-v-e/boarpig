@@ -1,4 +1,4 @@
-(:fw (:pg 156)(:h BEASTS AND SUPER-BEASTS))
+(fw (pg 156)(h BEASTS AND SUPER-BEASTS))
 
 fairly arduous journey. The aforetime standard
 of excellence was scarcely maintained, but at any
@@ -8,7 +8,7 @@ that a startling change took place. Blunt, forcible,
 outspoken articles appeared, couched in language
 which nearly turned the autumn manœuvres of
 six important Powers into mobilisations. Whatever
-else the (:i Daily Intelligencer) had learned in the East,
+else the (i Daily Intelligencer) had learned in the East,
 it had not acquired the art of diplomatic ambiguity.
 The man in the street enjoyed the articles and bought
 the paper as he had never bought it before; the
@@ -16,7 +16,7 @@ men in Downing Street took a different view. The
 Foreign Secretary, hitherto accounted a rather
 reticent man, became positively garrulous in the
 course of perpetually disavowing the sentiments
-expressed in the (:i Daily Intelligencer)'s leaders; and
+expressed in the (i Daily Intelligencer)'s leaders; and
 then one day the Government came to the con-
 clusion that something definite and drastic must be
 done. A deputation, consisting of the Prime
@@ -28,4 +28,4 @@ barred by a nervous but defiant office-boy.
 
 “‘You can't see the editor nor any of the staff,’
 he announced.
-(:pb)
+(pb)

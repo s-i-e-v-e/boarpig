@@ -1,6 +1,6 @@
-(:fw (:h Beasts and Super-Beasts))
+(fw (h Beasts and Super-Beasts))
 
-(:h THE SHE-WOLF)
+(h THE SHE-WOLF)
 
 LEONARD BILSITER was one of those
 people who have failed to find this world
@@ -23,4 +23,4 @@ Ural mining concern, he had made a trip across
 Eastern Europe at a moment when the great
 Russian railway strike was developing from a
 
-(:fw (:sig B))
+(fw (sig B))

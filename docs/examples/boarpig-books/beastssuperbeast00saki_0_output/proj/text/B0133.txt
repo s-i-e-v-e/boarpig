@@ -1,6 +1,6 @@
-(:fw (:h A TOUCH OF REALISM)(:pg 133))
+(fw (h A TOUCH OF REALISM)(pg 133))
 
-(:h A TOUCH OF REALISM)
+(h A TOUCH OF REALISM)
 
 “I HOPE you've come full of suggestions for
 Christmas,” said Lady Blonze to her latest

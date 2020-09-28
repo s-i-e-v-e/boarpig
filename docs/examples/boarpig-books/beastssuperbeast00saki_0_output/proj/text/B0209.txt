@@ -1,4 +1,4 @@
-(:fw (:h PARENTAL RESPONSIBILITIES)(:pg 209))
+(fw (h PARENTAL RESPONSIBILITIES)(pg 209))
 
 “Well, among other things, she's introduced me
 to at least four different ways of cooking lobster,”
@@ -33,4 +33,4 @@ Clovis rose with an air of graceful reluctance.
 
 “I have so enjoyed our little talk about Eric,”
 
-(:fw (:sig P))
+(fw (sig P))

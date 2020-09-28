@@ -1,4 +1,4 @@
-(:fw (:h A TOUCH OF REALISM)(:pg 135))
+(fw (h A TOUCH OF REALISM)(pg 135))
 
 you quite sure, my dear, that you're wise in doing
 this thing?” he said to his wife when they were
@@ -32,4 +32,4 @@ would have behaved.’”
 “Oh, you're an alarmist,” said Lady Blonze;
 “I particularly want to have this idea carried out.
 It will be sure to be talked about a lot.”
-(:pb)
+(pb)

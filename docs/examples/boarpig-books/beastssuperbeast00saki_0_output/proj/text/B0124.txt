@@ -1,4 +1,4 @@
-(:fw (:pg 124)(:h BEASTS AND SUPER-BEASTS))
+(fw (pg 124)(h BEASTS AND SUPER-BEASTS))
 
 he added: “If lack of motive was the only factor
 that saved Sebastien from prosecution I fancy this

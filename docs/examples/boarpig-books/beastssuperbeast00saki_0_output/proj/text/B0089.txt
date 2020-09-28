@@ -1,4 +1,4 @@
-(:fw (:h THE UNKINDEST BLOW)(:pg 89))
+(fw (h THE UNKINDEST BLOW)(pg 89))
 
 coercive measures could go. There was nothing for it
 but a conference, with powers to propose liberal

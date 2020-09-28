@@ -1,4 +1,4 @@
-(:fw (:h THE BROGUE)(:pg 35))
+(fw (h THE BROGUE)(pg 35))
 
 ask to have the horse back; you see, we praised it
 up like anything when we thought there was a chance

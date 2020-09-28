@@ -1,4 +1,4 @@
-(:fw (:h THE FORBIDDEN BUZZARDS)(:pg 195))
+(fw (h THE FORBIDDEN BUZZARDS)(pg 195))
 
 “I was going to suggest picketing,” said Clovis.
 

@@ -1,4 +1,4 @@
-(:fw (:pg 18)(:h BEASTS AND SUPER-BEASTS))
+(fw (pg 18)(h BEASTS AND SUPER-BEASTS))
 
 Amanda looked quickly and furtively across at
 Sir Lulworth.
@@ -34,4 +34,4 @@ do, so soon after a funeral in the house.”
 
 “It's a case of necessity,” said Egbert; “once
 an otter takes to that sort of thing it won't stop.”
-(:pb)
+(pb)

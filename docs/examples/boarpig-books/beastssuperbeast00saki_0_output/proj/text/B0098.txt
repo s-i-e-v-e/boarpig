@@ -1,4 +1,4 @@
-(:fw (:pg 98)(:h BEASTS AND SUPER-BEASTS))
+(fw (pg 98)(h BEASTS AND SUPER-BEASTS))
 
 Lady Carlotta, on the other side of the fence, had
 proceeded with the water-colour sketch she was

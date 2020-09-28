@@ -1,8 +1,8 @@
-(:fw (:pg 136)(:h BEASTS AND SUPER-BEASTS))
+(fw (pg 136)(h BEASTS AND SUPER-BEASTS))
 
 “That is quite possible,” said Sir Nicholas.
 
-(:sb)
+(sb)
 
 Dinner that evening was not a particularly lively
 affair; the strain of trying to impersonate a self-
@@ -30,4 +30,4 @@ considered that a little souvenir of some twenty or
 twenty-five shillings' value would meet the case,
 whereas coming from a Klammerstein source it
 would certainly run to several guineas.
-(:pb)
+(pb)

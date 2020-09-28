@@ -1,4 +1,4 @@
-(:fw (:pg 298)(:h BEASTS AND SUPER-BEASTS))
+(fw (pg 298)(h BEASTS AND SUPER-BEASTS))
 
 that Attab sauntered into the garden with a mind
 attuned to sparrow stalking. In a corner of an

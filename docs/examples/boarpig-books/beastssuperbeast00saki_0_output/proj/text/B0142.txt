@@ -1,4 +1,4 @@
-(:fw (:pg 142)(:h BEASTS AND SUPER-BEASTS))
+(fw (pg 142)(h BEASTS AND SUPER-BEASTS))
 
 “Didn't I warn you?” said Sir Nicholas tragically
 to his wife.

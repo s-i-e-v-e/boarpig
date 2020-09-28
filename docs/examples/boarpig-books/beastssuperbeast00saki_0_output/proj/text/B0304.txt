@@ -1,4 +1,4 @@
-(:fw (:pg 304)(:h BEASTS AND SUPER-BEASTS))
+(fw (pg 304)(h BEASTS AND SUPER-BEASTS))
 
 “Why London and not Paris or Munich?” he
 had been asked by the curious.

@@ -1,4 +1,4 @@
-(:fw (:pg 200)(:h BEASTS AND SUPER-BEASTS))
+(fw (pg 200)(h BEASTS AND SUPER-BEASTS))
 
 they are considerate and obliging, so I don't want to
 quarrel with them. Besides, if Ronnie didn't play

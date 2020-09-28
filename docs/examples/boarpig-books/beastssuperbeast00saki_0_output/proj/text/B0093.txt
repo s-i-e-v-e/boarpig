@@ -1,4 +1,4 @@
-(:fw (:h THE ROMANCERS)(:pg 93))
+(fw (h THE ROMANCERS)(pg 93))
 
 had not spoken so disparagingly of marvellous
 things that have really happened I would tell you
@@ -32,4 +32,4 @@ a farthing. Don't see any prospect of getting any
 money, either, for the next few days. I don't
 suppose you've ever found yourself in such a posi-
 tion,” he added.
-(:pb)
+(pb)

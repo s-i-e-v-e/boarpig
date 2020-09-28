@@ -1,4 +1,4 @@
-(:fw (:h THE STAKE)(:pg 201))
+(fw (h THE STAKE)(pg 201))
 
 I've been careful not to let him have a penny piece
 in his hands.”

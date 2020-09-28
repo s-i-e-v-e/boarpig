@@ -1,6 +1,6 @@
-(:fw (:h THE ELK)(:pg 247))
+(fw (h THE ELK)(pg 247))
 
-(:h THE ELK)
+(h THE ELK)
 
 TERESA, Mrs. Thropplestance, was the
 richest and most intractable old woman

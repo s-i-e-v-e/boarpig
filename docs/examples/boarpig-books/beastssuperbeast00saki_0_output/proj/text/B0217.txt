@@ -1,4 +1,4 @@
-(:fw (:h A HOLIDAY TASK)(:pg 217))
+(fw (h A HOLIDAY TASK)(pg 217))
 
 “Did it win?” asked Jerton.
 

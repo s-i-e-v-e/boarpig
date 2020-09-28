@@ -1,4 +1,4 @@
-(:fw (:pg 234)(:h BEASTS AND SUPER-BEASTS))
+(fw (pg 234)(h BEASTS AND SUPER-BEASTS))
 
 and no children were ever allowed in it, so it was a
 great honour for Bertha to be allowed to go there.”
@@ -37,4 +37,4 @@ place.”
 “Black with white faces, white with black spots,
 black all over, grey with white patches, and some
 were white all over.”
-(:pb)
+(pb)

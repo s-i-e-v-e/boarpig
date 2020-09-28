@@ -1,4 +1,4 @@
-(:fw (:h ON APPROVAL)(:pg 309))
+(fw (h ON APPROVAL)(pg 309))
 
 “Why don't you go home on a visit?” some one
 asked tactfully.

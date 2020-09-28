@@ -1,4 +1,4 @@
-(:fw (:pg 206)(:h BEASTS AND SUPER-BEASTS))
+(fw (pg 206)(h BEASTS AND SUPER-BEASTS))
 
 if I saw much of him,” said Clovis. “Just imagine
 at auction bridge, for instance, when one was trying

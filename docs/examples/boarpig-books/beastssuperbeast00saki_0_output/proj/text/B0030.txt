@@ -1,4 +1,4 @@
-(:fw (:pg 30)(:h BEASTS AND SUPER-BEASTS))
+(fw (pg 30)(h BEASTS AND SUPER-BEASTS))
 
 can't resist medlars when they're rotten and
 squashy.”

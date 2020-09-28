@@ -1,9 +1,9 @@
-(:fw (:h THE LULL)(:pg 81))
+(fw (h THE LULL)(pg 81))
 
 “Lor, sir,” she exclaimed in undisguised astonish-
 ment, “do you want those animals in your room?”
 
-(:i Want!)
+(i Want!)
 
 The pigling, as though aware that it might have
 outstayed its welcome, dashed out at the door, and

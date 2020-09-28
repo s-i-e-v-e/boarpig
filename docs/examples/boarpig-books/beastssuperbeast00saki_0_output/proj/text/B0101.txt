@@ -1,4 +1,4 @@
-(:fw (:h THE SCHARTZ-METTERKLUME METHOD)(:pg 101))
+(fw (h THE SCHARTZ-METTERKLUME METHOD)(pg 101))
 
 the Quabarls were in no wise able to pose as author-
 ities. Previous governesses had limited their con-
@@ -17,7 +17,7 @@ man, I should think.”
 a very lovable character,” said the governess
 imperturbably.
 
-“My (:i dear) Miss Hope! I trust you are exaggera-
+“My (i dear) Miss Hope! I trust you are exaggera-
 ting,” exclaimed the Quabarls in unison.
 
 “One must in justice admit that there is some

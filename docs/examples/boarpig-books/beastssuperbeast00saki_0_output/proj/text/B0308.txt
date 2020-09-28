@@ -1,4 +1,4 @@
-(:fw (:pg 308)(:h BEASTS AND SUPER-BEASTS))
+(fw (pg 308)(h BEASTS AND SUPER-BEASTS))
 
 that sand-grouse don't roost, they sleep on the
 ground.”
@@ -29,4 +29,4 @@ the fields after harvest, and must be looked
 after. I could be helping to look after if I was
 there. Here it is difficult to live; art is not
 appreciate.”
-(:pb)
+(pb)

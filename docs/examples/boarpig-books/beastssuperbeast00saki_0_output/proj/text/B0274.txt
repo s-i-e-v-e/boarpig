@@ -1,6 +1,6 @@
-(:fw (:pg 274)(:h BEASTS AND SUPER-BEASTS))
+(fw (pg 274)(h BEASTS AND SUPER-BEASTS))
 
-(:h THE LUMBER ROOM)
+(h THE LUMBER ROOM)
 
 THE children were to be driven, as a special
 treat, to the sands at Jagborough.

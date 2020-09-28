@@ -1,4 +1,4 @@
-(:fw (:pg 228)(:h BEASTS AND SUPER-BEASTS))
+(fw (pg 228)(h BEASTS AND SUPER-BEASTS))
 
 sensations and successes of the next Paris Salon, and
 when it was subsequently exhibited at Munich it was
@@ -12,6 +12,6 @@ a Boudoir.”
 
 Eshley presented Adela Pingsford with a new copy
 of “Israel Kalisch,” and a couple of finely flowering
-plants of (:i Madame André Blusset), but nothing in the
+plants of (i Madame André Blusset), but nothing in the
 nature of a real reconciliation has taken place
 between them.

@@ -1,6 +1,6 @@
-(:fw (:pg 294)(:h BEASTS AND SUPER-BEASTS))
+(fw (pg 294)(h BEASTS AND SUPER-BEASTS))
 
-(:h THE PHILANTHROPIST AND THE HAPPY CAT)
+(h THE PHILANTHROPIST AND THE HAPPY CAT)
 
 JOCANTHA BESSBURY was in the mood to be
 serenely and graciously happy. Her world

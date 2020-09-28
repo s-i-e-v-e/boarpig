@@ -1,4 +1,4 @@
-(:fw (:h THE OPEN WINDOW)(:pg 55))
+(fw (h THE OPEN WINDOW)(pg 55))
 
 the hall-door, the gravel-drive, and the front gate
 were dimly-noted stages in his headlong retreat.

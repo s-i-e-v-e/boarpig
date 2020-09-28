@@ -1,4 +1,4 @@
-(:fw (:h COUSIN TERESA)(:pg 147))
+(fw (h COUSIN TERESA)(pg 147))
 
 “Yes,” said his younger son, in a slightly less
 tolerant tone, “in a day or two he'll come back and
@@ -14,7 +14,7 @@ tions were justified and endorsed by the course of
 events. If Cousin Teresa was above the heads of
 the public, the public heroically adapted itself to
 her altitude. Introduced as an experiment at a
-dull moment in a new (:i revue), the success of the item
+dull moment in a new (i revue), the success of the item
 was unmistakable; the calls were so insistent and
 uproarious that even Lucas' ample devisings of
 additional “business” scarcely sufficed to keep
@@ -22,9 +22,9 @@ pace with the demand. Packed houses on successive
 evenings confirmed the verdict of the first night
 audience, stalls and boxes filled significantly just
 before the turn came on, and emptied significantly
-after the last (:i encore) had been given. The manager
+after the last (i encore) had been given. The manager
 tearfully acknowledged that Cousin Teresa was It.
 Stage hands and supers and programme sellers
 acknowledged it to one another without the least
-reservation. The name of the (:i revue) dwindled to
+reservation. The name of the (i revue) dwindled to
 secondary importance, and vast letters of electric

@@ -1,4 +1,4 @@
-(:fw (:h A TOUCH OF REALISM)(:pg 139))
+(fw (h A TOUCH OF REALISM)(pg 139))
 
 whisking most of the bedclothes on to the floor;
 “if you weren't concealing something you wouldn't
@@ -20,7 +20,7 @@ And by way of emphasising his annoyance at
 the prospect he sent Waldo's pillows flying to the
 top of the wardrobe.
 
-“But (:i why) no tails?” asked Waldo, whose teeth
+“But (i why) no tails?” asked Waldo, whose teeth
 were chattering with fear and rage and lowered
 temperature.
 

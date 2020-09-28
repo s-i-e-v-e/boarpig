@@ -1,4 +1,4 @@
-(:fw (:h THE YARKAND MANNER)(:pg 153))
+(fw (h THE YARKAND MANNER)(pg 153))
 
 the journey there and back. This was, in many
 respects, the most remarkable of all the Press
@@ -6,7 +6,7 @@ stampedes that were experienced at this time.
 There was no make-believe about the undertaking;
 proprietor, manager, editor, sub-editors, leader-
 writers, principal reporters, and so forth, all took
-part in what was popularly alluded to as the (:i Drang
+part in what was popularly alluded to as the (i Drang
 nach Osten;) an intelligent and efficient office-boy
 was all that was left in the deserted hive of editorial
 industry.”
@@ -22,7 +22,7 @@ tion that such and such a paper was being edited
 and brought out at Lisbon or Innsbruck if you
 chanced to see the principal leader-writer or the art
 editor lunching as usual at their accustomed res-
-taurants. The (:i Daily Intelligencer) was determined
+taurants. The (i Daily Intelligencer) was determined
 to give no loophole for cavil at the genuineness of
 its pilgrimage, and it must be admitted that to a
 certain extent the arrangements made for trans-

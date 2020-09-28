@@ -1,4 +1,4 @@
-(:fw (:h LAURA)(:pg 21))
+(fw (h LAURA)(pg 21))
 
 “The little beast has thrown all my clean shirts
 into the bath! Wait till I catch you, you little——”

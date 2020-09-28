@@ -1,4 +1,4 @@
-(:fw (:pg 216)(:h BEASTS AND SUPER-BEASTS))
+(fw (pg 216)(h BEASTS AND SUPER-BEASTS))
 
 ten minutes. I'll meet you in the lounge about
 tea-time. Thanks awfully.”
@@ -33,4 +33,4 @@ tenner on an unnamed filly by William the Third
 out of Mitrovitza for the three-fifteen race. I sup-
 pose the fact of the animal being nameless was what
 attracted me.”
-(:pb)
+(pb)

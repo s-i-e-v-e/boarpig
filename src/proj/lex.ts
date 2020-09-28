@@ -16,8 +16,37 @@
  **/
 import {println} from "../io.ts";
 
-const Symbols = ['?', '!', '.', ',', ':', ';', '–', '—', '‘', '’', '“', '”', '(', ')', '\n', ' ', '\uFFFC'];
-const SymSet = new Set<string>(Symbols);
+const Symbols = new Set(['?', '!', '.', ',', ':', ';', '–', '—', '‘', '’', '“', '”', '(', ')', '\n', ' ', '\uFFFC']);
+export const Tags = new Set([
+	'project',
+	'meta',
+	'title',
+	'author',
+	'publisher',
+	'printer',
+	'year',
+	'lang',
+	'source',
+	'full-title',
+	'half-title',
+	'h',
+	'p',
+	'sb',
+	'lb',
+	'pb',
+	'fw',
+	'sec',
+	'toc',
+	'sig',
+	'pg',
+	'jw',
+	'i',
+	'cor',
+	'nm-work',
+	'nm-part',
+	'bq',
+	'quote',
+]);
 
 interface CharStream {
 	x: string,
@@ -71,7 +100,7 @@ function read_word(cs: CharStream) {
 	const xx = [];
 	while (true) {
 		const x = cs_peek(cs);
-		if (SymSet.has(x)) {
+		if (Symbols.has(x)) {
 			break;
 		}
 		else {
@@ -86,7 +115,7 @@ export function lex(x: string): Token[] {
 	x = x.replaceAll(/\r\n?/g, '\n');
 	x = x.replaceAll(/\n\n+/g, '\r');
 	x = x.replaceAll(/-\n/g, '--\n');
-	x = x.replaceAll(/\n\(:/g, '\uFFFC(:');
+	x = x.replaceAll(/\n\(/g, '\uFFFC(');
 	x = x.replaceAll(/\)\s+\)/g, '))');
 	x = x.replaceAll(/\n/g, ' ');
 	x = x.replaceAll(/[ ]*-[ ]*/g, '-');
@@ -103,21 +132,28 @@ export function lex(x: string): Token[] {
 	while (!cs.eof) {
 		const x = cs_peek(cs);
 		if (x === '(') {
+			const index = cs.index;
 			cs_next(cs);
-			if (cs_peek(cs) === ':') {
-				cs_next(cs);
-				tokens.push(new_expr(read_word(cs)!));
+			const w = read_word(cs);
+			if (w && w.lexeme.length) {
+				if (Tags.has(w.lexeme)) {
+					tokens.push(new_expr(w));
+				}
+				else {
+					tokens.push(new_sym(index, '('));
+					tokens.push(w);
+				}
 			}
 			else {
-				tokens.push(new_sym(cs.index-1, '('));
+				tokens.push(new_sym(index, '('));
 			}
 		}
-		else if (SymSet.has(x)) {
+		else if (Symbols.has(x)) {
 			tokens.push(new_sym(cs.index, cs_next(cs)));
 		}
 		else {
-			const a = read_word(cs);
-			if (a) tokens.push(a);
+			const w = read_word(cs);
+			if (w) tokens.push(w);
 		}
 	}
 	return tokens;

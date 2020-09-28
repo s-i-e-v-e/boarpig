@@ -1,4 +1,4 @@
-(:fw (:h THE SHE-WOLF)(:pg 3))
+(fw (h THE SHE-WOLF)(pg 3))
 
 by the respect accorded to Mrs. Hoops' powers of
 imagination.

@@ -1,4 +1,4 @@
-(:fw (:pg 188)(:h BEASTS AND SUPER-BEASTS))
+(fw (pg 188)(h BEASTS AND SUPER-BEASTS))
 
 will be a frightfully good match, and that he's your
 ideal of what a son-in-law ought to be. All the
@@ -25,7 +25,7 @@ things.”
 “I shall speak to Cuthbert about it—after the
 wedding,” said Mrs. Bebberly Cumble.
 
-(:sb)
+(sb)
 
 “The wedding isn't till next year,” said Vera,
 in recounting the story to her best girl friend,

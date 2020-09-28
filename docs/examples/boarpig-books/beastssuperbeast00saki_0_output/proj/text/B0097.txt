@@ -1,6 +1,6 @@
-(:fw (:h THE SCHARTZ-METTERKLUME METHOD)(:pg 97))
+(fw (h THE SCHARTZ-METTERKLUME METHOD)(pg 97))
 
-(:h THE SCHARTZ-METTERKLUME METHOD)
+(h THE SCHARTZ-METTERKLUME METHOD)
 
 LADY CARLOTTA stepped out on to the
 platform of the small wayside station and
@@ -22,4 +22,4 @@ most eloquent exponents had been besieged for
 nearly three hours in a small and extremely uncom-
 fortable may-tree by an angry boar-pig, while
 
-(:fw (:sig H))
+(fw (sig H))

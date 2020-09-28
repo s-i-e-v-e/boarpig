@@ -1,4 +1,4 @@
-(:fw (:h THE SHE-WOLF)(:pg 5))
+(fw (h THE SHE-WOLF)(pg 5))
 
 “Yes, wolves are nocturnal animals, so the late
 hours won't hurt her,” said Clovis, with the air of

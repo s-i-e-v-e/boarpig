@@ -1,4 +1,4 @@
-(:fw (:h THE BOAR-PIG)(:pg 25))
+(fw (h THE BOAR-PIG)(pg 25))
 
 “If they think they're going to drive him away
 by reciting lists of the kings of Israel and Judah
@@ -15,16 +15,16 @@ absolute relief.
 “Little girl, can you find some one to drive away
 ——” she began hopefully.
 
-“(:i Comment? Comprends pas),” was the response.
+“(i Comment? Comprends pas),” was the response.
 
-“Oh, are you French? (:i Êtes vous française?)”
+“Oh, are you French? (i Êtes vous française?)”
 
-“(:i Pas de tous. 'Suis anglaise.)”
+“(i Pas de tous. 'Suis anglaise.)”
 
 “Then why not talk English? I want to know
 if——”
 
-“(:i Permettez-moi expliquer.) You see, I'm rather
+“(i Permettez-moi expliquer.) You see, I'm rather
 under a cloud,” said Matilda. “I'm staying with
 my aunt, and I was told I must behave particularly
 well to-day, as lots of people were coming for a

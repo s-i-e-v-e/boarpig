@@ -1,6 +1,6 @@
-(:fw (:h FUR)(:pg 285))
+(fw (h FUR)(pg 285))
 
-(:h FUR)
+(h FUR)
 
 “YOU look worried, dear,” said Eleanor.
 

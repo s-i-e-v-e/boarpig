@@ -1,4 +1,4 @@
-(:fw (:pg 46)(:h BEASTS AND SUPER-BEASTS))
+(fw (pg 46)(h BEASTS AND SUPER-BEASTS))
 
 “Me?”
 
@@ -36,4 +36,4 @@ and now he has to fill your glass at lunch and dinner
 and listen to your accounts of the gay time you had
 at the Dublin Horse Show, and naturally he feels
 that something's very wrong with you.”
-(:pb)
+(pb)

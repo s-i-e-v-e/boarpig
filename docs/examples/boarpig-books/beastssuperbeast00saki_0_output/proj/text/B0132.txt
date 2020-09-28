@@ -1,4 +1,4 @@
-(:fw (:pg 132)(:h BEASTS AND SUPER-BEASTS))
+(fw (pg 132)(h BEASTS AND SUPER-BEASTS))
 
 The young man hastily removed all doubt on the
 subject by pocketing the coin.

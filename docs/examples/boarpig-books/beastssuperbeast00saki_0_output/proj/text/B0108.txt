@@ -1,4 +1,4 @@
-(:fw (:pg 108)(:h BEASTS AND SUPER-BEASTS))
+(fw (pg 108)(h BEASTS AND SUPER-BEASTS))
 
 more unscrupulous than the circle he moved in. Much
 might surely be excused to one who in early life

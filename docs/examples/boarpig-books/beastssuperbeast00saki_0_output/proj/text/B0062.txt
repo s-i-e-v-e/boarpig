@@ -1,4 +1,4 @@
-(:fw (:pg 62)(:h BEASTS AND SUPER-BEASTS))
+(fw (pg 62)(h BEASTS AND SUPER-BEASTS))
 
 silence. Then she asked hoarsely: “What are you
 going to do?”

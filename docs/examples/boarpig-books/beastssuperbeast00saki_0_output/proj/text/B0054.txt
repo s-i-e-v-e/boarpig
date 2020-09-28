@@ -1,4 +1,4 @@
-(:fw (:pg 54)(:h BEASTS AND SUPER-BEASTS))
+(fw (pg 54)(h BEASTS AND SUPER-BEASTS))
 
 tolerably wide-spread delusion that total strangers
 and chance acquaintances are hungry for the least

@@ -1,4 +1,4 @@
-(:fw (:pg 164)(:h BEASTS AND SUPER-BEASTS))
+(fw (pg 164)(h BEASTS AND SUPER-BEASTS))
 
 “Wicked is the word,” said Richardson; “I'm
 a good Conservative and I've no patience with this
@@ -19,7 +19,7 @@ in this condition.”
 After a very hasty scrutiny Sophie assured her
 that she could not.
 
-“Have they (:i all) struck?” she asked her maid.
+“Have they (i all) struck?” she asked her maid.
 
 “Not the kitchen staff,” said Richardson, “they
 belong to a different union.”
@@ -35,4 +35,4 @@ me! or rather, don't.”
 “I know it's difficult to manage without a maid;
 can't your husband be any help to you?” asked
 Sophie despairingly.
-(:pb)
+(pb)

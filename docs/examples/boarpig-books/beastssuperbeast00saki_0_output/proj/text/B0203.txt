@@ -1,4 +1,4 @@
-(:fw (:h THE STAKE)(:pg 203))
+(fw (h THE STAKE)(pg 203))
 
 of the reputation which the justly-treasured cook
 had built up for herself. The soup alone would have
@@ -31,6 +31,6 @@ commenced Pellin by way of explanation.
 
 “What on earth do you mean? What is Colonel
 Norridrum's cook doing in my kitchen—and where
-is (:i my) cook?”
+is (i my) cook?”
 
 “Perhaps I can explain better than Pellin can,”

@@ -1,4 +1,4 @@
-(:fw (:pg 152)(:h BEASTS AND SUPER-BEASTS))
+(fw (pg 152)(h BEASTS AND SUPER-BEASTS))
 
 brilliant and enterprising weeklies to the banks of
 the Seine and the heights of Montmartre. The
@@ -18,11 +18,11 @@ Trouville and Monte Carlo was generally admitted
 to have been a mistake. And even when enterprising
 and adventurous editors took themselves and their
 staffs further afield there were some unavoidable
-clashings. For instance, the (:i Scrutator), (:i Sporting
-Bluff), and (:i The Damsels' Own Paper) all pitched on
+clashings. For instance, the (i Scrutator), (i Sporting
+Bluff), and (i The Damsels' Own Paper) all pitched on
 Khartoum for the same week. It was, perhaps, a
 desire to out-distance all possible competition that
-influenced the management of the (:i Daily Intelligencer),
+influenced the management of the (i Daily Intelligencer),
 one of the most solid and respected organs of Liberal
 opinion, in its decision to transfer its offices for three
 or four weeks from Fleet Street to Eastern Turkestan,

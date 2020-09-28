@@ -1,4 +1,4 @@
-(:fw (:pg 208)(:h BEASTS AND SUPER-BEASTS))
+(fw (pg 208)(h BEASTS AND SUPER-BEASTS))
 
 facts of life stick in one's memory. There's my
 cousin, Editha Clubberley, for instance; I can never
@@ -30,4 +30,4 @@ more than any other woman I can think of.”
 “What kind of knowledge?” demanded Mrs.
 Eggelby, with the air a jury might collectively wear
 when finding a verdict without leaving the box.
-(:pb)
+(pb)

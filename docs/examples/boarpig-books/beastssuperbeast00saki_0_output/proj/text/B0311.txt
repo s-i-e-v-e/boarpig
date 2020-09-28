@@ -1,4 +1,4 @@
-(:fw (:h ON APPROVAL)(:pg 311))
+(fw (h ON APPROVAL)(pg 311))
 
 For the sum of ten shillings each Miss Strubble
 acquired the drawings of the camel dying in Upper

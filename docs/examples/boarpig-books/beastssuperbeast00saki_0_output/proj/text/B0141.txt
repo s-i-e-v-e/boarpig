@@ -1,4 +1,4 @@
-(:fw (:h A TOUCH OF REALISM)(:pg 141))
+(fw (h A TOUCH OF REALISM)(pg 141))
 
 “Didn't you take them out in your car?” asked
 Blanche Boveal, addressing herself to Cyril Skatterly.
@@ -37,6 +37,6 @@ somewhere if they walk a mile or two.”
 The question came in a chorus of indignant
 bewilderment.
 
-“(:i That) would be telling what our characters are
+“(i That) would be telling what our characters are
 meant to be,” said Vera.
-(:pb)
+(pb)

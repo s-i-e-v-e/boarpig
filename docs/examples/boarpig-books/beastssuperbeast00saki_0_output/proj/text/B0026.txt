@@ -1,4 +1,4 @@
-(:fw (:pg 26)(:h BEASTS AND SUPER-BEASTS))
+(fw (pg 26)(h BEASTS AND SUPER-BEASTS))
 
 Claude never eats too much raspberry trifle. Well,
 Claude always goes to sleep for half an hour after
@@ -15,19 +15,19 @@ additional punishment I must speak French all the
 afternoon. I've had to tell you all this in English,
 as there were words like ‘forcible feeding’ that I
 didn't know the French for; of course I could have
-invented them, but if I had said (:i nourriture obliga-
+invented them, but if I had said (i nourriture obliga-
 toire) you wouldn't have had the least idea what I
-was talking about. (:i Mais maintenant, nous parlons
+was talking about. (i Mais maintenant, nous parlons
 français.)”
 
-“Oh, very well, (:i trés bien),” said Mrs. Stossen
+“Oh, very well, (i trés bien),” said Mrs. Stossen
 reluctantly; in moments of flurry such French as
-she knew was not under very good control. “(:i Là,
+she knew was not under very good control. “(i Là,
 à l'autre côté de la porte, est un cochon——)”
 
-“(:i Un cochon? Ah, le petit charmant!)” exclaimed
+“(i Un cochon? Ah, le petit charmant!)” exclaimed
 Matilda with enthusiasm.
 
-“(:i Mais non, pas du tout petit, et pas du tout char-
+“(i Mais non, pas du tout petit, et pas du tout char-
 mant; un bête féroce——)”
-(:pb)
+(pb)

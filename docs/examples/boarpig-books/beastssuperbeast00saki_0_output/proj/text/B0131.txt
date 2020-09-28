@@ -1,4 +1,4 @@
-(:fw (:h DUSK)(:pg 131))
+(fw (h DUSK)(pg 131))
 
 did so an exclamation of concern escaped him.
 Lying on the ground by the side of the bench was a
@@ -28,4 +28,4 @@ rather against you, and now, as I appealed to the
 testimony of the soap I think I ought to abide by
 its verdict. If the loan of a sovereign is any good
 to you——”
-(:pb)
+(pb)

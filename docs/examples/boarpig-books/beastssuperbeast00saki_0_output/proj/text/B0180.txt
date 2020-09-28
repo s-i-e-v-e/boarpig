@@ -1,4 +1,4 @@
-(:fw (:pg 180)(:h BEASTS AND SUPER-BEASTS))
+(fw (pg 180)(h BEASTS AND SUPER-BEASTS))
 
 Perhaps he was going to develop into a Nut after
 all. It was a disquieting symptom that he left all

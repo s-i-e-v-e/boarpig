@@ -1,4 +1,4 @@
-(:fw (:pg 266)(:h BEASTS AND SUPER-BEASTS))
+(fw (pg 266)(h BEASTS AND SUPER-BEASTS))
 
 under the wing of her brother, and as the latter's
 business arrangements would take him across to

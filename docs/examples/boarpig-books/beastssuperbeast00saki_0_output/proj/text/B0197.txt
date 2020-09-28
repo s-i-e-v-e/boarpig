@@ -1,4 +1,4 @@
-(:fw (:h THE FORBIDDEN BUZZARDS)(:pg 197))
+(fw (h THE FORBIDDEN BUZZARDS)(pg 197))
 
 Hugo did not bring off his affair with Betty
 Coulterneb. Whether she refused him or whether,

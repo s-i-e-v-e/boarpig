@@ -1,4 +1,4 @@
-(:fw (:h THE DREAMER)(:pg 179))
+(fw (h THE DREAMER)(pg 179))
 
 portmanteau. She also bought a few envelopes—
 envelopes somehow seemed rather an extragavance
@@ -35,4 +35,4 @@ prices.
 “I've got as many hats as I want at home,” he
 said, “and besides, it rumples one's hair so, trying
 them on.”
-(:pb)
+(pb)

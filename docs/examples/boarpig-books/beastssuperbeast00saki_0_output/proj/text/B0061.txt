@@ -1,4 +1,4 @@
-(:fw (:h THE TREASURE-SHIP)(:pg 61))
+(fw (h THE TREASURE-SHIP)(pg 61))
 
 papers were made public. I've put you at the head
 of it, otherwise it follows alphabetical order.”

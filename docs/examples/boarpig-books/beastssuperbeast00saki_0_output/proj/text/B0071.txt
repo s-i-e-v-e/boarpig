@@ -1,4 +1,4 @@
-(:fw (:h THE COBWEB)(:pg 71))
+(fw (h THE COBWEB)(pg 71))
 
 threw the grain deftly amid the wilderness of beaks,
 and her quavering voice carried as far as the two
@@ -21,7 +21,7 @@ And she turned to fling a handful of barley at a
 belated group of guinea-fowl that came racing
 toward her.
 
-(:sb)
+(sb)
 
 The farm was a family property, and passed to
 the rabbit-shooting cousin as the next-of-kin. Emma

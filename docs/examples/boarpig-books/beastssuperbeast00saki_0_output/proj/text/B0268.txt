@@ -1,4 +1,4 @@
-(:fw (:pg 268)(:h BEASTS AND SUPER-BEASTS))
+(fw (pg 268)(h BEASTS AND SUPER-BEASTS))
 
 what had happened. The engine had made a mighty
 plunge through the drift and had gone merrily
@@ -30,4 +30,4 @@ have to converse entirely by signs.”
 He entered the carriage and made his momentous
 announcement in the best approach to Croat speech
 that he could achieve.
-(:pb)
+(pb)

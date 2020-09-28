@@ -1,6 +1,6 @@
-(:fw (:h A DEFENSIVE DIAMOND)(:pg 239))
+(fw (h A DEFENSIVE DIAMOND)(pg 239))
 
-(:h A DEFENSIVE DIAMOND)
+(h A DEFENSIVE DIAMOND)
 
 TREDDLEFORD sat in an easeful arm-chair
 in front of a slumberous fire, with a

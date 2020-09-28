@@ -1,4 +1,4 @@
-(:fw (:pg 262)(:h BEASTS AND SUPER-BEASTS))
+(fw (pg 262)(h BEASTS AND SUPER-BEASTS))
 
 perfectly delicious Stilton, which we shall devour
 to the last morsel, and the Froplinsons for their

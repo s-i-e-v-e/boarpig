@@ -1,4 +1,4 @@
-(:fw (:pg 12)(:h BEASTS AND SUPER-BEASTS))
+(fw (pg 12)(h BEASTS AND SUPER-BEASTS))
 
 than a tourist's acquaintance with the magic craft
 of that region. One does not care to speak about

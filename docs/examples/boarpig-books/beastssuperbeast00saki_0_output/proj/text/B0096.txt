@@ -1,4 +1,4 @@
-(:fw (:pg 96)(:h BEASTS AND SUPER-BEASTS))
+(fw (pg 96)(h BEASTS AND SUPER-BEASTS))
 
 “At any other time, certainly,” said Crosby;
 “in the months of November and December, how-

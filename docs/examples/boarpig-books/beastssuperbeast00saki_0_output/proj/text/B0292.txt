@@ -1,4 +1,4 @@
-(:fw (:pg 292)(:h BEASTS AND SUPER-BEASTS))
+(fw (pg 292)(h BEASTS AND SUPER-BEASTS))
 
 “Hullo, I thought I had lost you,” said Suzanne,
 making her way through an obstructive knot of

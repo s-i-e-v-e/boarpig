@@ -1,4 +1,4 @@
-(:fw (:pg 38)(:h BEASTS AND SUPER-BEASTS))
+(fw (pg 38)(h BEASTS AND SUPER-BEASTS))
 
 road, and there's sure to be a pig or two grunting
 about in the lane.”

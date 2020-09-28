@@ -1,4 +1,4 @@
-(:fw (:h FUR)(:pg 289))
+(fw (h FUR)(pg 289))
 
 the sort of weather to tempt a gentleman of advanc-
 ing years into the discreet exercise of a leisurely
@@ -35,4 +35,4 @@ denly; “hurry!”
 
 Mr. Bertram Kneyght greeted his cousin and her
 
-(:fw (:sig U))
+(fw (sig U))

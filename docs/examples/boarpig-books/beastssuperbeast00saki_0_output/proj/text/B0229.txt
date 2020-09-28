@@ -1,6 +1,6 @@
-(:fw (:h THE STORY-TELLER)(:pg 229))
+(fw (h THE STORY-TELLER)(pg 229))
 
-(:h THE STORY-TELLER)
+(h THE STORY-TELLER)
 
 IT was a hot afternoon, and the railway carriage
 was correspondingly sultry, and the next
@@ -24,4 +24,4 @@ the small boy began smacking the cushions of the
 seat, producing a cloud of dust at each blow.
 
 “Come and look out of the window,” she added.
-(:pb)
+(pb)

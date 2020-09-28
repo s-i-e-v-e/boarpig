@@ -1,9 +1,9 @@
-(:fw (:pg 310)(:h BEASTS AND SUPER-BEASTS))
+(fw (pg 310)(h BEASTS AND SUPER-BEASTS))
 
 ordinary resources of the kitchen were supplemented
 by an imported dish of smoked goosebreast, a
 Pomeranian delicacy that was luckily procurable at
-a firm of (:i delikatessen) merchants in Coventry Street,
+a firm of (i delikatessen) merchants in Coventry Street,
 while a long-necked bottle of Rhine wine gave a
 finishing touch of festivity and good cheer to the
 crowded table.
@@ -30,6 +30,6 @@ Nougat- Jones.
 “Hush! no, don't. Let's buy some of his
 sketches, quick, before we are supposed to know that
 he's famous; otherwise he'll be doubling the prices.
-I (:i am) so glad he's had a success at last. I always
+I (i am) so glad he's had a success at last. I always
 believed in him, you know.”
-(:pb)
+(pb)

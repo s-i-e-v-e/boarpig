@@ -1,4 +1,4 @@
-(:fw (:h THE ELK)(:pg 251))
+(fw (h THE ELK)(pg 251))
 
 “A picture needing words,” would be Teresa's
 private comment, and as far as Bertie was concerned

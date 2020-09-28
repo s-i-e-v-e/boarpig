@@ -1,4 +1,4 @@
-(:fw (:pg 42)(:h BEASTS AND SUPER-BEASTS))
+(fw (pg 42)(h BEASTS AND SUPER-BEASTS))
 
 them to leave off. Their remarks on each other's
 conduct and character have hitherto been governed
@@ -17,7 +17,7 @@ but I'll do my best.”
 “As long as you don't drag me into it——”
 stipulated his mother.
 
-(:sb)
+(sb)
 
 “Servants are a bit of a nuisance,” muttered
 Clovis, as he sat in the smoking-room after lunch,

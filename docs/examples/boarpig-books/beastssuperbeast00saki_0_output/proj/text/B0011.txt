@@ -1,4 +1,4 @@
-(:fw (:h THE SHE-WOLF)(:pg 11))
+(fw (h THE SHE-WOLF)(pg 11))
 
 “I refuse to stay another hour under this roof,”
 declared Mavis Pellington.
@@ -25,7 +25,7 @@ The situation was explained to her, as far as
 it permitted of anything that could be called
 explanation.
 
-“Then you (:i really) did turn me into a wolf, Mr.
+“Then you (i really) did turn me into a wolf, Mr.
 Bilsiter?” she exclaimed excitedly.
 
 But Leonard had burned the boat in which he

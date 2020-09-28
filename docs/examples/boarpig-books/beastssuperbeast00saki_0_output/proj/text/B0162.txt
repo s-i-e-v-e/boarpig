@@ -1,4 +1,4 @@
-(:fw (:pg 162)(:h BEASTS AND SUPER-BEASTS))
+(fw (pg 162)(h BEASTS AND SUPER-BEASTS))
 
 look in her eyes and the deft play of her fingers it
 was evident that she was beset with the ambition

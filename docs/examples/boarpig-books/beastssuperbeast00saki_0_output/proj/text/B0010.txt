@@ -1,4 +1,4 @@
-(:fw (:pg 10)(:h BEASTS AND SUPER-BEASTS))
+(fw (pg 10)(h BEASTS AND SUPER-BEASTS))
 
 He took a piece of sugar from the saucer of his
 coffee cup and flung it to the expectant Louisa,
@@ -31,4 +31,4 @@ inquire what has become of Mrs. Hampton.”
 
 Bilsiter's reiterated disclaimer was met with a
 general murmur of impatient disbelief.
-(:pb)
+(pb)

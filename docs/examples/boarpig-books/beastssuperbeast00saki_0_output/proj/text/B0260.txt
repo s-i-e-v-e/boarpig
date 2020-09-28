@@ -1,4 +1,4 @@
-(:fw (:pg 260)(:h BEASTS AND SUPER-BEASTS))
+(fw (pg 260)(h BEASTS AND SUPER-BEASTS))
 
 There was a long silence, the forlorn silence of
 those who are bereft of hope and have almost ceased

@@ -1,4 +1,4 @@
-(:fw (:h THE BROGUE)(:pg 33))
+(fw (h THE BROGUE)(pg 33))
 
 Clovis Sangrail on the outskirts of the village with
 a breathless catalogue of local happenings.
@@ -34,4 +34,4 @@ excited squeak, “Mr. Penricarde has just begun
 to pay attentions to Jessie. Slight at first, but now
 unmistakable. I was a fool not to have seen it
 
-(:fw (:sig D))
+(fw (sig D))

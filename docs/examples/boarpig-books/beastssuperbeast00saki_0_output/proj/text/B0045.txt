@@ -1,4 +1,4 @@
-(:fw (:h THE HEN)(:pg 45))
+(fw (h THE HEN)(pg 45))
 
 to be sent up to her in the morning, and if he was
 waiting at table he passed her over altogether in
@@ -28,7 +28,7 @@ do you?” asked Jane with some anxiety.
 
 “One can never be certain,” said Clovis; “now
 and then he gets some idea about a guest which
-(:i might) take an unfortunate turn. That is precisely
+(i might) take an unfortunate turn. That is precisely
 what is worrying me at the present moment.”
 
 “What, has he taken a fancy about some one here
@@ -36,4 +36,4 @@ now?” asked Jane excitedly; “how thrilling!
 Do tell me who it is.”
 
 “You,” said Clovis briefly.
-(:pb)
+(pb)

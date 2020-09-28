@@ -1,4 +1,4 @@
-(:fw (:h THE YARKAND MANNER)(:pg 155))
+(fw (h THE YARKAND MANNER)(pg 155))
 
 since their return and new ones engaged by letter;
 to these the editor and his immediate associates
@@ -13,7 +13,7 @@ The most brilliant hostess of Twentieth Century
 London flung the pearl of her hospitality into the
 unresponsive trough of the editorial letter-box;
 it seemed as if nothing short of a Royal command
-would drag the hermit-souled (:i revenants) from their
+would drag the hermit-souled (i revenants) from their
 self-imposed seclusion. People began to talk unkindly
 of the effect of high altitudes and Eastern atmosphere
 on minds and temperaments unused to such luxuries.

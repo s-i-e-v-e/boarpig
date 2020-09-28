@@ -1,6 +1,6 @@
-(:fw (:h ON APPROVAL)(:pg 303))
+(fw (h ON APPROVAL)(pg 303))
 
-(:h ON APPROVAL)
+(h ON APPROVAL)
 
 OF all the genuine Bohemians who strayed
 from time to time into the would-be
@@ -24,4 +24,4 @@ ago, according to all that was known of him, he had
 abandoned the labours and responsibilities of
 swine tending and goose rearing to try his fortune
 as an artist in London.
-(:pb)
+(pb)

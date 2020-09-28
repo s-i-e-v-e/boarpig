@@ -1,4 +1,4 @@
-(:fw (:pg 210)(:h BEASTS AND SUPER-BEASTS))
+(fw (pg 210)(h BEASTS AND SUPER-BEASTS))
 
 he said; “I quite look forward to meeting him some
 day.”

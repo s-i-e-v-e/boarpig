@@ -1,6 +1,6 @@
-(:fw (:h THE BOAR-PIG)(:pg 27))
+(fw (h THE BOAR-PIG)(pg 27))
 
-“(:i Une bête),” corrected Matilda; “a pig is mascu-
+“(i Une bête),” corrected Matilda; “a pig is mascu-
 line as long as you call it a pig, but if you lose your
 temper with it and call it a ferocious beast it becomes
 one of us at once. French is a dreadfully unsexing

@@ -1,6 +1,6 @@
-(:fw (:pg 190)(:h BEASTS AND SUPER-BEASTS))
+(fw (pg 190)(h BEASTS AND SUPER-BEASTS))
 
-(:h THE FORBIDDEN BUZZARDS)
+(h THE FORBIDDEN BUZZARDS)
 
 “IS matchmaking at all in your line?”
 

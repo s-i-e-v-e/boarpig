@@ -1,4 +1,4 @@
-(:fw (:pg 4)(:h BEASTS AND SUPER-BEASTS))
+(fw (pg 4)(h BEASTS AND SUPER-BEASTS))
 
 our tables. To-morrow we shall be a larger party.
 To-morrow night, after dinner——”
@@ -33,4 +33,4 @@ careless solicitude of one who borrows a collar stud
 or a tennis racquet.
 
 “To-morrow night?”
-(:pb)
+(pb)

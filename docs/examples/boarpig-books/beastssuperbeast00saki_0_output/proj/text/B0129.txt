@@ -1,4 +1,4 @@
-(:fw (:h DUSK)(:pg 129))
+(fw (h DUSK)(pg 129))
 
 connections in London! Of course I can wire to
 my people for the address, but they won't have got
@@ -30,5 +30,5 @@ find some decent chap to swallow my story and lend
 me some money I seem likely to spend the night on
 the Embankment. I'm glad, anyhow, that you
 don't think the story outrageously improbable.”
-(:pb)
-(:fw (:sig K))
+(pb)
+(fw (sig K))

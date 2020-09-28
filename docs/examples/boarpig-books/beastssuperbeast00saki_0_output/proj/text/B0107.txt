@@ -1,4 +1,4 @@
-(:fw (:h THE SEVENTH PULLET)(:pg 107))
+(fw (h THE SEVENTH PULLET)(pg 107))
 
 Gorworth; “we are not in the least interested
 in it because it is not in the least interesting. The

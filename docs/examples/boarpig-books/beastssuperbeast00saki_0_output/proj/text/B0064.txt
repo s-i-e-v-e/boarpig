@@ -1,4 +1,4 @@
-(:fw (:pg 64)(:h BEASTS AND SUPER-BEASTS))
+(fw (pg 64)(h BEASTS AND SUPER-BEASTS))
 
 itched to make it bright and cosy with chintz curtains
 and bowls of flowers, and a shelf or two of old china.

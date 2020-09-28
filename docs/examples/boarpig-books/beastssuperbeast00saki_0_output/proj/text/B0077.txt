@@ -1,4 +1,4 @@
-(:fw (:h THE LULL)(:pg 77))
+(fw (h THE LULL)(pg 77))
 
 the gamecock, you know, for the night. You see,
 there are eight other gamecocks, and they fight

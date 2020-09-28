@@ -1,4 +1,4 @@
-(:fw (:pg 196)(:h BEASTS AND SUPER-BEASTS))
+(fw (pg 196)(h BEASTS AND SUPER-BEASTS))
 
 He was shown all the Aylesbury ducklings and the
 row of wooden hives where there would have been
@@ -27,4 +27,4 @@ woman who remembered Charles James Fox; the
 woman had been dead for two or three years, but
 the cottage was still there. Lanner was called
 back to town earlier than he had originally intended.
-(:pb)
+(pb)

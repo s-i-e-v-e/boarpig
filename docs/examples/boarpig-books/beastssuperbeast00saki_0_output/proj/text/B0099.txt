@@ -1,4 +1,4 @@
-(:fw (:h THE SCHARTZ-METTERKLUME METHOD)(:pg 99))
+(fw (h THE SCHARTZ-METTERKLUME METHOD)(pg 99))
 
 absent are always to blame; the luggage had, in
 point of fact, behaved with perfect correctitude.
@@ -20,8 +20,8 @@ something or other else of a mould equally common-
 place among children of that class and type in the
 twentieth century.
 
-“I wish them not only to be (:i taught),” said Mrs.
-Quabarl, “but (:i interested) in what they learn. In
+“I wish them not only to be (i taught),” said Mrs.
+Quabarl, “but (i interested) in what they learn. In
 their history lessons, for instance, you must try
 to make them feel that they are being introduced
 to the life-stories of men and women who really lived,
@@ -31,4 +31,4 @@ to talk at meal-times several days in the week.”
 
 “I shall talk French four days of the week and
 Russian in the remaining three.”
-(:pb)
+(pb)

@@ -1,4 +1,4 @@
-(:fw (:pg 232)(:h BEASTS AND SUPER-BEASTS))
+(fw (pg 232)(h BEASTS AND SUPER-BEASTS))
 
 “It's the stupidest story I've ever heard,” said
 the bigger of the small girls, with immense con-
@@ -23,7 +23,7 @@ stiffly.
 
 “I don't agree with you,” said the bachelor.
 
-“Perhaps (:i you) would like to tell them a story,”
+“Perhaps (i you) would like to tell them a story,”
 was the aunt's retort.
 
 “Tell us a story,” demanded the bigger of the

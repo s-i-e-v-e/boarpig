@@ -1,4 +1,4 @@
-(:fw (:pg 14)(:h BEASTS AND SUPER-BEASTS))
+(fw (pg 14)(h BEASTS AND SUPER-BEASTS))
 
 “If you don't mind my saying so,” observed
 Laura, “Egbert is a circumstance that would

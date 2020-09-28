@@ -1,4 +1,4 @@
-(:fw (:h ON APPROVAL)(:pg 307))
+(fw (h ON APPROVAL)(pg 307))
 
 now endeavouring to sell to some enterprising dealer
 or adventurous amateur. The subject was “Hyænas

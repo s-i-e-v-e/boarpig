@@ -1,6 +1,6 @@
-(:fw (:pg 256)(:h BEASTS AND SUPER-BEASTS))
+(fw (pg 256)(h BEASTS AND SUPER-BEASTS))
 
-(:h “DOWN PENS”)
+(h “DOWN PENS”)
 
 “HAVE you written to thank the Frop-
 linsons for what they sent us?” asked

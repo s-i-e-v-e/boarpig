@@ -1,4 +1,4 @@
-(:fw (:pg 204)(:h BEASTS AND SUPER-BEASTS))
+(fw (pg 204)(h BEASTS AND SUPER-BEASTS))
 
 said Ronald hurriedly; “the fact is, I was dining
 at the Norridrums' yesterday, and they were wishing

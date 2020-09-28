@@ -1,4 +1,4 @@
-(:fw (:pg 242)(:h BEASTS AND SUPER-BEASTS))
+(fw (pg 242)(h BEASTS AND SUPER-BEASTS))
 
 out of about the only bird she'd hit during the present
 reign. Of course she wasn't going to stand that;

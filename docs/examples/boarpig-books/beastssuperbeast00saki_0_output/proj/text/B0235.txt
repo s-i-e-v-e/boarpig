@@ -1,4 +1,4 @@
-(:fw (:h THE STORY-TELLER)(:pg 235))
+(fw (h THE STORY-TELLER)(pg 235))
 
 The story-teller paused to let a full idea of the
 park's treasures sink into the children's imaginations;
