@@ -216,8 +216,8 @@ function textify_project(n: Node) {
 
 export async function make(file: string, clobber: boolean) {
 	println('make');
-	const [out_dir, bpp, pp] = parse_project(file, !clobber);
-	const [x, y1, y2, z] = textify_project(pp[0]);
+	const [out_dir, bpp, n] = parse_project(file, !clobber);
+	const [x, y1, y2, z] = textify_project(n);
 	Deno.writeTextFile(bpp, x);
 	Deno.writeTextFile(`${out_dir}/proj/project.no-fw.txt.bpp`, y1);
 	Deno.writeTextFile(`${out_dir}/proj/project.plain.txt.bpp`, y2);

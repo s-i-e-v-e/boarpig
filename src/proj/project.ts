@@ -30,7 +30,7 @@ function readSavedTextFilesSync(out_dir: string) {
 	return listSavedTextFiles(path).map(x => `${path}/${x}`).map(x => Deno.readTextFileSync(x));
 }
 
-export function parse_project(file: string, read_existing: boolean): [string, string, Node[]] {
+export function parse_project(file: string, read_existing: boolean): [string, string, Node] {
 	const out_dir = make_out_dir_path(file);
 	const bpp = `${out_dir}/proj/project.bpp`
 	read_existing = read_existing && exists(bpp);
@@ -46,7 +46,7 @@ export function parse_project(file: string, read_existing: boolean): [string, st
 
 	println('parse_project');
 	const x = parse(text, !read_existing);
-	return [out_dir, bpp, x];
+	return [out_dir, bpp, x[0]];
 }
 
 export async function make_project(file: string, clobber: boolean) {

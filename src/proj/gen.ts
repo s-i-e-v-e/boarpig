@@ -210,12 +210,12 @@ function gen_from_md(out_dir: string, n: Node) {
 }*/
 
 export async function gen(file: string, format: string) {
-	const [out_dir, _, pp] = parse_project(file, true);
+	const [out_dir, _, n] = parse_project(file, true);
 
 	let xs: FileInfo[];
 	switch (format) {
-		case 'tei': xs = gen_tei(pp[0]); break;
-		case 'html': xs = gen_html_single(pp[0]); break;
+		case 'tei': xs = gen_tei(n); break;
+		case 'html': xs = gen_html_single(n); break;
 		default: throw new Error();
 	}
 
