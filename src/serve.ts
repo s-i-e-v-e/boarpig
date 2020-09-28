@@ -18,12 +18,10 @@ import { serve } from "https://deno.land/std@0.68.0/http/server.ts";
 import {
 	list_files,
 	make_image_path,
-	make_out_dir_path,
 	make_proj_saved_text_path,
 	make_text_path, mkdir,
 	parse_path,
 } from "./io.ts";
-import {parse} from "./proj/parse.ts";
 
 interface Resource {
 	mime: string,
@@ -63,23 +61,48 @@ function get_image_file_path(path: string) {
 	return `${make_image_path(path.substring(0, n))}${path.substring(n)}`;
 }
 
-async function handleApiRequest(dataRoot: string, x: any): Promise<Resource> {
+interface Project {
+	name: string,
+	xs: string[], // pages
+}
+
+interface State {
+	dataRoot: string,
+	wwwRoot: string,
+	xs: Project[],
+}
+
+interface ApiData {
+	cmd: string,
+}
+
+interface ApiPage extends ApiData {
+	project: string,
+	page: string,
+}
+
+function handleApiRequest(st: State, data: ApiData): Resource {
 	let y;
-	switch (x.cmd) {
+	switch (data.cmd) {
 		case 'list-projects': {
 			y = {
-				xs: list_files(dataRoot, name => name.endsWith('.pdf') || name.endsWith('.djvu')).map(x => parse_path(x).name),
+				xs: st.xs.map(x => x.name),
+			};
+			break;
+		}
+		case 'list-pages': {
+			const x = data as ApiPage;
+			y = {
+				xs: st.xs.filter(y => y.name === x.project)[0].xs,
 			};
 			break;
 		}
 		case 'prev-page':
 		case 'next-page': {
-			const project = x.project;
-			const current_page = x.page;
-			const image_dir = make_image_path(`${dataRoot}/${project}_output`);
-			const xs = list_files(image_dir);
+			const x = data as ApiPage;
+			const xs: string[] = st.xs.filter(y => y.name === x.project)[0].xs;
 
-			let i = current_page ? xs.findIndex(x => x.indexOf(current_page) === 0) : -1;
+			let i = x.page ? xs.findIndex(y => y.indexOf(x.page) === 0) : -1;
 			i = x.cmd === 'next-page' ? i + 1 : i;
 			i = x.cmd === 'prev-page' ? i - 1 : i;
 			i = i < 0 ? 0 : i;
@@ -90,24 +113,24 @@ async function handleApiRequest(dataRoot: string, x: any): Promise<Resource> {
 			};
 			break;
 		}
-		default: throw new Error(x.cmd);
+		default: throw new Error(data.cmd);
 	}
 
 	return { mime: getMime('x.json'), bytes: encoder.encode(JSON.stringify(y)) };
 }
 
-async function handleRequest(wwwRoot: string, dataRoot: string, url: string, data?: Uint8Array): Promise<Resource> {
+async function handleRequest(st: State, url: string, data?: Uint8Array): Promise<Resource> {
 	url = url === '/' ? '/index.html' : url;
-	if (url === '/api') return handleApiRequest(dataRoot, JSON.parse(decoder.decode(data!)));
+	if (url === '/api') return handleApiRequest(st, JSON.parse(decoder.decode(data!)));
 
 	const make_path = (url: string) => {
 		let path = '';
 		if (url.startsWith('/project/')) {
 			let pp = parse_path(url.substring('/project/'.length));
-			path = `${dataRoot}/${pp.dir}_output/${pp.name}${pp.ext}`;
+			path = `${st.dataRoot}/${pp.dir}_output/${pp.name}${pp.ext}`;
 		}
 		else {
-			path = `${wwwRoot}${url}`;
+			path = `${st.wwwRoot}${url}`;
 		}
 		return path;
 	};
@@ -139,7 +162,30 @@ async function handleRequest(wwwRoot: string, dataRoot: string, url: string, dat
 	}
 }
 
-async function respond(r: Resource) {
+function buildState(dataRoot: string): State {
+	let base = import.meta.url.substring( 'file:///'.length);
+	base = base[1] === ':' ? base : `/${base}`; // C:/... OR /home/...
+	const wwwRoot = `${parse_path(base).dir}/web`;
+
+	const xs = list_files(dataRoot, name => name.endsWith('.pdf') || name.endsWith('.djvu'))
+		.map(x => parse_path(x).name)
+		.map(x => {
+			const image_dir = make_image_path(`${dataRoot}/${x}_output`);
+			const ys = list_files(image_dir).map(x => parse_path(x).name);
+			return {
+				name: x,
+				xs: ys,
+			}
+		});
+
+	return {
+		dataRoot: dataRoot,
+		wwwRoot: wwwRoot,
+		xs: xs,
+	};
+}
+
+function respond(r: Resource) {
 	const headers = new Headers();
 	headers.set("content-length", r.bytes.length.toString());
 	headers.set("content-type", r.mime);
@@ -152,20 +198,21 @@ async function respond(r: Resource) {
 }
 
 export async function serve_http(dataRoot: string, port: number) {
-	let base = import.meta.url.substring( 'file:///'.length);
-	base = base[1] === ':' ? base : `/${base}`;
-	const wwwRoot = `${parse_path(base).dir}/web`;
+	const st = buildState(dataRoot);
 	const s = serve({ port: port });
 	console.log(`http://localhost:${port}/`);
-
 	for await (const req of s) {
-		if (req.url === '/favicon.ico') {
-			req.respond({status: 404 });
+		let re;
+		switch (req.url) {
+			case '/favicon.ico': re = {status: 404 }; break;
+			default: {
+				re = respond(await handleRequest(st, req.url, req.method === 'POST' ? await Deno.readAll(req.body) : undefined));
+				break;
+			}
 		}
-		else {
-			const r = await handleRequest(wwwRoot, dataRoot, req.url, req.method === 'POST' ? await Deno.readAll(req.body) : undefined);
-			req.respond(await respond(r));
-		}
+		req
+			.respond(re)
+			.catch(() => {});
 	}
 }
 
