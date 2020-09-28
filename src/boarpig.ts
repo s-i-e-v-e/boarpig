@@ -164,6 +164,8 @@ async function process_text_file(file: string) {
 	a = a.replaceAll(/[ ]+/g, ' ');
 	a = a.replaceAll(/ \n/g, '\n');
 	a = a.replaceAll(/\n\n+/g, '\n\n');
+	a = a.replaceAll(/--\n/g, '---\n');
+	a = a.replaceAll(/([^-])-\n/g, '$1--\n');
 	Deno.writeTextFile(file, a);
 }
 
@@ -186,7 +188,7 @@ function ocr(file: string, prefix?: string, range?: string) {
 		});
 		
 		await Promise.all(ys);
-		xs.forEach(async x => process_text_file( `${txt_dir}/${x.text}.txt`));
+		await xs.map(async x => process_text_file( `${txt_dir}/${x.text}.txt`));
 	}
 
 	function build_batch(xs: string[]) {

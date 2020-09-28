@@ -15,7 +15,7 @@ duration of the case, and we, on whom all the stress
 and racket falls, will get—what? An unenviable
 notoriety and the privilege of paying heavy legal
 expenses whichever way the verdict goes. Hence
-our decision to strike. We don't wish to be recon-
+our decision to strike. We don't wish to be recon--
 ciled; we fully realise that it is a grave step to take,
 but unless we get some reasonable consideration out
 of this vast stream of wealth and industry that we
