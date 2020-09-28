@@ -78,27 +78,36 @@ async function setPage() {
 	}
 }
 
-async function fetchPage(cmd) {
+async function changePage(cmd, pg) {
 	const p = getPage();
 	if (p.page) await saveText(p);
-	const a = await ux.fetchJSON({cmd: cmd, project: p.project, page: p.page});
-	p.page = a.page;
-	return p;
+	pg = pg || p.page;
+
+	let i = pg ? p.xs.findIndex(y => y.indexOf(pg) === 0) : -1;
+	switch (cmd) {
+		case 'prev': i--; break;
+		case 'next': i++; break;
+		case 'this': break;
+		default: throw new Error();
+	}
+	const min = 0;
+	const max = p.xs.length-1;
+	i = i < min ? min : i > max ? max : i;
+	p.page = p.xs[i];
+	setUrl(p);
 }
 
 async function previousPage() {
-	setUrl(await fetchPage('prev-page'));
+	changePage('prev');
 }
 
 async function nextPage() {
-	setUrl(await fetchPage('next-page'));
+	changePage('next');
 }
 
-async function selectThisPage(n) {
+async function selectThisPage() {
 	const select = getPageSelectControl();
-	const p = getPage();
-	p.page = select.value;
-	setUrl(p);
+	changePage('this', select.value);
 }
 
 function updateTextSelection(e, fn) {
@@ -233,23 +242,29 @@ function init(fn) {
 }
 
 function updatePageSelectControl() {
-	const select = getPageSelectControl();
 	const p = getPage();
-	if (p && p.xs && !select.firstChild) {
-		const xs = p.xs.map(x => `<option value="${x}">${x}</option>`);
-		select.innerHTML = xs.join('');
+	if (p && p.xs) {
+		const select = getPageSelectControl();
+		if (select.firstChild) {
+			select.value = p.page;
+		}
+		else {
+			const xs = p.xs.map(x => `<option value="${x}">${x}</option>`);
+			select.innerHTML = xs.join('');
+		}
 	}
 }
 
 export async function load(fn) {
 	init(fn);
-	setPage().then(() => updatePageSelectControl());
+	await setPage();
+	updatePageSelectControl();
 	const p = getPage();
 	if (p.page) {
 		setImage(p);
 		await loadText(p);
 	}
 	else {
-		nextPage();
+		selectThisPage();
 	}
 }

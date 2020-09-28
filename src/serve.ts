@@ -97,22 +97,6 @@ function handleApiRequest(st: State, data: ApiData): Resource {
 			};
 			break;
 		}
-		case 'prev-page':
-		case 'next-page': {
-			const x = data as ApiPage;
-			const xs: string[] = st.xs.filter(y => y.name === x.project)[0].xs;
-
-			let i = x.page ? xs.findIndex(y => y.indexOf(x.page) === 0) : -1;
-			i = x.cmd === 'next-page' ? i + 1 : i;
-			i = x.cmd === 'prev-page' ? i - 1 : i;
-			i = i < 0 ? 0 : i;
-			i = i > xs.length-1 ? xs.length-1 : i;
-
-			y = {
-				page: parse_path(xs[i]).name,
-			};
-			break;
-		}
 		default: throw new Error(data.cmd);
 	}
 
