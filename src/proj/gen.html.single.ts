@@ -27,17 +27,31 @@ body {
   font-size: 1.25em;
 }
 article {
-  padding-top: 5vh;
+  padding-top: 2vmin;
 }
 article[data-type="full-title"] {
   text-align: center;
 }
 hr {
-  height: 0.1vh;
+  height: 4vmax;
   width: 10%;
-  background: black;
-  margin: 5vh auto;
+  margin: 2vmax auto;
+  padding: 2vmax;
+  overflow: visible;
+  text-align: center;
+  border: none;
 }
+
+hr::after {
+ content: '⁂';
+ padding: 0.25vmax;
+ position: relative;
+ margin: 1vmax;
+ display: block;
+ height: 5vmax;
+ color: black;
+}
+
 article[data-type="toc"] a {
 	text-decoration: none;
 }
