@@ -15,7 +15,7 @@
  * along with this program.  If not, see <https://www.gnu.org/licenses/>.
  **/
 import { parse_project } from './project.ts';
-import { process_ast, State, Node } from './ast.ts';
+import { process_ast, State, ElementNode, TextNode } from './ast.ts';
 import {println} from "../io.ts";
 import {handle_stripped_tags, STRIP} from "./gen.ts";
 
@@ -47,15 +47,14 @@ function make_word_list(x: string) {
 	return [x, ys.join('\n')];
 }
 
-function create_plaintext_file(s: State<string[]>, strip: Set<string>) {
-	const nt = s.map.get(s.n.value)!;
-	const parent = s.parent?.value;
-	if (strip.has(nt.name)) {
-		handle_stripped_tags(s, nt, parent);
+function create_plaintext_file(s: State<string[]>, n: ElementNode, strip: Set<string>) {
+	const parent = s.parent?.name;
+	if (strip.has(n.name)) {
+		handle_stripped_tags(s, n, parent);
 		return;
 	}
 
-	switch (nt.name) {
+	switch (n.name) {
 		case 'cor': {
 			const n1 = s.data.length;
 			s.do_nodes(s);
@@ -93,28 +92,27 @@ function create_plaintext_file(s: State<string[]>, strip: Set<string>) {
 	}
 }
 
-function create_project_file(s: State<string[]>, strip: Set<string>) {
-	const nt = s.map.get(s.n.value)!;
-	const parent = s.parent?.value;
-	if (strip.has(nt.name)) {
-		handle_stripped_tags(s, nt, parent);
+function create_project_file(s: State<string[]>, n: ElementNode, strip: Set<string>) {
+		const parent = s.parent?.name;
+	if (strip.has(n.name)) {
+		handle_stripped_tags(s, n, parent);
 		return;
 	}
 
-	const push_blank = () => s.data.push(`(${nt.name})`);
+	const push_blank = () => s.data.push(`(${n.name})`);
 
 	const push_block = () => {
-		s.data.push(`(${nt.name}\n`);
+		s.data.push(`(${n.name}\n`);
 		s.do_nodes(s);
 		s.data.push(`)`);
 	};
 	const push_inline = () => {
-		s.data.push(`(${nt.name} `);
+		s.data.push(`(${n.name} `);
 		s.do_nodes(s);
 		s.data.push(`)`);
 	};
 
-	switch (nt.name) {
+	switch (n.name) {
 		case 'full-title':
 		case 'title': {
 			if (parent === 'project') {
@@ -182,26 +180,26 @@ function create_project_file(s: State<string[]>, strip: Set<string>) {
 }
 
 function build_fn_create_project_file(strip: Set<string>) {
-	return (s: State<string[]>) => create_project_file(s, strip);
+	return (s: State<string[]>, n: ElementNode) => create_project_file(s, n, strip);
 }
 
 function build_fn_create_plaintext_file(strip: Set<string>) {
-	return (s: State<string[]>) => create_plaintext_file(s, strip);
+	return (s: State<string[]>, n: ElementNode) => create_plaintext_file(s, n, strip);
 }
 
-function textify_project(n: Node) {
+function textify_project(n: ElementNode) {
 	println('to_text');
 	const to_project = (strip?: Set<string>) => {
 		strip = strip || new Set();
 		const ys: string[] = [];
-		process_ast(build_fn_create_project_file(strip), (s: State<string[]>) => s.data.push(s.n.value), n, ys);
-		return ys.join('').trim().replaceAll(/\s*\(lb\)\s*/g, '(lb)').replaceAll(/[ ]+\)/g, ')');
+		process_ast(build_fn_create_project_file(strip), (s: State<string[]>, n: TextNode) => s.data.push(` ${n.value}`), n, ys);
+		return ys.join('').trim().replaceAll(/\s*\(lb\)\s*/g, '(lb)').replaceAll(/[ ]+\)/g, ')').replaceAll(/[ ]+/g, ' ');
 	};
 
 	const to_plaintext = (strip?: Set<string>) => {
 		strip = strip || new Set();
 		const ys: string[] = [];
-		process_ast(build_fn_create_plaintext_file(strip), (s: State<string[]>) => s.data.push(s.n.value), n, ys);
+		process_ast(build_fn_create_plaintext_file(strip), (s: State<string[]>, n: TextNode) => s.data.push(n.value), n, ys);
 		return ys.join('').trim();
 	};
 

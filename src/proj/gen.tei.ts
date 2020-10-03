@@ -14,7 +14,7 @@
  * You should have received a copy of the GNU Affero General Public License
  * along with this program.  If not, see <https://www.gnu.org/licenses/>.
  **/
-import {process_ast, State, Node} from "./ast.ts";
+import {process_ast, State, ElementNode, TextNode} from "./ast.ts";
 import {FileInfo, gen_xml_nm} from "./gen.ts";
 
 let in_chapter = false;
@@ -24,11 +24,10 @@ function end_chapter(s: State<string[]>) {
 	in_chapter = false;
 }
 
-function create_tei_file(s: State<string[]>) {
-	const nt = s.map.get(s.n.value)!;
-	const parent = s.parent?.value;
+function create_tei_file(s: State<string[]>, n: ElementNode) {
+	const parent = s.parent?.name;
 
-	switch (nt.name) {
+	switch (n.name) {
 		case 'meta': {
 			break;
 		}
@@ -81,9 +80,9 @@ function create_tei_file(s: State<string[]>) {
 		}
 		case 'quote':
 		case 'p': {
-			s.data.push(`<${nt.name}>`);
+			s.data.push(`<${n.name}>`);
 			s.do_nodes(s);
-			s.data.push(`</${nt.name}>\n`);
+			s.data.push(`</${n.name}>\n`);
 			break;
 		}
 		case 'i': {
@@ -124,15 +123,16 @@ function create_tei_file(s: State<string[]>) {
 		}
 		case 'nm-work':
 		case 'nm-part': {
-			gen_xml_nm(s, nt, 'emph');
+			gen_xml_nm(s, n, 'emph');
 			break;
 		}
-		default: throw new Error(nt.name);
+		default: throw new Error(n.name);
 	}
 }
 
-export function gen_tei(n: Node): FileInfo[] {
+export function gen_tei(n: ElementNode): FileInfo[] {
 	const ys: string[] = [];
-	process_ast(create_tei_file, (s: State<string[]>) => s.data.push(s.n.value.replaceAll('&', '&amp;')), n, ys);
+	const do_text = (s: State<string[]>, n: TextNode) => s.data.push(n.value.replaceAll('&', '&amp;'));
+	process_ast(create_tei_file, do_text, n, ys);
 	return [{ path: 'tei/book.tei.xml', content: ys.join('') }];
 }

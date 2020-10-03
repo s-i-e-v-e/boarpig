@@ -14,7 +14,7 @@
  * You should have received a copy of the GNU Affero General Public License
  * along with this program.  If not, see <https://www.gnu.org/licenses/>.
  **/
-import {Node, process_ast, State} from "./ast.ts";
+import {process_ast, State, ElementNode, TextNode} from "./ast.ts";
 import {FileInfo, gen_xml_nm, handle_stripped_tags} from "./gen.ts";
 
 const style =`<style type="text/css">
@@ -60,7 +60,7 @@ article[data-type="toc"] li {
 }
 </style>`;
 
-const toc_nodes: Node[] = [];
+const toc_nodes: ElementNode[] = [];
 let in_chapter = false;
 let chapter_idx = 0;
 let chapter_toc_xs: number[] = [];
@@ -70,18 +70,17 @@ function end_chapter(s: State<string[]>) {
 	in_chapter = false;
 }
 
-function create_html_file(s: State<string[]>) {
-	const nt = s.map.get(s.n.value)!;
-	const parent = s.parent?.value;
+function create_html_file(s: State<string[]>, n: ElementNode) {
+	const parent = s.parent?.name;
 
-	switch (nt.name) {
+	switch (n.name) {
 		case 'meta':
 		case 'fw': {
-			handle_stripped_tags(s, nt, parent);
+			handle_stripped_tags(s, n, parent);
 			break;
 		}
 		case 'project': {
-			toc_nodes.push(...s.n.xs.filter(x => x.type === 'EXPR' && x.value === 'h'));
+			toc_nodes.push(...n.xs.map(x => x as ElementNode).filter(x => x.name === 'h'));
 
 			s.data.push('<!DOCTYPE html><meta charset="utf-8">');
 			s.data.push(style.replaceAll(/\n[\t ]*/g, '').replaceAll(/[ ]*([:,;}{])[ ]*/g, '$1'));
@@ -110,7 +109,7 @@ function create_html_file(s: State<string[]>) {
 			s.data.push('<h2>CONTENTS</h2>');
 			s.data.push('<nav><ul>');
 
-			toc_nodes.forEach(x => {
+			toc_nodes.forEach(_ => {
 				chapter_toc_xs.push(s.data.length);
 				s.data.push(`<li><a href="#^">^</a>`)
 			});
@@ -191,15 +190,16 @@ function create_html_file(s: State<string[]>) {
 		}
 		case 'nm-work':
 		case 'nm-part': {
-			gen_xml_nm(s, nt, 'em');
+			gen_xml_nm(s, n, 'em');
 			break;
 		}
-		default: throw new Error(nt.name);
+		default: throw new Error(n.name);
 	}
 }
 
-export function gen_html_single(n: Node): FileInfo[] {
+export function gen_html_single(n: ElementNode): FileInfo[] {
 	const ys: string[] = [];
-	process_ast(create_html_file, (s: State<string[]>) => s.data.push(s.n.value.replaceAll('&', '&amp;')), n, ys);
+	const do_text = (s: State<string[]>, n: TextNode) => s.data.push(n.value.replaceAll('&', '&amp;'));
+	process_ast(create_html_file, do_text, n, ys);
 	return [{ path: 'html5/book.html', content: ys.join('') }];
 }

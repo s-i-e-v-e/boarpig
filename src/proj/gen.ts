@@ -16,7 +16,7 @@
  **/
 import {parse_project} from "./project.ts";
 import {gen_tei} from "./gen.tei.ts";
-import {Node, NodeType, State} from "./ast.ts";
+import {Node, ElementNode, TextNode, State} from "./ast.ts";
 import {gen_html_single} from "./gen.html.single.ts";
 import {mkdir, parse_path} from "../io.ts";
 
@@ -25,18 +25,19 @@ export interface FileInfo {
 	content: string,
 }
 
-export function gen_xml_nm(s: State<string[]>, nt: NodeType, work_tag: string) {
+export function gen_xml_nm(s: State<string[]>, ne: ElementNode, work_tag: string) {
 	// remove emphasis
 	const xs: Node[] = [];
-	s.n.xs.forEach(x => {
-		if (x.type === 'EXPR' && x.value === 'i') {
-			xs.push(...x.xs);
+	ne.xs.forEach(x => {
+		const y = x as ElementNode;
+		if (y.name === 'i') {
+			xs.push(...y.xs);
 		}
 		else {
 			xs.push(x);
 		}
 	});
-	s.n.xs = xs;
+	ne.xs = xs;
 
 	const n1 = s.data.length;
 	s.do_nodes(s);
@@ -52,7 +53,7 @@ export function gen_xml_nm(s: State<string[]>, nt: NodeType, work_tag: string) {
 		if (n === x.length) break;
 	}
 
-	if (nt.name === 'nm-work') {
+	if (ne.name === 'nm-work') {
 		const ends_with_comma = x.endsWith(',');
 		s.data.push(`<${work_tag}>`);
 		s.data.push(ends_with_comma ? x.substring(0, x.length-1) : x);
@@ -67,10 +68,10 @@ export function gen_xml_nm(s: State<string[]>, nt: NodeType, work_tag: string) {
 }
 
 export const STRIP = new Set(['fw', 'meta']);
-export function handle_stripped_tags(s: State<string[]>, nt: NodeType, parent?: string) {
-	switch (nt.name) {
+export function handle_stripped_tags(s: State<string[]>, n: ElementNode, parent?: string) {
+	switch (n.name) {
 		case 'fw': {
-			if (parent !== 'project' && s.data[s.data.length-1] !== ' ' && !s.n.xs.filter(x => x.value === 'jw').length) s.data.push(` `);
+			if (parent !== 'project' && s.data[s.data.length-1] !== ' ' && !n.xs.filter(x => (x as ElementNode).name === 'jw').length) s.data.push(` `);
 			break;
 		}
 		default:
@@ -82,10 +83,11 @@ function to_md(xs: Node[], parent: string = '') {
 	let ys: string[] = [];
 
 	xs.forEach(x => {
-		if (x.type === 'EXPR') {
-			const get_content = () => to_md(x.xs, x.value);
+		const y = x as ElementNode;
+		if (y.name) {
+			const get_content = () => to_md(y.xs, y.name);
 			if (parent === 'meta') {
-				switch (x.value) {
+				switch (y.name) {
 					case 'title': {
 						ys.push(`title: ${get_content()}\n`);
 						break;
@@ -114,7 +116,7 @@ function to_md(xs: Node[], parent: string = '') {
 				}
 			}
 			else {
-				switch (x.value) {
+				switch (y.name) {
 					case 'meta': {
 						ys.push('---\n');
 						ys.push('documentclass: book\n');
@@ -173,7 +175,7 @@ function to_md(xs: Node[], parent: string = '') {
 						break;
 					}
 					case 'cor': {
-						const xx = to_md(x.xs, x.value).split('|');
+						const xx = to_md(y.xs, y.name).split('|');
 						ys.push(xx[1]);
 						break;
 					}
@@ -183,31 +185,17 @@ function to_md(xs: Node[], parent: string = '') {
 						break;
 					}
 					case 'fw': break;
-					default: throw new Error(x.value);
+					default: throw new Error(y.name);
 				}
 			}
 		}
 		else {
-			ys.push(x.value);
+			const y = x as TextNode;
+			ys.push(y.value);
 		}
 	})
 	return ys.join('');
 }
-/*
-function gen_from_md(out_dir: string, n: Node) {
-	const input_file = `${out_dir}/proj/project.md`;
-	const meta_file = `${out_dir}/proj/meta.md`;
-
-	let a = to_md([n]);
-	const n1 = a.indexOf('---');
-	const n2 = a.indexOf('...');
-	let b = a.substring(n1, n2+3).trim();
-	a = a.substring(0, n1)+a.substring(n2+3);
-	a = a.trim();
-	Deno.writeTextFile(input_file, a);
-	Deno.writeTextFile(meta_file, b);
-	return ['--from=markdown+yaml_metadata_block', `--metadata-file=${meta_file}`, input_file];
-}*/
 
 export async function gen(file: string, format: string) {
 	const [out_dir, _, n] = parse_project(file, true);
