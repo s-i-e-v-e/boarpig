@@ -184,10 +184,12 @@ function addFormWork(e) {
 function changeChar(e) {
 	return updateTextSelection(e, (v) => {
 		switch(v) {
-			case '‘' : return '“';
-			case '’' : return '”';
-			case '“' : return '‘';
-			case '”' : return '’';
+			case '\'' : return '‘';
+			case '‘' : return '’';
+			case '’' : return '“';
+			case '“' : return '”';
+			case '”' : return '"';
+			case '"' : return '\'';
 			case '-' : return '–';
 			case '–' : return '—';
 			case '—' : return '——';
