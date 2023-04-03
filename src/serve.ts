@@ -155,7 +155,7 @@ function buildState(dataRoot: string): State {
 		.map(x => parse_path(x).name)
 		.map(x => {
 			const image_dir = make_image_path(`${dataRoot}/${x}_output`);
-			const ys = list_files(image_dir).map(x => parse_path(x).name);
+			const ys = list_files(image_dir).map(x => parse_path(x).name).sort();
 			return {
 				name: x,
 				xs: ys,

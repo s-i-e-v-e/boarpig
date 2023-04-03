@@ -14,8 +14,8 @@
  * You should have received a copy of the GNU Affero General Public License
  * along with this program.  If not, see <https://www.gnu.org/licenses/>.
  **/
-import {process_ast, State, ElementNode, TextNode} from "./ast.ts";
-import {FileInfo, gen_xml_nm} from "./gen.ts";
+import {process_ast, State, ElementNode, TextNode} from "/proj/ast.ts";
+import {FileInfo, gen_xml_nm} from "/proj/gen.ts";
 
 let in_chapter = false;
 

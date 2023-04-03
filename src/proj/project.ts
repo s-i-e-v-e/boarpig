@@ -14,11 +14,11 @@
  * You should have received a copy of the GNU Affero General Public License
  * along with this program.  If not, see <https://www.gnu.org/licenses/>.
  **/
-import {exists, make_out_dir_path, make_proj_saved_text_path, println} from "../io.ts";
-import {parse} from "./parse.ts";
-import {ElementNode} from "./ast.ts";
-import {make} from "./make.ts";
-import {gen} from "./gen.ts";
+import {exists, make_out_dir_path, make_proj_saved_text_path, println} from "/io.ts";
+import {parse} from "/proj/parse.ts";
+import {ElementNode} from "/proj/ast.ts";
+import {make} from "/proj/make.ts";
+import {gen} from "/proj/gen.ts";
 
 function listSavedTextFiles(path: string) {
 	let xs = Array.from(Deno.readDirSync(path)).filter(x => x.name.endsWith('.txt')).map(x => x.name);

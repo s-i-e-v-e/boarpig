@@ -14,9 +14,9 @@
  * You should have received a copy of the GNU Affero General Public License
  * along with this program.  If not, see <https://www.gnu.org/licenses/>.
  **/
-import {parse, dump, Node, TextNode, ElementNode} from '../../../sxml/src/parse.ts';
-import {pause} from "../io.ts";
-export {Node, TextNode, ElementNode} from '../../../sxml/src/parse.ts';
+import {Node, TextNode, ElementNode} from 'sxml/parse.ts';
+import {pause} from "/io.ts";
+
 type fn_el<A> = (s: State<A>, e: ElementNode) => void;
 type fn_text<A> = (s: State<A>, e: TextNode) => void;
 type fn_nodes<A> = (s: State<A>) => void;

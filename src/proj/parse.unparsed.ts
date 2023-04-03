@@ -234,7 +234,7 @@ function parse_expr(ts: TokenStream, parent_expr?: string) {
 }
 */
 
-import {println} from "../io.ts";
+import {println} from "/io.ts";
 import {parse_sxml} from "./parse.sxml.ts";
 
 interface CharStream {

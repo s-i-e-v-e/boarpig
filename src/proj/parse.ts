@@ -14,9 +14,9 @@
  * You should have received a copy of the GNU Affero General Public License
  * along with this program.  If not, see <https://www.gnu.org/licenses/>.
  **/
-import {println} from "../io.ts";
-import {parse_sxml} from "./parse.sxml.ts";
-import {parse_unparsed} from "./parse.unparsed.ts";
+import {println} from "/io.ts";
+import {parse_sxml} from "/proj/parse.sxml.ts";
+import {parse_unparsed} from "/proj/parse.unparsed.ts";
 
 export function parse(x: string, is_project: boolean) {
 	println('parse');

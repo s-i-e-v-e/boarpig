@@ -14,10 +14,10 @@
  * You should have received a copy of the GNU Affero General Public License
  * along with this program.  If not, see <https://www.gnu.org/licenses/>.
  **/
-import { parse_project } from './project.ts';
-import { process_ast, State, ElementNode, TextNode } from './ast.ts';
-import {println} from "../io.ts";
-import {handle_stripped_tags, STRIP} from "./gen.ts";
+import { parse_project } from '/proj/project.ts';
+import { process_ast, State, ElementNode, TextNode } from '/proj/ast.ts';
+import {println} from "/io.ts";
+import {handle_stripped_tags, STRIP} from "/proj/gen.ts";
 
 function make_word_list(x: string) {
 	const set = new Set<string>()

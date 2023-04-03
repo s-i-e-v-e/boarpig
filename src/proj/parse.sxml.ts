@@ -1,6 +1,3 @@
-import {lex} from "./lex.ts";
-import {println} from "../io.ts";
-
 /**
  * Copyright (C) 2020 Sieve
  *
@@ -17,10 +14,8 @@ import {println} from "../io.ts";
  * You should have received a copy of the GNU Affero General Public License
  * along with this program.  If not, see <https://www.gnu.org/licenses/>.
  **/
-import {parse, dump} from '../../../sxml/src/parse.ts';
+import {parse} from 'sxml/parse.ts';
 
 export function parse_sxml(x: string) {
-	const n = parse(x);
-	dump(n);
-	return n;
+	return parse(x);
 }

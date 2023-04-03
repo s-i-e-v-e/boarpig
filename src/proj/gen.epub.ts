@@ -14,7 +14,7 @@
  * You should have received a copy of the GNU Affero General Public License
  * along with this program.  If not, see <https://www.gnu.org/licenses/>.
  **/
-import {mkdir} from "../io.ts";
+import {mkdir} from "/io.ts";
 
 export function gen_epub(out_dir: string) {
 	const root_dir = `${out_dir}/proj/.output/epub-root`;

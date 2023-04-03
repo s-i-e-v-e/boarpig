@@ -166,7 +166,7 @@ async function process_text_file(file: string) {
 	a = a.replaceAll(/\n\n+/g, '\n\n');
 	a = a.replaceAll(/--\n/g, '---\n');
 	a = a.replaceAll(/([^-])-\n/g, '$1--\n');
-	Deno.writeTextFile(file, a);
+	await Deno.writeTextFile(file, a);
 }
 
 interface Page { image: string, text: string }

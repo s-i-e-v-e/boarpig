@@ -14,11 +14,11 @@
  * You should have received a copy of the GNU Affero General Public License
  * along with this program.  If not, see <https://www.gnu.org/licenses/>.
  **/
-import {parse_project} from "./project.ts";
-import {gen_tei} from "./gen.tei.ts";
-import {Node, ElementNode, TextNode, State} from "./ast.ts";
-import {gen_html_single} from "./gen.html.single.ts";
-import {mkdir, parse_path} from "../io.ts";
+import {parse_project} from "/proj/project.ts";
+import {gen_tei} from "/proj/gen.tei.ts";
+import {Node, ElementNode, TextNode, State} from "/proj/ast.ts";
+import {gen_html_single} from "/proj/gen.html.single.ts";
+import {mkdir, parse_path} from "/io.ts";
 
 export interface FileInfo {
 	path: string,
