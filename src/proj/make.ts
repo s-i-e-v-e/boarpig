@@ -190,23 +190,33 @@ function build_fn_create_plaintext_file(strip: Set<string>) {
 function textify_project(n: ElementNode) {
 	println('to_text');
 
+	const fix_text = (x: string) => {
+		return x
+			.replaceAll('(', '`(')
+			.replaceAll(')', '`)');
+	}
+
 	const handle_text_pp = (s: State<string[]>, n: TextNode) => {
-		switch (n.value) {
-			case '(': s.data.push('`('); break;
-			case ')': s.data.push('`)'); break;
-			default: s.data.push(` ${n.value}`); break;
-		}
+		const x = fix_text(n.value);
+		s.data.push(` ${x}`);
 	}
 
 	const handle_text = (s: State<string[]>, n: TextNode) => {
-		s.data.push(n.value);
+		const x = fix_text(n.value);
+		s.data.push(x);
 	}
 
 	const to_project = (strip?: Set<string>) => {
 		strip = strip || new Set();
 		const ys: string[] = [];
 		process_ast(build_fn_create_project_file(strip), handle_text_pp, n, ys);
-		return ys.join('').trim().replaceAll(/\s*\(lb\)\s*/g, '(lb)').replaceAll(/[ ]+\)/g, ')').replaceAll(/[ ]+/g, ' ');
+		return ys.join('')
+			.trim()
+			.replaceAll(/\s*\(lb\)\s*/g, '(lb)')
+			.replaceAll(/`\(\s+/g, '`(')
+			.replaceAll(/\s+`\)/g, '`)')
+			.replaceAll(/[ ]+\)/g, ')')
+			.replaceAll(/[ ]+/g, ' ');
 	};
 
 	const to_plaintext = (strip?: Set<string>) => {

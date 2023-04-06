@@ -15,7 +15,7 @@
  * along with this program.  If not, see <https://www.gnu.org/licenses/>.
  **/
 import {exists, make_out_dir_path, make_proj_saved_text_path, println} from "/io.ts";
-import {parse} from "/proj/parse.ts";
+import {parse} from "/proj/parse.unparsed.ts";
 import {ElementNode} from "/proj/ast.ts";
 import {make} from "/proj/make.ts";
 import {gen} from "/proj/gen.ts";
@@ -41,7 +41,7 @@ export function parse_project(file: string, read_existing: boolean): [string, st
 	else {
 		println('read files');
 		const xs = readSavedTextFilesSync(out_dir);
-		text = `(project ${xs.join('\n')})`;
+		text = `(project \n\n${xs.join('\n')}\n\n)`;
 	}
 
 	println('parse_project');

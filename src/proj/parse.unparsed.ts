@@ -235,7 +235,7 @@ function parse_expr(ts: TokenStream, parent_expr?: string) {
 */
 
 import {println} from "/io.ts";
-import {parse_sxml} from "./parse.sxml.ts";
+import {parse as parse_sxml} from 'sxml/parse.ts';
 
 interface CharStream {
 	x: string,
@@ -266,11 +266,18 @@ function lex(x: string) {
 	x = x.replaceAll(/[ ]*–[ ]*/g, '–');
 	x = x.replaceAll(/[ ]*—[ ]*/g, '—');
 	x = x.replaceAll(/\r/g, '\n');
-	x = x.replaceAll(/(\n[^)(][^\n].*)\n/g, '\n(p $1)\n');
+	x = x.replaceAll('\uFFFC(', '\n(');
+	x = x.replaceAll(/^([^)(].*[^)(])$/gmu, '\n(p $1)\n');
+	x = x.replaceAll(/^((?!\((p|h|fw)).+[^)])$/gmu, '(p $1)\n');
 	return x;
 }
 
-export function parse_unparsed(x: string) {
+function parse_unparsed(x: string) {
 	x = lex(x);
 	return parse_sxml(x);
+}
+
+export function parse(x: string, is_project: boolean) {
+	println('parse');
+	return is_project ? parse_sxml(x) : parse_unparsed(x);
 }

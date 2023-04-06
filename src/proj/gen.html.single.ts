@@ -138,8 +138,10 @@ function create_html_file(s: State<string[]>, n: ElementNode) {
 				s.data[n-1] = `<h2 id="${yy}">`;
 				s.data.push('</h2>');
 
-				s.data[chapter_toc_xs[chapter_idx]] = s.data[chapter_toc_xs[chapter_idx]].replaceAll('#^', `#${yy}`).replaceAll('^', y);
-				chapter_idx++;
+				if (chapter_toc_xs.length) {
+					s.data[chapter_toc_xs[chapter_idx]] = s.data[chapter_toc_xs[chapter_idx]].replaceAll('#^', `#${yy}`).replaceAll('^', y);
+					chapter_idx++;
+				}
 			}
 			else {
 				s.data.push('<h2>');
