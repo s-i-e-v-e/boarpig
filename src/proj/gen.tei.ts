@@ -16,6 +16,7 @@
  **/
 import {process_ast, State, ElementNode, TextNode} from "/proj/ast.ts";
 import {FileInfo, gen_xml_nm} from "/proj/gen.ts";
+import {utf8_to_bin} from "/io.ts";
 
 let in_chapter = false;
 
@@ -134,5 +135,5 @@ export function gen_tei(n: ElementNode): FileInfo[] {
 	const ys: string[] = [];
 	const do_text = (s: State<string[]>, n: TextNode) => s.data.push(n.value.replaceAll('&', '&amp;'));
 	process_ast(create_tei_file, do_text, n, ys);
-	return [{ path: 'tei/book.tei.xml', content: ys.join('') }];
+	return [{ path: 'book.tei.xml', content: utf8_to_bin(ys.join('')) }];
 }

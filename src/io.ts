@@ -85,3 +85,8 @@ export function pause() {
 
 	}
 }
+
+const enc = new TextEncoder();
+export function utf8_to_bin(x: string) {
+	return enc.encode(x);
+}

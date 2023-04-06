@@ -15,14 +15,15 @@
  * along with this program.  If not, see <https://www.gnu.org/licenses/>.
  **/
 import {parse_project} from "/proj/project.ts";
+import {gen_epub} from "/proj/gen.epub.ts";
 import {gen_tei} from "/proj/gen.tei.ts";
 import {Node, ElementNode, TextNode, State} from "/proj/ast.ts";
-import {gen_html_single} from "/proj/gen.html.single.ts";
+import {gen_html_single, gen_html_multiple} from "/proj/gen.html.ts";
 import {mkdir, parse_path} from "/io.ts";
 
 export interface FileInfo {
 	path: string,
-	content: string,
+	content: Uint8Array,
 }
 
 export function gen_xml_nm(s: State<string[]>, ne: ElementNode, work_tag: string) {
@@ -201,15 +202,19 @@ export async function gen(file: string, format: string) {
 	const [out_dir, _, n] = parse_project(file, true);
 
 	let xs: FileInfo[];
+	let fmt_out_dir = '';
 	switch (format) {
-		case 'tei': xs = gen_tei(n); break;
-		case 'html': xs = gen_html_single(n); break;
+		case 'epub': xs = gen_epub(n); fmt_out_dir = `${out_dir}/proj/output/epub`; break;
+		case 'tei': xs = gen_tei(n); fmt_out_dir = `${out_dir}/proj/output/tei`; break;
+		case 'html': xs = gen_html_single(n); fmt_out_dir = `${out_dir}/proj/output/html5`; break;
+		case 'html-multi': xs = gen_html_multiple(n); fmt_out_dir = `${out_dir}/proj/output/html5-multi`; break;
 		default: throw new Error();
 	}
 
 	xs.forEach(x => {
-		const input_file = `${out_dir}/proj/output/${x.path}`;
+		const input_file = `${fmt_out_dir}/${x.path}`;
+		console.log(input_file);
 		mkdir(parse_path(input_file).dir);
-		Deno.writeTextFileSync(input_file, x.content);
+		Deno.writeFileSync(input_file, x.content);
 	});
 }
