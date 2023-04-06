@@ -55,7 +55,7 @@ function do_nodes<A>(s: State<A>) {
 			s.do_text(make_state(s, nt), nt);
 		}
 		else {
-			throw new Error();
+			throw new Error(`${JSON.stringify(ne)}`);
 		}
 	});
 }

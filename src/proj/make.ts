@@ -93,7 +93,7 @@ function create_plaintext_file(s: State<string[]>, n: ElementNode, strip: Set<st
 }
 
 function create_project_file(s: State<string[]>, n: ElementNode, strip: Set<string>) {
-		const parent = s.parent?.name;
+	const parent = s.parent?.name;
 	if (strip.has(n.name)) {
 		handle_stripped_tags(s, n, parent);
 		return;
@@ -189,17 +189,30 @@ function build_fn_create_plaintext_file(strip: Set<string>) {
 
 function textify_project(n: ElementNode) {
 	println('to_text');
+
+	const handle_text_pp = (s: State<string[]>, n: TextNode) => {
+		switch (n.value) {
+			case '(': s.data.push('`('); break;
+			case ')': s.data.push('`)'); break;
+			default: s.data.push(` ${n.value}`); break;
+		}
+	}
+
+	const handle_text = (s: State<string[]>, n: TextNode) => {
+		s.data.push(n.value);
+	}
+
 	const to_project = (strip?: Set<string>) => {
 		strip = strip || new Set();
 		const ys: string[] = [];
-		process_ast(build_fn_create_project_file(strip), (s: State<string[]>, n: TextNode) => s.data.push(` ${n.value}`), n, ys);
+		process_ast(build_fn_create_project_file(strip), handle_text_pp, n, ys);
 		return ys.join('').trim().replaceAll(/\s*\(lb\)\s*/g, '(lb)').replaceAll(/[ ]+\)/g, ')').replaceAll(/[ ]+/g, ' ');
 	};
 
 	const to_plaintext = (strip?: Set<string>) => {
 		strip = strip || new Set();
 		const ys: string[] = [];
-		process_ast(build_fn_create_plaintext_file(strip), (s: State<string[]>, n: TextNode) => s.data.push(n.value), n, ys);
+		process_ast(build_fn_create_plaintext_file(strip), handle_text, n, ys);
 		return ys.join('').trim();
 	};
 
@@ -218,8 +231,8 @@ export async function make(file: string, clobber: boolean) {
 	println('make');
 	const [out_dir, bpp, n] = parse_project(file, !clobber);
 	const [x, y1, y2, z] = textify_project(n);
-	Deno.writeTextFile(bpp, x);
-	Deno.writeTextFile(`${out_dir}/proj/project.no-fw.txt.bpp`, y1);
-	Deno.writeTextFile(`${out_dir}/proj/project.plain.txt.bpp`, y2);
-	Deno.writeTextFile(`${out_dir}/proj/words.txt.bpp`, z);
+	await Deno.writeTextFile(bpp, x);
+	await Deno.writeTextFile(`${out_dir}/proj/project.no-fw.txt.bpp`, y1);
+	await Deno.writeTextFile(`${out_dir}/proj/project.plain.txt.bpp`, y2);
+	await Deno.writeTextFile(`${out_dir}/proj/words.txt.bpp`, z);
 }
