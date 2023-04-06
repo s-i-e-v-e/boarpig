@@ -2,6 +2,6 @@
   "imports": {
     "/" : "./",
     "./" : "./",
-    "sxml/": "https://raw.githubusercontent.com/s-i-e-v-e/sxml/v0.3/src/"
+    "sxml/": "https://raw.githubusercontent.com/s-i-e-v-e/sxml/f6f7ef83b925a4349dc9ac265b4e74dc480a5fce/src/"
   }
 }
