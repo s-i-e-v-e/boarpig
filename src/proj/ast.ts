@@ -15,6 +15,7 @@
  * along with this program.  If not, see <https://www.gnu.org/licenses/>.
  **/
 import {Node, TextNode, ElementNode} from 'sxml/parse.ts';
+export type {Node, TextNode, ElementNode} from 'sxml/parse.ts';
 import {pause} from "/io.ts";
 
 type fn_el<A> = (s: State<A>, e: ElementNode) => void;

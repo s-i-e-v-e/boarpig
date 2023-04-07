@@ -62,19 +62,38 @@ article[data-type="toc"] li {
 `;
 
 const toc_nodes: ElementNode[] = [];
-let in_chapter = false;
+let toc_idx = -1;
 let chapter_idx = 0;
 let chapter_toc_xs: number[] = [];
 let is_single = true;
 
-function end_chapter(s: State<string[]>) {
-    if (in_chapter) s.data.push('</article>');
-    in_chapter = false;
+interface Chapter {
+    type: string,
+    id: number,
+    name: string,
+    contents: string[],
 }
 
-function gen_node(s: State<string[]>, n: ElementNode) {
+function new_chapter(type: string, id: number, name: string) : Chapter {
+    return {
+        type: type,
+        id: id,
+        name: name,
+        contents: [],
+    };
+}
+
+function end_chapter(s: State<Chapter[]>) {
+    const ch: Chapter = s.data[s.data.length-1];
+    if (ch.contents[ch.contents.length-1] !== '</article>') {
+        ch.contents.push('</article>');
+    }
+}
+
+function gen_node(s: State<Chapter[]>, n: ElementNode) {
     const parent = s.parent?.name;
 
+    let ch: Chapter = s.data[s.data.length-1];
     switch (n.name) {
         case 'project': {
             toc_nodes.push(...n.xs.map(x => x as ElementNode).filter(x => x.name === 'h'));
@@ -84,130 +103,125 @@ function gen_node(s: State<string[]>, n: ElementNode) {
         }
         case 'meta':
         case 'fw': {
-            handle_stripped_tags(s, n, parent);
+            handle_stripped_tags(ch.contents, n, parent);
             break;
         }
-        case 'full-title': {
-            end_chapter(s);
-            s.data.push('\n<article data-type="full-title">');
+        case 'full-title':
+        case 'half-title':
+        case 'sec': {
+            ch = new_chapter('', s.data.length, '');
+            s.data.push(ch);
+            ch.contents.push(`\n<article data-type="${n.name}">`);
             s.do_nodes(s);
-            s.data.push('</article>');
-            break;
-        }
-        case 'half-title': {
-            end_chapter(s);
-            s.data.push('\n<article data-type="half-title">');
-            s.do_nodes(s);
-            s.data.push('</article>');
+            ch.contents.push('</article>');
             break;
         }
         case 'toc': {
-            end_chapter(s);
+            toc_idx = s.data.length;
+            ch = new_chapter('toc', s.data.length, '');
+            s.data.push(ch);
+
             // build toc
-            s.data.push('\n<article data-type="toc">');
-            s.data.push('<h2>CONTENTS</h2>');
-            s.data.push('<nav><ul>');
+            ch.contents.push('\n<article data-type="toc">');
+            ch.contents.push('<h2>CONTENTS</h2>');
+            ch.contents.push('<nav><ul>');
 
             toc_nodes.forEach(_ => {
-                chapter_toc_xs.push(s.data.length);
+                chapter_toc_xs.push(ch.contents.length);
                 const file = is_single ? '' : make_file_name('chapter', '$$idx$$');
-                s.data.push(`<li><a href="${file}#$$name$$_$$idx$$">$$name$$</a>`)
+                ch.contents.push(`<li><a href="${file}#$$name$$_$$idx$$">$$name$$</a>`)
             });
-            s.data.push('</ul></nav>');
-            s.data.push('</article>');
-            break;
-        }
-        case 'sec': {
-            end_chapter(s);
-            s.data.push('\n<article data-type="sec">');
-            s.do_nodes(s);
-            s.data.push('</article>');
+            ch.contents.push('</ul></nav>');
+            ch.contents.push('</article>');
             break;
         }
         case 'h': {
             if (parent === 'project') {
-                end_chapter(s);
-                in_chapter = true;
-                s.data.push('\n<article data-type="chapter">');
-
-                s.data.push('<h2>');
-                const n = s.data.length;
+                const chapter_index = chapter_toc_xs.length ? chapter_idx+1 : chapter_idx;
+                ch = new_chapter('chapter', chapter_index, '$$name$$');
+                s.data.push(ch);
+                ch.contents.push('\n<article data-type="chapter">');
+                ch.contents.push('<h2>');
+                const n = ch.contents.length;
                 s.do_nodes(s);
                 if (chapter_toc_xs.length) {
                     const idx = chapter_toc_xs[chapter_idx];
-
-                    const name = s.data.slice(n, s.data.length).join('');
-                    s.data[n-1] = `<h2 id="$$name$$_$$idx$$">`;
-
-                    s.data[idx] = s.data[idx]
-                        .replaceAll('$$idx$$', chapter_idx+1)
+                    const name = ch.contents.slice(n, ch.contents.length).join('');
+                    ch.contents[n-1] = `<h2 id="${name}_${chapter_index}">`;
+                    const tos_ch = s.data[toc_idx];
+                    tos_ch.contents[idx] = tos_ch.contents[idx]
+                        .replaceAll('$$idx$$', ''+chapter_index)
                         .replaceAll('$$name$$', name);
                     chapter_idx++;
                 }
-                s.data.push('</h2>');
+                ch.contents.push('</h2>');
             }
             else {
-                s.data.push('<h2>');
+                ch.contents.push('<h2>');
                 s.do_nodes(s);
-                s.data.push('</h2>');
+                ch.contents.push('</h2>');
             }
             break;
         }
         case 'quote': {
-            s.data.push(`<blockquote>`);
+            ch.contents.push(`<blockquote>`);
             s.do_nodes(s);
-            s.data.push(`</blockquote>`);
+            ch.contents.push(`</blockquote>`);
             break;
         }
         case 'p': {
-            s.data.push(`<p>`);
+            ch.contents.push(`<p>`);
             s.do_nodes(s);
             break;
         }
         case 'i': {
-            s.data.push('<em>');
+            ch.contents.push('<em>');
             s.do_nodes(s);
-            s.data.push('</em>');
+            ch.contents.push('</em>');
             break;
         }
         case 'bq': {
-            s.data.push('(');
+            ch.contents.push('(');
             s.do_nodes(s);
-            s.data.push(')');
+            ch.contents.push(')');
             break;
         }
         case 'lb': {
-            s.data.push('<br>');
+            ch.contents.push('<br>');
             break;
         }
         case 'sb': {
-            s.data.push('<hr>');
+            ch.contents.push('<hr>');
             break;
         }
         case 'cor': {
-            const n1 = s.data.length;
+            const n1 = ch.contents.length;
             s.do_nodes(s);
-            const n2 = s.data.length;
-            const x = s.data.splice(n1, n2-n1).join('');
+            const n2 = ch.contents.length;
+            const x = ch.contents.splice(n1, n2-n1).join('');
             const xx = x.split('|');
-            s.data.push(xx[1]);
+            ch.contents.push(xx[1]);
             break;
         }
         case 'nm-work':
         case 'nm-part': {
-            gen_xml_nm(s, n, 'em');
+            gen_xml_nm(ch.contents, s, n, 'em');
             break;
         }
         default: throw new Error(n.name);
     }
 }
 
-function make_file_name(name: string, idx: string) {
-    return `${name}_${idx}.html`;x
+function make_file_name(name: string, idx: number|string) {
+    return `${name}_${idx}.html`;
 }
 
 function get_style() {
     return style.replaceAll(/\n[\t ]*/g, '').replaceAll(/[ ]*([:,;}{])[ ]*/g, '$1');
+}
+
+function combine_chapters(xs: Chapter[]) {
+    return xs.map(x => x.contents).join('');
 }
 
 function make_html5(x: string) {
@@ -228,29 +242,25 @@ function make_html5(x: string) {
     return xs.join('');
 }
 
+function do_text(s: State<Chapter[]>, n: TextNode) {
+    const ch = s.data[s.data.length-1];
+    ch.contents.push(n.value.replaceAll('&', '&amp;'));
+}
+
 export function gen_html_single(n: ElementNode): FileInfo[] {
     is_single = true;
-    const ys: string[] = [];
-    const do_text = (s: State<string[]>, n: TextNode) => s.data.push(n.value.replaceAll('&', '&amp;'));
+    const ys: Chapter[] = [];
     process_ast(gen_node, do_text, n, ys);
-    return [{ path: 'book.html', content: utf8_to_bin(make_html5(ys.join(''))) }];
+    return [{ path: 'book.html', content: utf8_to_bin(make_html5(combine_chapters(ys))) }];
 }
 
 export function gen_html_multiple(n: ElementNode): FileInfo[] {
     is_single = false;
-    const ys: string[] = [];
-    const do_text = (s: State<string[]>, n: TextNode) => s.data.push(n.value.replaceAll('&', '&amp;'));
+    const ys: Chapter[] = [];
     process_ast(gen_node, do_text, n, ys);
-    const zs = ys.join('')
-        .split('<article ')
-        .map(x => x.trim())
-        .filter(x => !!x)
-        .map((x: string, i: number) => {
-            const y = `<article ${x}`;
-            const aa = y.match(/article data-type="([^"]*)"/mui);
-            if (!aa) throw new Error(x);
-            const name = aa[1];
-            return { path: make_file_name(name, i), content: utf8_to_bin(make_html5(y)) };
+    const zs = ys
+        .map(x => {
+            return { path: make_file_name(x.type, x.id), content: utf8_to_bin(make_html5(x.contents.join(''))) };
         });
 
     if (!is_single) zs.push({path: 'style.css', content: utf8_to_bin(style) });

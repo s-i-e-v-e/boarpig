@@ -26,7 +26,7 @@ export interface FileInfo {
 	content: Uint8Array,
 }
 
-export function gen_xml_nm(s: State<string[]>, ne: ElementNode, work_tag: string) {
+export function gen_xml_nm<A>(qs: string[], s: State<A>, ne: ElementNode, work_tag: string) {
 	// remove emphasis
 	const xs: Node[] = [];
 	ne.xs.forEach(x => {
@@ -40,10 +40,10 @@ export function gen_xml_nm(s: State<string[]>, ne: ElementNode, work_tag: string
 	});
 	ne.xs = xs;
 
-	const n1 = s.data.length;
+	const n1 = qs.length;
 	s.do_nodes(s);
-	const n2 = s.data.length;
-	let x = s.data.splice(n1, n2-n1).join('');
+	const n2 = qs.length;
+	let x = qs.splice(n1, n2-n1).join('');
 
 	while (true) {
 		const n = x.length;
@@ -56,23 +56,23 @@ export function gen_xml_nm(s: State<string[]>, ne: ElementNode, work_tag: string
 
 	if (ne.name === 'nm-work') {
 		const ends_with_comma = x.endsWith(',');
-		s.data.push(`<${work_tag}>`);
-		s.data.push(ends_with_comma ? x.substring(0, x.length-1) : x);
-		s.data.push(`</${work_tag}>`);
-		if (ends_with_comma) s.data.push(',');
+		qs.push(`<${work_tag}>`);
+		qs.push(ends_with_comma ? x.substring(0, x.length-1) : x);
+		qs.push(`</${work_tag}>`);
+		if (ends_with_comma) qs.push(',');
 	}
 	else {
-		s.data.push('‘');
-		s.data.push(x);
-		s.data.push('’');
+		qs.push('‘');
+		qs.push(x);
+		qs.push('’');
 	}
 }
 
 export const STRIP = new Set(['fw', 'meta']);
-export function handle_stripped_tags(s: State<string[]>, n: ElementNode, parent?: string) {
+export function handle_stripped_tags(qs: string[], n: ElementNode, parent?: string) {
 	switch (n.name) {
 		case 'fw': {
-			if (parent !== 'project' && s.data[s.data.length-1] !== ' ' && !n.xs.filter(x => (x as ElementNode).name === 'jw').length) s.data.push(` `);
+			if (parent !== 'project' && qs[qs.length-1] !== ' ' && !n.xs.filter(x => (x as ElementNode).name === 'jw').length) qs.push(` `);
 			break;
 		}
 		default:

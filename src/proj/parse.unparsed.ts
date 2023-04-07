@@ -274,10 +274,10 @@ function lex(x: string) {
 
 function parse_unparsed(x: string) {
 	x = lex(x);
-	return parse_sxml(x);
+	return parse_sxml(x, false);
 }
 
 export function parse(x: string, is_project: boolean) {
 	println('parse');
-	return is_project ? parse_sxml(x) : parse_unparsed(x);
+	return is_project ? parse_sxml(x, false) : parse_unparsed(x);
 }

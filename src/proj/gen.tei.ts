@@ -124,7 +124,7 @@ function create_tei_file(s: State<string[]>, n: ElementNode) {
 		}
 		case 'nm-work':
 		case 'nm-part': {
-			gen_xml_nm(s, n, 'emph');
+			gen_xml_nm(s.data, s, n, 'emph');
 			break;
 		}
 		default: throw new Error(n.name);

@@ -50,7 +50,7 @@ function make_word_list(x: string) {
 function create_plaintext_file(s: State<string[]>, n: ElementNode, strip: Set<string>) {
 	const parent = s.parent?.name;
 	if (strip.has(n.name)) {
-		handle_stripped_tags(s, n, parent);
+		handle_stripped_tags(s.data, n, parent);
 		return;
 	}
 
@@ -95,7 +95,7 @@ function create_plaintext_file(s: State<string[]>, n: ElementNode, strip: Set<st
 function create_project_file(s: State<string[]>, n: ElementNode, strip: Set<string>) {
 	const parent = s.parent?.name;
 	if (strip.has(n.name)) {
-		handle_stripped_tags(s, n, parent);
+		handle_stripped_tags(s.data, n, parent);
 		return;
 	}
 
