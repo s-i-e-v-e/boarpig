@@ -18,7 +18,7 @@ import {process_ast, State, ElementNode, TextNode} from "/proj/ast.ts";
 import {FileInfo, gen_xml_nm, handle_stripped_tags} from "/proj/gen.ts";
 import {utf8_to_bin} from "/io.ts";
 
-export const style =`<style type="text/css">
+export const style =`
 body {
   font-family: Roboto, 'Noto Sans', 'DejaVu Sans', sans-serif;
   line-height:1.67;
@@ -59,12 +59,13 @@ article[data-type="toc"] a {
 article[data-type="toc"] li {
 	list-style: circle;
 }
-</style>`;
+`;
 
 const toc_nodes: ElementNode[] = [];
 let in_chapter = false;
 let chapter_idx = 0;
 let chapter_toc_xs: number[] = [];
+let is_single = true;
 
 function end_chapter(s: State<string[]>) {
     if (in_chapter) s.data.push('</article>');
@@ -109,7 +110,8 @@ function gen_node(s: State<string[]>, n: ElementNode) {
 
             toc_nodes.forEach(_ => {
                 chapter_toc_xs.push(s.data.length);
-                s.data.push(`<li><a href="#^">^</a>`)
+                const file = is_single ? '' : make_file_name('chapter', '$$idx$$');
+                s.data.push(`<li><a href="${file}#$$name$$_$$idx$$">$$name$$</a>`)
             });
             s.data.push('</ul></nav>');
             s.data.push('</article>');
@@ -131,15 +133,18 @@ function gen_node(s: State<string[]>, n: ElementNode) {
                 s.data.push('<h2>');
                 const n = s.data.length;
                 s.do_nodes(s);
-                const y = s.data.slice(n, s.data.length).join('');
-                const yy = y.replaceAll(' ', '_');
-                s.data[n-1] = `<h2 id="${yy}">`;
-                s.data.push('</h2>');
-
                 if (chapter_toc_xs.length) {
-                    s.data[chapter_toc_xs[chapter_idx]] = s.data[chapter_toc_xs[chapter_idx]].replaceAll('#^', `#${yy}`).replaceAll('^', y);
+                    const idx = chapter_toc_xs[chapter_idx];
+
+                    const name = s.data.slice(n, s.data.length).join('');
+                    s.data[n-1] = `<h2 id="$$name$$_$$idx$$">`;
+
+                    s.data[idx] = s.data[idx]
+                        .replaceAll('$$idx$$', chapter_idx+1)
+                        .replaceAll('$$name$$', name);
                     chapter_idx++;
                 }
+                s.data.push('</h2>');
             }
             else {
                 s.data.push('<h2>');
@@ -197,10 +202,26 @@ function gen_node(s: State<string[]>, n: ElementNode) {
     }
 }
 
+function make_file_name(name: string, idx: string) {
+    return `${name}_${idx}.html`;x
+}
+
+function get_style() {
+    return style.replaceAll(/\n[\t ]*/g, '').replaceAll(/[ ]*([:,;}{])[ ]*/g, '$1');
+}
+
 function make_html5(x: string) {
     const xs: string[] = [];
     xs.push('<!DOCTYPE html><html><head><meta charset="utf-8">');
-    xs.push(style.replaceAll(/\n[\t ]*/g, '').replaceAll(/[ ]*([:,;}{])[ ]*/g, '$1'));
+    if (is_single) {
+        xs.push(`<style type="text/css">`);
+        xs.push(get_style());
+        xs.push(`</style>`);
+    }
+    else {
+        xs.push(`<link href="style.css" rel="stylesheet" type="text/css"/>`);
+    }
+
     xs.push('</head><body>');
     xs.push(x);
     xs.push('</body></html>');
@@ -208,6 +229,7 @@ function make_html5(x: string) {
 }
 
 export function gen_html_single(n: ElementNode): FileInfo[] {
+    is_single = true;
     const ys: string[] = [];
     const do_text = (s: State<string[]>, n: TextNode) => s.data.push(n.value.replaceAll('&', '&amp;'));
     process_ast(gen_node, do_text, n, ys);
@@ -215,10 +237,11 @@ export function gen_html_single(n: ElementNode): FileInfo[] {
 }
 
 export function gen_html_multiple(n: ElementNode): FileInfo[] {
+    is_single = false;
     const ys: string[] = [];
     const do_text = (s: State<string[]>, n: TextNode) => s.data.push(n.value.replaceAll('&', '&amp;'));
     process_ast(gen_node, do_text, n, ys);
-    return ys.join('')
+    const zs = ys.join('')
         .split('<article ')
         .map(x => x.trim())
         .filter(x => !!x)
@@ -227,6 +250,9 @@ export function gen_html_multiple(n: ElementNode): FileInfo[] {
             const aa = y.match(/article data-type="([^"]*)"/mui);
             if (!aa) throw new Error(x);
             const name = aa[1];
-            return { path: `${name}_${i}.html`, content: utf8_to_bin(make_html5(y)) };
+            return { path: make_file_name(name, i), content: utf8_to_bin(make_html5(y)) };
         });
+
+    if (!is_single) zs.push({path: 'style.css', content: utf8_to_bin(style) });
+    return zs;
 }
