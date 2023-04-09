@@ -20,8 +20,10 @@ import {gen_tei} from "/proj/gen.tei.ts";
 import {Node, ElementNode, TextNode, State} from "/proj/ast.ts";
 import {gen_html_single, gen_html_multiple} from "/proj/gen.html.ts";
 import {mkdir, parse_path} from "/io.ts";
+import {copy_dir, exists} from "../io.ts";
 
 export interface FileInfo {
+	name: string,
 	path: string,
 	content: Uint8Array,
 }
@@ -72,11 +74,20 @@ export const STRIP = new Set(['fw', 'meta']);
 export function handle_stripped_tags(qs: string[], n: ElementNode, parent?: string) {
 	switch (n.name) {
 		case 'fw': {
-			if (parent !== 'project' && qs[qs.length-1] !== ' ' && !n.xs.filter(x => (x as ElementNode).name === 'jw').length) qs.push(` `);
+			const prev = qs[qs.length-1];
+			if (parent !== 'project') {
+				// inside para, etc
+				const join_word = n.xs.filter(x => (x as ElementNode).name === 'jw').length;
+				if (prev !== ' ' && !join_word) {
+					qs.push(` `);
+				}
+			}
 			break;
 		}
-		default:
+		case 'meta': {
 			break;
+		}
+		default: throw new Error(n.name);
 	}
 }
 
@@ -201,18 +212,34 @@ function to_md(xs: Node[], parent: string = '') {
 export async function gen(file: string, format: string) {
 	const [out_dir, _, n] = parse_project(file, true);
 
-	let xs: FileInfo[];
+	const assets_dir = `${out_dir}/proj/assets`;
 	let fmt_out_dir = '';
 	switch (format) {
-		case 'epub': xs = gen_epub(n); fmt_out_dir = `${out_dir}/proj/output/epub`; break;
-		case 'tei': xs = gen_tei(n); fmt_out_dir = `${out_dir}/proj/output/tei`; break;
-		case 'html': xs = gen_html_single(n); fmt_out_dir = `${out_dir}/proj/output/html5`; break;
-		case 'html-multi': xs = gen_html_multiple(n); fmt_out_dir = `${out_dir}/proj/output/html5-multi`; break;
+		case 'epub': fmt_out_dir = `${out_dir}/proj/output/epub`; break;
+		case 'tei': fmt_out_dir = `${out_dir}/proj/output/tei`; break;
+		case 'html': fmt_out_dir = `${out_dir}/proj/output/html5`; break;
+		case 'html-multi': fmt_out_dir = `${out_dir}/proj/output/html5-multi`; break;
+		default: throw new Error();
+	}
+	if (exists(assets_dir)) {
+		const out = format === 'epub' ? `${fmt_out_dir}/EPUB/assets` : `${fmt_out_dir}/assets`;
+		if (exists(out)) {
+			Deno.removeSync(out, {recursive: true});
+		}
+		copy_dir(assets_dir, out);
+	}
+
+	let xs: FileInfo[];
+	switch (format) {
+		case 'epub': xs = gen_epub(n, fmt_out_dir); break;
+		case 'tei': xs = gen_tei(n); break;
+		case 'html': xs = gen_html_single(n); break;
+		case 'html-multi': xs = gen_html_multiple(n, '', false); break;
 		default: throw new Error();
 	}
 
 	xs.forEach(x => {
-		const input_file = `${fmt_out_dir}/${x.path}`;
+		const input_file = `${fmt_out_dir}${x.path}`;
 		console.log(input_file);
 		mkdir(parse_path(input_file).dir);
 		Deno.writeFileSync(input_file, x.content);

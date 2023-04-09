@@ -14,6 +14,8 @@
  * You should have received a copy of the GNU Affero General Public License
  * along with this program.  If not, see <https://www.gnu.org/licenses/>.
  **/
+import { copySync } from "https://deno.land/std/fs/copy.ts";
+
 export interface FileName {
 	dir: string,
 	name: string,
@@ -84,6 +86,10 @@ export function pause() {
 	catch (e) {
 
 	}
+}
+
+export function copy_dir(source: string, dest: string) {
+	copySync(source, dest);
 }
 
 const enc = new TextEncoder();

@@ -138,6 +138,8 @@ function create_project_file(s: State<string[]>, n: ElementNode, strip: Set<stri
 		case 'lang':
 		case 'source':
 		case 'sec':
+		case 'img':
+		case 'a':
 		case 'p': {
 			push_inline();
 			s.data.push('\n');
@@ -145,7 +147,7 @@ function create_project_file(s: State<string[]>, n: ElementNode, strip: Set<stri
 		}
 		case 'h': {
 			push_inline();
-			if (parent === 'project' || parent === 'sec' ||parent === 'full-title') s.data.push('\n');
+			if (parent === 'project' || parent === 'sec' || parent === 'full-title') s.data.push('\n');
 			break;
 		}
 		case 'jw':
@@ -166,6 +168,8 @@ function create_project_file(s: State<string[]>, n: ElementNode, strip: Set<stri
 		case 'sig':
 		case 'cor':
 		case 'i':
+		case 'b':
+		case 'sbq':
 		case 'bq': {
 			push_inline();
 			break;

@@ -268,7 +268,7 @@ function lex(x: string) {
 	x = x.replaceAll(/\r/g, '\n');
 	x = x.replaceAll('\uFFFC(', '\n(');
 	x = x.replaceAll(/^([^)(].*[^)(])$/gmu, '\n(p $1)\n');
-	x = x.replaceAll(/^((?!\((p|h|fw)).+[^)])$/gmu, '(p $1)\n');
+	x = x.replaceAll(/^((?!\((p|sb|lb|sec|h|fw|full-title|half-title|meta)).+[^)])$/gmu, '(p $1)\n');
 	return x;
 }
 

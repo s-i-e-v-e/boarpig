@@ -135,5 +135,6 @@ export function gen_tei(n: ElementNode): FileInfo[] {
 	const ys: string[] = [];
 	const do_text = (s: State<string[]>, n: TextNode) => s.data.push(n.value.replaceAll('&', '&amp;'));
 	process_ast(create_tei_file, do_text, n, ys);
-	return [{ path: 'book.tei.xml', content: utf8_to_bin(ys.join('')) }];
+	const name = 'book.tei.xml';
+	return [{ name: name, path: name, content: utf8_to_bin(ys.join('')) }];
 }
