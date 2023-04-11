@@ -120,6 +120,7 @@ function gen_node(s: State<Chapter[]>, n: ElementNode) {
             handle_stripped_tags(ch.contents, n, parent);
             break;
         }
+        case 'cover':
         case 'full-title':
         case 'half-title':
         case 'sec': {
@@ -214,7 +215,10 @@ function gen_node(s: State<Chapter[]>, n: ElementNode) {
             const source = get_attr('source', n);
             const width = get_attr('width', n);
             const height = get_attr('height', n);
-            ch.contents.push(`<img src="${source}" width="${width}" height="${height}" />`);
+
+            const w = width ? ` width="${width}"` : ``;
+            const h = height ? ` height="${height}"` : ``;
+            ch.contents.push(`<img src="${source}"${w}${h} />`);
             break;
         }
         case 'bq': {

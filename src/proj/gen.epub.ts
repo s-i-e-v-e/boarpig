@@ -19,7 +19,8 @@ import {FileInfo} from "/proj/gen.ts";
 import {utf8_to_bin} from "/io.ts";
 import {gen_html_multiple} from "./gen.html.ts";
 import {fs_list_files,fs_list_directories} from "nonstd/os/fs.ts";
-import {first_el, first_text} from "sxml/filter.ts";
+import {ps_exec} from "nonstd/os/ps.ts";
+import {first_el} from "sxml/filter.ts";
 
 const epub_dir = "/EPUB";
 const meta_dir = "/META-INF";
@@ -173,14 +174,20 @@ function get_meta(n: ElementNode) {
 	};
 }
 
-export function gen_epub(n: ElementNode, base_dir: string): FileInfo[] {
+export function gen_epub(n: ElementNode, base_dir: string): [FileInfo[], string] {
 	const xs = gen_html_multiple(n, epub_dir, true);
 	const ys = collect_assets('/EPUB/assets', `${base_dir}/EPUB/assets`);
 	ys.push(...xs);
 	const meta = get_meta(n);
+	const file_name = `${meta.author}_${meta.title}.epub`.replaceAll(/[^A-Za-z0-9._]+/gmui, '_');
 
 	xs.push(gen_opf(ys, meta));
 	xs.push(gen_mimetype());
 	xs.push(gen_container());
-	return xs;
+	return [xs, file_name];
+}
+
+export function make_epub(base_dir: string, file_name: string) {
+	ps_exec(base_dir, ['zip', '--compression-method', 'store', file_name, './mimetype']);
+	ps_exec(base_dir, ['zip', '--compression-method', 'deflate', '--recurse-paths', file_name, './META-INF', './EPUB']);
 }

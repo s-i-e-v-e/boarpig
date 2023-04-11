@@ -21,6 +21,7 @@ import {Node, ElementNode, TextNode, State} from "/proj/ast.ts";
 import {gen_html_single, gen_html_multiple} from "/proj/gen.html.ts";
 import {mkdir, parse_path} from "/io.ts";
 import {copy_dir, exists} from "../io.ts";
+import {make_epub} from "./gen.epub.ts";
 
 export interface FileInfo {
 	name: string,
@@ -209,6 +210,15 @@ function to_md(xs: Node[], parent: string = '') {
 	return ys.join('');
 }
 
+function write_files(fmt_out_dir: string, xs: FileInfo[]) {
+	xs.forEach(x => {
+		const input_file = `${fmt_out_dir}${x.path}`;
+		console.log(input_file);
+		mkdir(parse_path(input_file).dir);
+		Deno.writeFileSync(input_file, x.content);
+	});
+}
+
 export async function gen(file: string, format: string) {
 	const [out_dir, _, n] = parse_project(file, true);
 
@@ -230,18 +240,18 @@ export async function gen(file: string, format: string) {
 	}
 
 	let xs: FileInfo[];
+	let file_name = '';
 	switch (format) {
-		case 'epub': xs = gen_epub(n, fmt_out_dir); break;
+		case 'epub': [xs, file_name] = gen_epub(n, fmt_out_dir); break;
 		case 'tei': xs = gen_tei(n); break;
 		case 'html': xs = gen_html_single(n); break;
 		case 'html-multi': xs = gen_html_multiple(n, '', false); break;
 		default: throw new Error();
 	}
 
-	xs.forEach(x => {
-		const input_file = `${fmt_out_dir}${x.path}`;
-		console.log(input_file);
-		mkdir(parse_path(input_file).dir);
-		Deno.writeFileSync(input_file, x.content);
-	});
+	write_files(fmt_out_dir, xs);
+
+	if (format === 'epub') {
+		make_epub(fmt_out_dir, file_name);
+	}
 }

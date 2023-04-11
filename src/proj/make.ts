@@ -138,6 +138,7 @@ function create_project_file(s: State<string[]>, n: ElementNode, strip: Set<stri
 		case 'lang':
 		case 'source':
 		case 'sec':
+		case 'cover':
 		case 'img':
 		case 'a':
 		case 'p': {
