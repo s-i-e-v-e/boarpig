@@ -17,7 +17,7 @@
 import {process_ast, State, ElementNode, TextNode} from "/proj/ast.ts";
 import {FileInfo, gen_xml_nm, handle_stripped_tags} from "/proj/gen.ts";
 import {utf8_to_bin} from "/io.ts";
-import {get_attr} from "sxml/filter.ts";
+import {get_attr} from "@sieve/sxml";
 
 export const style =`
 body {

@@ -18,9 +18,8 @@ import {process_ast, State, ElementNode, TextNode} from "/proj/ast.ts";
 import {FileInfo} from "/proj/gen.ts";
 import {utf8_to_bin} from "/io.ts";
 import {gen_html_multiple} from "./gen.html.ts";
-import {fs_list_files,fs_list_directories} from "nonstd/os/fs.ts";
-import {ps_exec} from "nonstd/os/ps.ts";
-import {first_el} from "sxml/filter.ts";
+import {ps_exec, fs_list_files,fs_list_directories} from "@sieve/nonstd";
+import {first_el} from "@sieve/sxml";
 
 const epub_dir = "/EPUB";
 const meta_dir = "/META-INF";

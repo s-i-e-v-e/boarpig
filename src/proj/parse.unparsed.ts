@@ -235,7 +235,7 @@ function parse_expr(ts: TokenStream, parent_expr?: string) {
 */
 
 import {println} from "/io.ts";
-import {parse as parse_sxml} from 'sxml/parse.ts';
+import {parse as parse_sxml} from '@sieve/sxml';
 
 interface CharStream {
 	x: string,
