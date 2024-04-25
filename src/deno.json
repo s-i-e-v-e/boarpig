@@ -2,7 +2,7 @@
   "imports": {
     "/" : "./",
     "./" : "./",
-    "@sieve/sxml": "jsr:@sieve/sxml@0",
-    "@sieve/nonstd": "jsr:@sieve/nonstd@0"
-  },
+    "@sieve/sxml": "jsr:@sieve/sxml@0.1.2",
+    "@sieve/nonstd/os": "jsr:@sieve/nonstd@0.1.1/os"
+  }
 }
