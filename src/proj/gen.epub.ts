@@ -17,7 +17,7 @@
 import {process_ast, State, ElementNode, TextNode} from "/proj/ast.ts";
 import {FileInfo} from "/proj/gen.ts";
 import {utf8_to_bin} from "/io.ts";
-import {gen_html_multiple} from "./gen.html.ts";
+import {gen_html_multiple} from "/proj/gen.html.ts";
 import {ps_exec, fs_list_files,fs_list_directories} from "@sieve/nonstd/os";
 import {first_el} from "@sieve/sxml";
 

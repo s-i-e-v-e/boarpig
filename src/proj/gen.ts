@@ -19,9 +19,8 @@ import {gen_epub} from "/proj/gen.epub.ts";
 import {gen_tei} from "/proj/gen.tei.ts";
 import {Node, ElementNode, TextNode, State} from "/proj/ast.ts";
 import {gen_html_single, gen_html_multiple} from "/proj/gen.html.ts";
-import {mkdir, parse_path} from "/io.ts";
-import {copy_dir, exists} from "../io.ts";
-import {make_epub} from "./gen.epub.ts";
+import {copy_dir, exists, mkdir, parse_path} from "/io.ts";
+import {make_epub} from "/proj/gen.epub.ts";
 
 export interface FileInfo {
 	name: string,

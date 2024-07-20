@@ -21,7 +21,7 @@ import {
 	make_proj_saved_text_path,
 	make_text_path, mkdir,
 	parse_path,
-} from "./io.ts";
+} from "/io.ts";
 
 interface Resource {
 	mime: string,

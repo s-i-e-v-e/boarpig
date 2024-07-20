@@ -1,6 +1,6 @@
 /**
  * Copyright (C) 2020 Sieve
- * 
+ *
  * This program is free software: you can redistribute it and/or modify
  * it under the terms of the GNU Affero General Public License as published by
  * the Free Software Foundation, either version 3 of the License, or
@@ -14,15 +14,15 @@
  * You should have received a copy of the GNU Affero General Public License
  * along with this program.  If not, see <https://www.gnu.org/licenses/>.
  **/
-import { serve_http } from './serve.ts';
+import { serve_http } from '/serve.ts';
 import {
 	make_image_path,
 	make_text_path,
 	make_out_dir_path,
 	parse_path,
 	mkdir,
-} from './io.ts';
-import { make_project, gen_project } from './proj/project.ts';
+} from '/io.ts';
+import { make_project, gen_project } from '/proj/project.ts';
 
 const EXT = '.png';
 
@@ -104,7 +104,7 @@ function extract(file: string) {
 
 function renumber(file: string, prefix: string, range: string) {
 	const pad = (i: number) => `${i < 10 ? '000' : i < 100 ? '00' : i < 1000 ? '0' : ''}${i}`;
-	
+
 	const out_dir = make_out_dir_path(file);
 	const xs = listExtractedImageFiles(out_dir, range);
 	const img_dir = make_image_path(out_dir);
@@ -148,7 +148,7 @@ async function process_text_file(file: string) {
 
 	a = a.replaceAll('‘‘', '“');
 	a = a.replaceAll('’’', '”');
-	
+
 	a = a.replaceAll('‘“', '“');
 	a = a.replaceAll('”’', '”');
 
@@ -186,7 +186,7 @@ function ocr(file: string, prefix?: string, range?: string) {
 			println(`OCR ${x.image} => ${x.text}`);
 			return p.status();
 		});
-		
+
 		await Promise.all(ys);
 		await xs.map(async x => process_text_file( `${txt_dir}/${x.text}.txt`));
 	}
@@ -196,9 +196,9 @@ function ocr(file: string, prefix?: string, range?: string) {
 
 		const n1 = 0|xs.length/4;
 		const n2 = xs.length%4;
-		
+
 		const zs: Page[][] = [];
-		
+
 		for (let i = 0; i < n1; i++) {
 			const xx = [];
 			const n = i * 4;
@@ -208,7 +208,7 @@ function ocr(file: string, prefix?: string, range?: string) {
 			xx.push(ys[n+3]);
 			zs.push(xx);
 		}
-	
+
 		{
 			const xx: Page[] = [];
 			for (let i = 0; i < n2; i++) {
