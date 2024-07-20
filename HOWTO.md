@@ -24,7 +24,7 @@ This HOWTO will take you through one complete *boarpig* workflow. It is assumed 
 
    * Images `image-0007.png ... image-0072.png` (14 pgs) are the cover and front matter. Of which we are only going to keep four: 37, 42, 57, 67.
    * Images `image-0077.png ... image-1632.png` (312 pgs) are the body of the text. We are keeping all of them.
-   * Images `image-1637.png ... image-1652.png` (4 pgs) are the back cover and blank pages. We are keeping none of them.
+   * Images `image-1637.png ... image-1672.png` (8 pgs) are the back cover and blank pages. We are keeping none of them.
 
    So, go ahead and delete the following files:
 
@@ -42,6 +42,10 @@ This HOWTO will take you through one complete *boarpig* workflow. It is assumed 
    * `image-1642.png`
    * `image-1647.png`
    * `image-1652.png`
+   * `image-1657.png`
+   * `image-1662.png`
+   * `image-1667.png`
+   * `image-1672.png`
 
    We are now left with two sets of files (4 + 312 = 316). Let us use the prefix `A` for the front matter, and `B` for the main text. So run:
 
