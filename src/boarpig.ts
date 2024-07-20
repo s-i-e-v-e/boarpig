@@ -30,7 +30,7 @@ function listExtractedImageFiles(out_dir: string, range: string) {
 	const [start, end] = parseRange(range);
 	return Array
 	.from(Deno.readDirSync(make_image_path(out_dir)))
-	.filter(x => x.name.startsWith('img-') && x.name.endsWith(EXT))
+	.filter(x => x.name.startsWith('image-') && x.name.endsWith(EXT))
 	.map(x => x.name)
 	.filter(x => { const n = Number(parse_path(x).name.split('-')[1]); return !(n < start || n > end); })
 	.sort();

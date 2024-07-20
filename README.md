@@ -17,7 +17,8 @@ Steps:
 * Install `djvulibre-bin`, `mupdf-tools` and `tesseract-ocr`
 * Install [Deno](https://deno.land/) (`curl -fsSL https://deno.land/x/install/install.sh | sh`)
 * Clone this repository
-* Install *boarpig* using `deno install --config src/deno.json -fA src/boarpig.ts`. Do this every time you update the repository so that the latest changes are compiled.
+* Switch to the boarpig/src directory
+* Install *boarpig* using `deno install -g -fA boarpig.ts`. Edit the ~/.deno/bin/boarpig file and remove the `--no-config` option. Do this every time you update the repository so that the latest changes are compiled.
 * See `boarpig --help` for more information.
 * [HOWTO](HOWTO.md) contains a complete step-by-step example of converting a djvu/pdf file into a proofread etext.
 
